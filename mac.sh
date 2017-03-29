@@ -148,6 +148,15 @@ mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
 
+# TODO
+# echo "Setting User profile picture..."
+# mkdir cd ~/Pictures/Profile/
+# cd ~/Pictures/Profile/ || exit
+# wget http://graph.facebook.com/100000998230153/picture?type=large&w‌​idth=720&height=720
+# dscl . delete /Users/admin jpegphoto
+# dscl . delete /Users/admin Picture
+# dscl . create /Users/admin Picture "/Library/User Pictures/wunderman.tif"
+
 echo "Enabling daily autoupdates..."
 defaults write com.apple.commerce AutoUpdate -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
