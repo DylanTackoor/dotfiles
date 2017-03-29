@@ -54,11 +54,19 @@ echo "Disabling Gatekeeper..."
 sudo spctl --master-disable
 spctl --status
 
-# TODO
-# echo "Setting wallpaper..."
-# wget https://pbs.twimg.com/profile_images/512339511234138112/e8kahiP9.jpeg
-# mv e8kahiP9.jpeg The Idea Center.jpeg
-# sudo osascript -e 'tell application "System Events" to set picture of every desktop to ("cd /Library/Desktop\ Pictures/The Idea Center.jpeg" as POSIX file as alias)'
+echo "Setting wallpaper..."
+mkdir ~/Pictures/Wallpapers/
+cd ~/Pictures/Wallpapers/ || exit
+wget http://i.imgur.com/Rf0cC2Q.jpg
+mv Rf0cC2Q.jpg Triforce.jpg
+sudo osascript -e '
+  tell application "System Events"
+      set theDesktops to a reference to every desktop
+      repeat with x from 1 to (count theDesktops)
+          set picture of item x of the theDesktops to "~/Pictures/Wallpapers/Triforce.jpg"
+      end repeat
+  end tell
+'
 
 # TODO
 # echo "Setting lockscreen wallpaper..."
