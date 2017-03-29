@@ -341,7 +341,22 @@ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
 # TODO
 #echo "Reorganizing dock..."
-#Finder, Siri, LaunchPad, Chrome, Mail, iCal, DayOne, OneNote, iTunes, Keep, Slack, Telegram, Dash, Webstorm, atom, iTerm 2
+# Siri	file:///Applications/Siri.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Launchpad	file:///Applications/Launchpad.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Google Chrome	file:///Applications/Google%20Chrome.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Mail	file:///Applications/Mail.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Calendar	file:///Applications/Calendar.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Day One	file:///Applications/Day%20One.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Microsoft OneNote	file:///Applications/Microsoft%20OneNote.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# iTunes	file:///Applications/iTunes.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Spotify	file:///Applications/Spotify.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Slack	file:///Applications/Slack.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Telegram	file:///Applications/Telegram.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Dash	file:///Applications/Dash.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# WebStorm	file:///Users/dylantackoor/Library/Application%20Support/JetBrains/Toolbox/apps/WebStorm/ch-0/163.13906.20/WebStorm.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Atom	file:///Applications/Atom.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# iTerm	file:///Applications/iTerm.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+# Downloads	file:///Users/dylantackoor/Downloads/	persistent-others	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
 
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
