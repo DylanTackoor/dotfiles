@@ -45,7 +45,6 @@ defaults write -g WebKitDeveloperExtras -bool true
 
 # TODO
 # echo "Forcing Airdrop to always be on..."
-echo "Forcing Airdrop to always be on..."
 
 echo "Dimming hidden Dock icons..."
 defaults write com.apple.Dock showhidden -bool YES && killall Dock
