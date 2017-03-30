@@ -340,23 +340,30 @@ echo "Alphabetizing Launchpad..."
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
 # TODO
-#echo "Reorganizing dock..."
-# Siri	file:///Applications/Siri.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Launchpad	file:///Applications/Launchpad.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Google Chrome	file:///Applications/Google%20Chrome.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Mail	file:///Applications/Mail.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Calendar	file:///Applications/Calendar.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Day One	file:///Applications/Day%20One.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Microsoft OneNote	file:///Applications/Microsoft%20OneNote.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# iTunes	file:///Applications/iTunes.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Spotify	file:///Applications/Spotify.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Slack	file:///Applications/Slack.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Telegram	file:///Applications/Telegram.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Dash	file:///Applications/Dash.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# WebStorm	file:///Users/dylantackoor/Library/Application%20Support/JetBrains/Toolbox/apps/WebStorm/ch-0/163.13906.20/WebStorm.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Atom	file:///Applications/Atom.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# iTerm	file:///Applications/iTerm.app/	persistent-apps	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
-# Downloads	file:///Users/dylantackoor/Downloads/	persistent-others	/Users/dylantackoor/Library/Preferences/com.apple.dock.plist
+echo "Reorganizing dock..."
+sudo dockutil --remove 'Siri' --allhomes
+sudo dockutil --remove 'Mail' --allhomes
+sudo dockutil --remove 'Contacts' --allhomes
+sudo dockutil --remove 'Calendar' --allhomes
+sudo dockutil --remove 'Notes' --allhomes
+sudo dockutil --remove 'Maps' --allhomes
+sudo dockutil --remove 'FaceTime' --allhomes
+sudo dockutil --remove 'Photo Booth' --allhomes
+sudo dockutil --remove 'iPhoto' --allhomes
+sudo dockutil --remove 'Pages' --allhomes
+sudo dockutil --remove 'Numbers' --allhomes
+sudo dockutil --remove 'Keynote' --allhomes
+sudo dockutil --remove 'iBooks' --allhomes
+
+sudo dockutil --add /Applications/Chrome.app --after 'LaunchPad' --allhomes
+sudo dockutil --add /Applications/OneNote.app --after 'Calendar' --allhomes
+sudo dockutil --add /Applications/iTunes.app --after 'OneNote' --allhomes
+sudo dockutil --add /Applications/Slack.app --after 'iTunes' --allhomes
+sudo dockutil --add /Applications/Telegram.app --after 'Slack' --allhomes
+sudo dockutil --add /Applications/Dash.app --after 'Telegram' --allhomes
+sudo dockutil --add /Applications/Webstorm.app --after 'Dash' --allhomes
+sudo dockutil --add /Applications/Atom.app --after 'Webstorm' --allhomes
+sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
