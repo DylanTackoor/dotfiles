@@ -56,8 +56,8 @@ spctl --status
 echo "Setting wallpaper..."
 mkdir ~/Pictures/Wallpapers/
 cd ~/Pictures/Wallpapers/ || exit
-wget http://i.imgur.com/Rf0cC2Q.jpg
-mv Rf0cC2Q.jpg Triforce.jpg
+wget http://i.imgur.com/q4RjYxa.jpg
+mv q4RjYxa.jpg Triforce.jpg
 sudo osascript -e '
   tell application "System Events"
       set theDesktops to a reference to every desktop
