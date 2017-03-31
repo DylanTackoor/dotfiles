@@ -287,6 +287,15 @@ echo "id_rsa.pub: "
 read id_rsa_pub
 echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
 
+# TODO
+# echo "Generating new ssh key and uploading to GitHub..."
+# echo "Enter Github token to add ssh key: "
+# read github_token
+# echo "Enter title for ssh key: "
+# read github_title
+# export github_key=`cat $HOME/.ssh/id_rsa.pub`
+# curl -d "login=geetarista&token=${github_token}&title=`scutil --get ComputerName`&key=${github_key}" http://github.com/api/v2/yaml/user/key/add
+
 echo "Setting up git identity..."
 git config --global user.name "Dylan Tackoor"
 git config --global user.email mynameisdylantackoor@gmail.com
