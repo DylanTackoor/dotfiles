@@ -315,10 +315,10 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 echo "Configuring transmission..."
-# Use `~/Downloads/Torrents` to store incomplete downloads
-mkdir ~/Downloads/Torrents
+# Use `~/Downloads/Torrenting` to store incomplete downloads
+mkdir ~/Downloads/Torrenting
 defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrents"
+defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrenting"
 # Don’t prompt for confirmation before downloading
 defaults write org.m0k.transmission DownloadAsk -bool false
 defaults write org.m0k.transmission MagnetOpenAsk -bool false
