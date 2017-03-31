@@ -104,7 +104,7 @@ defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
 echo "Disabling automatically rearranging spaces..."
 defaults write com.apple.dock mru-spaces -bool false
 
-echo "Require password immediately..."
+echo "Require password immediately after sleep..."
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
@@ -143,6 +143,12 @@ defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 echo "Disabling parental controls on guest user..."
 sudo dscl . -mcxdelete /Users/guest
 sudo rm -rf /Library/Managed\ Preferences/guest
+
+echo "Disabling opening application prompt..."
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+echo "Disabling extension editing warning..."
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Setting up folders..."
 mkdir ~/Developer/
@@ -279,7 +285,7 @@ git config --global user.name "Dylan Tackoor"
 git config --global user.email mynameisdylantackoor@gmail.com
 
 echo "Installing Node.js global packages..."
-sudo npm install typescript gulp npm-check node-sass mocha unibeautify-cli reload nave @angular/cli -g
+sudo npm install typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli -g
 
 echo "Installing multiple Node.js versions..."
 nave install latest
