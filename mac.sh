@@ -279,8 +279,15 @@ brew cask install suspicious-package
 brew cask install provisionql
 brew cask install quicklookapk
 
+echo "Setting up SSH key..."
+echo "id_rsa: "
+read id_rsa
+echo $id_rsa >> $HOME/.ssh/id_rsa
+echo "id_rsa.pub: "
+read id_rsa_pub
+echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
+
 echo "Setting up git identity..."
-#TODO: setup SSH keys
 git config --global user.name "Dylan Tackoor"
 git config --global user.email mynameisdylantackoor@gmail.com
 
