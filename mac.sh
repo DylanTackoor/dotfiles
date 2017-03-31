@@ -129,6 +129,9 @@ echo "Avoiding creation of .DS_Store files on network or USB volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
+# TODO: 4 finger dragging
+# TODO: Enable all trackpad gestures
+
 echo "Starting iCal on Monday..."
 defaults write com.apple.iCal "first day of week" -int 1
 
