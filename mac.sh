@@ -146,6 +146,7 @@ echo "Setting up folders..."
 mkdir ~/Developer/
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
+mkdir ~/Pictures/Developer/
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
 
 # TODO
@@ -367,6 +368,11 @@ sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
 echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
+
+echo "Cloning git projects..."
+cd ~/Developer/ || exit
+git clone git@github.com:DylanTackoor/dylantackoor.com.git
+git clone git@github.com:DylanTackoor/dotfiles.git
 
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
