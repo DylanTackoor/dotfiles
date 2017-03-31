@@ -27,7 +27,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
 else
    echo "Installing command-line tools..."
    xcode-select --install
-   read -n 1 -s -p "Once installed, press any key to continue\n"
+   read -n 1 -s -p "Once installed, press any key to continue"
 fi
 
 echo "Closing System Preferences if open..."
@@ -62,19 +62,8 @@ echo "Disabling Gatekeeper..."
 sudo spctl --master-disable
 spctl --status
 
-echo "Setting wallpaper..."
-mkdir ~/Pictures/Wallpapers/
-cd ~/Pictures/Wallpapers/ || exit
-wget http://i.imgur.com/q4RjYxa.jpg
-mv q4RjYxa.jpg Triforce.jpg
-sudo osascript -e '
-  tell application "System Events"
-      set theDesktops to a reference to every desktop
-      repeat with x from 1 to (count theDesktops)
-          set picture of item x of the theDesktops to "~/Pictures/Wallpapers/Triforce.jpg"
-      end repeat
-  end tell
-'
+echo "Disabling Gatekeeper..."
+defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
 
 echo "Setting lockscreen message..."
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to Dylan Tackoor. Contact at 786-471-5379 or mynameisdylantackoor@gmail.com"
@@ -86,9 +75,6 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 echo "Enabling dark mode..."
 defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
-
-echo "Fading hidden dock items..."
-defaults write com.apple.dock showhidden -bool true
 
 echo "Upping bluetooth audio quality..."
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Max (editable)" 80
@@ -107,9 +93,6 @@ echo "Expanding save panel by default..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-echo "Disabling Gatekeeper..."
-defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
-
 echo "Disabling automatically rearranging spaces..."
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -125,7 +108,7 @@ echo "Disabling Dashboard..."
 defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
-echo "Column view by defautl..."
+echo "Column view by default..."
 defaults write com.apple.Finder FXPreferredViewStyle clmv
 
 echo "Enabling copy emails as plaintext from Mail.app..."
@@ -136,7 +119,7 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 echo "Avoiding creation of .DS_Store files on network or USB volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
 # TODO: 4 finger dragging
 # TODO: Enable all trackpad gestures
@@ -156,15 +139,29 @@ sudo rm -rf /Library/Managed\ Preferences/guest
 echo "Disabling opening application prompt..."
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-echo "Disabling extension editing warning..."
+echo "Disabling file extension editing warning..."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Setting up folders..."
 mkdir ~/Developer/
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
-mkdir ~/Pictures/Developer/
+
+echo "Changing screenshot location..."
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
+
+echo "Setting wallpaper..."
+cd ~/Pictures/Wallpapers/ || exit
+wget http://i.imgur.com/YdfjXbv.jpg
+mv YdfjXbv.jpg Triforce.jpg
+sudo osascript -e '
+  tell application "System Events"
+      set theDesktops to a reference to every desktop
+      repeat with x from 1 to (count theDesktops)
+          set picture of item x of the theDesktops to "~/Pictures/Wallpapers/Triforce.jpg"
+      end repeat
+  end tell
+'
 
 # TODO
 # echo "Setting User profile picture..."
@@ -189,7 +186,6 @@ echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 sudo chown -R $USER /usr/local #fixes permission error w/nodejs
 brew install cask
-brew install dockutil
 brew install cowsay
 brew install dockutil
 brew install ffmpeg #Allows mp3 ripping for youtube-dl
@@ -267,7 +263,6 @@ brew cask isntall unity-download-assistant
 brew cask isntall unity-ios-support-for-editor
 brew cask isntall unity-linux-support-for-editor
 brew cask isntall unity-standard-assets
-brew cask isntall unity-webgl-support-for-editor
 brew cask isntall unity-windows-support-for-editor
 brew cask install virtualbox
 brew cask install vlc
