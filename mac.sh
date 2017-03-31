@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+
 clear
 
 echo ""
