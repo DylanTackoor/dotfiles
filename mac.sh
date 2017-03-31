@@ -132,6 +132,8 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # TODO: 4 finger dragging
 # TODO: Enable all trackpad gestures
 
+# TODO: Enable play feedback when volume is changed
+
 echo "Starting iCal on Monday..."
 defaults write com.apple.iCal "first day of week" -int 1
 
