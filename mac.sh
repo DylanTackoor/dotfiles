@@ -31,6 +31,13 @@ fi
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
+# TODO: Research valid computer names
+# echo "Setting computer name (as done via System Preferences → Sharing)"
+# sudo scutil --set ComputerName "0x6D746873"
+# sudo scutil --set HostName "0x6D746873"
+# sudo scutil --set LocalHostName "0x6D746873"
+# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x6D746873"
+
 echo "Enabling charging toggle sound..."
 defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/Library/CoreServices/PowerChime.app &
 
