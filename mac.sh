@@ -362,6 +362,9 @@ sudo dockutil --add /Applications/Webstorm.app --after 'Dash' --allhomes
 sudo dockutil --add /Applications/Atom.app --after 'Webstorm' --allhomes
 sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
+echo "Defaulting to Google Chrome..."
+open -a "Google Chrome" --args --make-default-browser
+
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
 
