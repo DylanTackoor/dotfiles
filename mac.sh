@@ -179,9 +179,6 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
 
-echo "Installing Node.js"
-curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-
 echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 sudo chown -R $USER /usr/local #fixes permission error w/nodejs
@@ -201,7 +198,7 @@ brew install tree
 brew install unrar
 brew install wget
 brew install youtube-dl
-brew isntall mas
+brew install mas
 #Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
@@ -223,6 +220,7 @@ mas install 768053424 #Gapplin
 echo "Installing cask apps..."
 brew tap caskroom/cask
 brew cask install alfred
+brew cask install java
 brew cask install android-file-transfer
 brew cask install arduino
 brew cask install atom
@@ -258,15 +256,18 @@ brew cask install the-unarchiver
 brew cask install toggldesktop
 brew cask install transmission
 brew cask install unity
-brew cask isntall unity-android-support-for-editor
-brew cask isntall unity-download-assistant
-brew cask isntall unity-ios-support-for-editor
-brew cask isntall unity-linux-support-for-editor
-brew cask isntall unity-standard-assets
-brew cask isntall unity-windows-support-for-editor
+brew cask install unity-android-support-for-editor
+brew cask install unity-download-assistant
+brew cask install unity-linux-support-for-editor
+brew cask install unity-standard-assets
+brew cask install unity-windows-support-for-editor
 brew cask install virtualbox
 brew cask install vlc
 brew cask install yacreader
+
+# bootchamp
+# dwarf-fortress
+# dwarf-fortress-lnp
 
 echo "Installing quicklook plugins..."
 brew cask install qlcolorcode
@@ -303,6 +304,9 @@ echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
 echo "Setting up git identity..."
 git config --global user.name "Dylan Tackoor"
 git config --global user.email mynameisdylantackoor@gmail.com
+
+echo "Installing Node.js"
+curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
 echo "Installing Node.js global packages..."
 sudo npm install typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli -g
@@ -396,6 +400,17 @@ sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
 echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
+
+echo "Installing printer drivers..."
+cd ~/Downloads/ || exit
+wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
+gunzip TOSHIBA_ColorMFP_X7.dmg.gz
+sudo hdiutil attach TOSHIBA_ColorMFP_X7.dmg
+cd /Volumes/TOSHIBA\ ColorMFP || exit
+sudo installer -package /Volumes/TOSHIBA\ ColorMFP/TOSHIBA\ ColorMFP\ X7.pkg.pkg -target /
+sudo hdiutil detach /Volumes/TOSHIBA\ ColorMFP
+rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
+# TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
 
 echo "Cloning git projects..."
 cd ~/Developer/ || exit
