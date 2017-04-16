@@ -231,6 +231,7 @@ brew cask install dash
 brew cask install dropbox
 brew cask install etcher
 brew cask install firefox
+brew cask install get-lyrical
 brew cask install google-chrome
 brew cask install google-drive
 brew cask install handbrake
