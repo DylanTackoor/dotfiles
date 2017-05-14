@@ -199,6 +199,8 @@ brew install unrar
 brew install wget
 brew install youtube-dl
 brew install mas
+brew install no-more-secrets
+
 #Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
@@ -309,13 +311,20 @@ git config --global user.email mynameisdylantackoor@gmail.com
 echo "Installing Node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
+echo "Installing Yarn..."
+brew install yarn
+
 echo "Installing Node.js global packages..."
-sudo npm install typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli -g
+yarn global add typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli express-generator
+
+echo "Caching yarn packages..."
+mkdir ~/Developer/yarnTemp/
+cd ~/Developer/yarnTemp/ || exit
+yarn add react express ejs webpack nodemailer morgan
 
 echo "Installing multiple Node.js versions..."
 nave install latest
 nave install lts
-nave install 6.9.0 #for Ghost blog
 
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine
@@ -422,7 +431,23 @@ echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
 
 echo "Installing Oh-My-ZSH..."
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.zshrc ~/.zshrc.orig
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
+
+# Download/compile cs50.h
+cd ~/Downloads/ || exit
+git clone https://github.com/cs50/libcs50.git
+cd libcs50 || exit
+sudo make install
+cd ..
+rm -rf libcs50
+
+# Setup custom make50 command
+# TODO: make this OS/shell dependent
+echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
+echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
 
 # echo ""
 # echo "===================="
