@@ -58,11 +58,11 @@ defaults write -g WebKitDeveloperExtras -bool true
 echo "Dimming hidden Dock icons..."
 defaults write com.apple.Dock showhidden -bool YES && killall Dock
 
+# TODO: figure out which is better
 echo "Disabling Gatekeeper..."
 sudo spctl --master-disable
 spctl --status
 
-echo "Disabling Gatekeeper..."
 defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
 
 echo "Setting lockscreen message..."
@@ -183,6 +183,7 @@ echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 sudo chown -R $USER /usr/local #fixes permission error w/nodejs
 brew install cask
+brew install clang-format
 brew install cowsay
 brew install dockutil
 brew install ffmpeg #Allows mp3 ripping for youtube-dl
@@ -200,6 +201,7 @@ brew install wget
 brew install youtube-dl
 brew install mas
 brew install no-more-secrets
+brew install wifi-password #CLI to pull up currently connected wifi's password
 
 #Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
@@ -266,11 +268,8 @@ brew cask install unity-standard-assets
 brew cask install unity-windows-support-for-editor
 brew cask install virtualbox
 brew cask install vlc
+brew cask install whatsapp
 brew cask install yacreader
-
-# bootchamp
-# dwarf-fortress
-# dwarf-fortress-lnp
 
 echo "Installing quicklook plugins..."
 brew cask install qlcolorcode
@@ -327,11 +326,13 @@ nave install latest
 nave install lts
 
 echo "Installing Atom plugins..."
-apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine
+apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine tokamak-terminal
 apm install language-babel atom-typescript sass-autocompile language-ejs language-htaccess
 apm install linter linter-tidy linter-csslint linter-php linter-scss-lint linter-clang linter-tslint linter-jsonlint linter-pylint linter-shellcheck linter-handlebars
 apm install minimap minimap-highlight-selected minimap-find-and-replace minimap-pigments minimap-linter
 #Check the Hide Ignored Names from your file tree so that .DS_Store and .git don't appear needlessly.
+#atom-beautify HTML > indent inner html
+#atom-beautify Obj-C > clang-format
 
 echo "Cloning Neovim setup..."
 mkdir ~/.config/
@@ -384,43 +385,43 @@ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
 # TODO
 echo "Reorganizing dock..."
-sudo dockutil --remove 'Siri' --allhomes
-sudo dockutil --remove 'Mail' --allhomes
-sudo dockutil --remove 'Contacts' --allhomes
-sudo dockutil --remove 'Calendar' --allhomes
-sudo dockutil --remove 'Notes' --allhomes
-sudo dockutil --remove 'Maps' --allhomes
-sudo dockutil --remove 'FaceTime' --allhomes
-sudo dockutil --remove 'Photo Booth' --allhomes
-sudo dockutil --remove 'iPhoto' --allhomes
-sudo dockutil --remove 'Pages' --allhomes
-sudo dockutil --remove 'Numbers' --allhomes
-sudo dockutil --remove 'Keynote' --allhomes
-sudo dockutil --remove 'iBooks' --allhomes
+# sudo dockutil --remove 'Siri' --allhomes
+# sudo dockutil --remove 'Mail' --allhomes
+# sudo dockutil --remove 'Contacts' --allhomes
+# sudo dockutil --remove 'Calendar' --allhomes
+# sudo dockutil --remove 'Notes' --allhomes
+# sudo dockutil --remove 'Maps' --allhomes
+# sudo dockutil --remove 'FaceTime' --allhomes
+# sudo dockutil --remove 'Photo Booth' --allhomes
+# sudo dockutil --remove 'iPhoto' --allhomes
+# sudo dockutil --remove 'Pages' --allhomes
+# sudo dockutil --remove 'Numbers' --allhomes
+# sudo dockutil --remove 'Keynote' --allhomes
+# sudo dockutil --remove 'iBooks' --allhomes
 
-sudo dockutil --add /Applications/Chrome.app --after 'LaunchPad' --allhomes
-sudo dockutil --add /Applications/OneNote.app --after 'Calendar' --allhomes
-sudo dockutil --add /Applications/iTunes.app --after 'OneNote' --allhomes
-sudo dockutil --add /Applications/Slack.app --after 'iTunes' --allhomes
-sudo dockutil --add /Applications/Telegram.app --after 'Slack' --allhomes
-sudo dockutil --add /Applications/Dash.app --after 'Telegram' --allhomes
-sudo dockutil --add /Applications/Webstorm.app --after 'Dash' --allhomes
-sudo dockutil --add /Applications/Atom.app --after 'Webstorm' --allhomes
-sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
+# sudo dockutil --add /Applications/Chrome.app --after 'LaunchPad' --allhomes
+# sudo dockutil --add /Applications/OneNote.app --after 'Calendar' --allhomes
+# sudo dockutil --add /Applications/iTunes.app --after 'OneNote' --allhomes
+# sudo dockutil --add /Applications/Slack.app --after 'iTunes' --allhomes
+# sudo dockutil --add /Applications/Telegram.app --after 'Slack' --allhomes
+# sudo dockutil --add /Applications/Dash.app --after 'Telegram' --allhomes
+# sudo dockutil --add /Applications/Webstorm.app --after 'Dash' --allhomes
+# sudo dockutil --add /Applications/Atom.app --after 'Webstorm' --allhomes
+# sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
 echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
 
 echo "Installing printer drivers..."
-cd ~/Downloads/ || exit
-wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
-gunzip TOSHIBA_ColorMFP_X7.dmg.gz
-sudo hdiutil attach TOSHIBA_ColorMFP_X7.dmg
-cd /Volumes/TOSHIBA\ ColorMFP || exit
-sudo installer -package /Volumes/TOSHIBA\ ColorMFP/TOSHIBA\ ColorMFP\ X7.pkg.pkg -target /
-sudo hdiutil detach /Volumes/TOSHIBA\ ColorMFP
-rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
-# TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
+# cd ~/Downloads/ || exit
+# wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
+# gunzip TOSHIBA_ColorMFP_X7.dmg.gz
+# sudo hdiutil attach TOSHIBA_ColorMFP_X7.dmg
+# cd /Volumes/TOSHIBA\ ColorMFP || exit
+# sudo installer -package /Volumes/TOSHIBA\ ColorMFP/TOSHIBA\ ColorMFP\ X7.pkg.pkg -target /
+# sudo hdiutil detach /Volumes/TOSHIBA\ ColorMFP
+# rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
+# # TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
 
 echo "Cloning git projects..."
 cd ~/Developer/ || exit
