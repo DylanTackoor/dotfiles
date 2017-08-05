@@ -15,7 +15,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Keeping Mac awake for one hour
-caffeniate -d 3600 &
+caffeinate -d 3600 &
 
 # echo "Joining Wifi..."
 # networksetup -setairportnetwork en0 WIFI_SSID WIFI_PASSWORD
@@ -282,13 +282,13 @@ brew cask install suspicious-package
 brew cask install provisionql
 brew cask install quicklookapk
 
-echo "Setting up SSH key..."
-echo "id_rsa: "
-read id_rsa
-echo $id_rsa >> $HOME/.ssh/id_rsa
-echo "id_rsa.pub: "
-read id_rsa_pub
-echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
+# echo "Setting up SSH key..."
+# echo "id_rsa: "
+# read id_rsa
+# echo $id_rsa >> $HOME/.ssh/id_rsa
+# echo "id_rsa.pub: "
+# read id_rsa_pub
+# echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
 
 # TODO
 # echo "Generating new ssh key and uploading to GitHub..."
@@ -405,7 +405,7 @@ echo "Reorganizing dock..."
 echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
 
-echo "Installing printer drivers..."
+# echo "Installing printer drivers..."
 # cd ~/Downloads/ || exit
 # wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
 # gunzip TOSHIBA_ColorMFP_X7.dmg.gz
