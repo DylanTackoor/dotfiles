@@ -62,8 +62,6 @@ echo "Disabling Gatekeeper..."
 sudo spctl --master-disable
 spctl --status
 
-defaults write /Library/Preferences/com.apple.security GKAutoRearm -bool false
-
 echo "Setting lockscreen message..."
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to Dylan Tackoor. Contact at 786-471-5379 or mynameisdylantackoor@gmail.com"
 
