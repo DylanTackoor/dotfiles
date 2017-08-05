@@ -212,7 +212,7 @@ echo "Updating Mac App Store apps..."
 mas upgrade
 
 echo "Installing Mac App Store apps..."
-mas install 497799835 #Xcode
+# mas install 497799835 #Xcode
 mas install 803453959 #Slack
 mas install 436203431 #XnConvert
 mas install 747633105 #Minify
@@ -228,10 +228,12 @@ brew cask install arduino
 # brew cask install atom
 brew cask install bartender
 brew cask install caffeine
+brew cask install calibre
 brew cask install cyberduck
 brew cask install dash
 brew cask install dropbox
 brew cask install etcher
+brew cask install front
 brew cask install firefox
 brew cask install get-lyrical
 brew cask install google-chrome
@@ -242,6 +244,7 @@ brew cask install install-disk-creator
 brew cask install iterm2
 brew cask install jetbrains-toolbox
 brew cask install mailbutler
+brew cask install microsoft-office
 brew cask install monolingual
 brew cask install obs
 brew cask install onyx
