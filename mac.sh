@@ -419,18 +419,18 @@ echo "Installing printer drivers..."
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
 
-# Download/compile cs50.h
-cd ~/Downloads/ || exit
-git clone https://github.com/cs50/libcs50.git
-cd libcs50 || exit
-sudo make install
-cd ..
-rm -rf libcs50
+# # Download/compile cs50.h
+# cd ~/Downloads/ || exit
+# git clone https://github.com/cs50/libcs50.git
+# cd libcs50 || exit
+# sudo make install
+# cd ..
+# rm -rf libcs50
 
-# Setup custom make50 command
-# TODO: make this OS/shell dependent
-echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
-echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
+# # Setup custom make50 command
+# # TODO: make this OS/shell dependent
+# echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
+# echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
