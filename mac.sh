@@ -4,7 +4,6 @@
 
 clear
 
-echo ""
 echo "===================="
 echo " macOS SETUP SCRIPT "
 echo "===================="
@@ -185,14 +184,14 @@ sudo chown -R $USER /usr/local #fixes permission error w/nodejs
 brew install cask
 brew install clang-format
 brew install cowsay
-brew install dockutil
-brew install ffmpeg #Allows mp3 ripping for youtube-dl
+brew install dockutil # cli for dock rearrangment
+brew install ffmpeg # youtube-dl dependency
 brew install htop
 brew install neofetch
 brew install neovim/neovim/neovim
 brew install python
 brew install python3
-brew install shellcheck
+brew install shellcheck # Bash file linting
 brew install speedtest_cli
 brew install tidy-html5 # Atom html Linter
 brew install tree
@@ -218,16 +217,15 @@ mas install 803453959 #Slack
 mas install 436203431 #XnConvert
 mas install 747633105 #Minify
 mas install 768053424 #Gapplin
-# mas install 408981434 #iMovie
-# mas install 1055511498 #Day One TODO: buy this
+mas install 784801555 #OneNote
 
 echo "Installing cask apps..."
 brew tap caskroom/cask
+brew cask install 1password
 brew cask install alfred
-brew cask install java
 brew cask install android-file-transfer
 brew cask install arduino
-brew cask install atom
+# brew cask install atom
 brew cask install bartender
 brew cask install caffeine
 brew cask install cyberduck
@@ -237,22 +235,22 @@ brew cask install etcher
 brew cask install firefox
 brew cask install get-lyrical
 brew cask install google-chrome
-brew cask install google-drive
+brew cask install google-backup-and-sync
 brew cask install handbrake
 brew cask install imageoptim
 brew cask install install-disk-creator
 brew cask install iterm2
 brew cask install jetbrains-toolbox
-brew cask install mamp
-brew cask install minecraft
+brew cask install mailbutler
 brew cask install monolingual
 brew cask install obs
 brew cask install onyx
 brew cask install plex-media-player
+brew cask install postman
 brew cask install robomongo
 brew cask install sequel-pro
 brew cask install skype
-brew cask install simple-comic
+# brew cask install simple-comic
 brew cask install sitesucker
 brew cask install steam
 brew cask install teamviewer
@@ -261,15 +259,10 @@ brew cask install the-unarchiver
 brew cask install toggldesktop
 brew cask install transmission
 brew cask install unity
-brew cask install unity-android-support-for-editor
-brew cask install unity-download-assistant
-brew cask install unity-linux-support-for-editor
-brew cask install unity-standard-assets
-brew cask install unity-windows-support-for-editor
 brew cask install virtualbox
 brew cask install vlc
 brew cask install whatsapp
-brew cask install yacreader
+# brew cask install yacreader
 
 echo "Installing quicklook plugins..."
 brew cask install qlcolorcode
@@ -310,16 +303,13 @@ git config --global user.email mynameisdylantackoor@gmail.com
 echo "Installing Node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
-echo "Installing Yarn..."
-brew install yarn
-
 echo "Installing Node.js global packages..."
-yarn global add typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli express-generator
+npm install -g typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli express-generator csvtojson js-beautify
 
 echo "Caching yarn packages..."
 mkdir ~/Developer/yarnTemp/
 cd ~/Developer/yarnTemp/ || exit
-yarn add react express ejs webpack nodemailer morgan
+npm install -g react express ejs webpack nodemailer morgan
 
 echo "Installing multiple Node.js versions..."
 nave install latest
@@ -423,19 +413,8 @@ echo "Installing printer drivers..."
 # rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
 # # TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
 
-echo "Cloning git projects..."
-cd ~/Developer/ || exit
-git clone git@github.com:DylanTackoor/dylantackoor.com.git
-git clone git@github.com:DylanTackoor/dotfiles.git
-
 echo "Raising Timemachine backup priority until reboot..."
 sudo sysctl debug.lowpri_throttle_enabled=0
-
-echo "Installing Oh-My-ZSH..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/.zshrc ~/.zshrc.orig
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-chsh -s /bin/zsh
 
 # Download/compile cs50.h
 cd ~/Downloads/ || exit
@@ -450,8 +429,14 @@ rm -rf libcs50
 echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
 echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
 
-# echo ""
-# echo "===================="
-# echo " TIME FOR A REBOOT! "
-# echo "===================="
-# echo ""
+echo "Installing Oh-My-ZSH..."
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+cp ~/.zshrc ~/.zshrc.orig
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+chsh -s /bin/zsh
+
+echo ""
+echo "===================="
+echo " THAT'S ALL, FOLKS! "
+echo "===================="
+echo ""
