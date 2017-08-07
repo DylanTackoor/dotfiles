@@ -266,14 +266,15 @@ brew cask install whatsapp
 # brew cask install yacreader
 
 echo "Installing quicklook plugins..."
-brew cask install qlcolorcode
-brew cask install qlvideo
+brew cask install qladdict # srt files
+brew cask install qlcolorcode # previews syntax highlighted sourcecode
+brew cask install qlvideo # many video files
 brew cask install quicklook-csv
 brew cask install quicklook-json
-brew cask install qlstephen
+# brew cask install qlstephen
 brew cask install qlmarkdown
-brew cask install qlprettypatch
-brew cask install qlimagesize
+# brew cask install qlprettypatch
+brew cask install qlimagesize # Displays image size in preview
 brew cask install betterzipql
 brew cask install webpquicklook
 brew cask install suspicious-package
