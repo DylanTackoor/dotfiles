@@ -453,6 +453,9 @@ cp ~/.zshrc ~/.zshrc.orig
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
 
+# Post Install
+# make gfxcardstatus hidden by bartender
+
 echo ""
 echo "===================="
 echo " THAT'S ALL, FOLKS! "
