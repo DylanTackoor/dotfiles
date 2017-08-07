@@ -367,9 +367,20 @@ defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
 
-echo "Cleaning up..."
+echo "Cleaning up Brew..."
 brew cask cleanup
 brew update; brew upgrade; brew prune; brew cleanup; brew doctor
+
+echo "Cleaning up Garage Band..."
+rm -rf /Applications/GarageBand
+rm -rf /Library/Application Support/GarageBand
+rm -rf /Library/Audio/Apple Loops/Apple/Apple Loops for GarageBand
+rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.bom
+rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.plist
+rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.bom
+rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.plist
+rm -rf ~/Library/Application Scripts/com.apple.STMExtension.GarageBand
+rm -rf ~/library/Containers/com.apple.STMExtension.GarageBand
 
 echo "Alphabetizing Launchpad..."
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
