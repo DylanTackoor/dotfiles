@@ -222,7 +222,7 @@ echo "Installing cask apps..."
 brew tap caskroom/cask
 brew cask install 1password
 brew cask install alfred
-brew cask install android-file-transfer
+brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
 brew cask install arduino
 # brew cask install atom
 brew cask install bartender
@@ -234,27 +234,27 @@ brew cask install dropbox
 brew cask install etcher
 brew cask install front
 brew cask install firefox
-brew cask install get-lyrical
+brew cask install get-lyrical # Adds lyrics to music selected in iTunes
 brew cask install gfxcardstatus # Notifications when graphics card changes
 brew cask install google-chrome
 brew cask install google-backup-and-sync
 brew cask install handbrake
 brew cask install imageoptim
-brew cask install install-disk-creator
+brew cask install install-disk-creator # Used to create macOS install USBs
 brew cask install iterm2
 brew cask install jetbrains-toolbox
-brew cask install mailbutler
+brew cask install mailbutler # makes Mail.app not suck
 brew cask install microsoft-office
-brew cask install monolingual
+brew cask install monolingual # removes unneeded languages
 brew cask install obs
-brew cask install onyx
+brew cask install onyx # Computer diagnostic tool
 brew cask install plex-media-player
 brew cask install postman
 brew cask install robomongo
 brew cask install sequel-pro
 brew cask install skype
 # brew cask install simple-comic
-brew cask install sitesucker
+# brew cask install sitesucker #TODO: cask not found
 brew cask install steam
 brew cask install teamviewer
 brew cask install telegram-desktop
@@ -392,7 +392,7 @@ rm -rf /Applications/Microsoft\ Outlook.app
 echo "Alphabetizing Launchpad..."
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
-# TODO
+# TODO:
 echo "Reorganizing dock..."
 # sudo dockutil --remove 'Siri' --allhomes
 # sudo dockutil --remove 'Mail' --allhomes
