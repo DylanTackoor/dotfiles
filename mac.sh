@@ -453,6 +453,8 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 cp ~/.zshrc ~/.zshrc.orig
 cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 chsh -s /bin/zsh
+# TODO: swap to agnoster theme
+# TODO: remove $User@%m from theme
 
 # Post Install
 # make gfxcardstatus hidden by bartender
