@@ -211,11 +211,12 @@ mas upgrade
 
 echo "Installing Mac App Store apps..."
 # mas install 497799835 #Xcode
-mas install 803453959 #Slack
-mas install 436203431 #XnConvert
-mas install 747633105 #Minify
-mas install 768053424 #Gapplin
-mas install 784801555 #OneNote
+mas install 803453959  #Slack
+mas install 436203431  #XnConvert
+mas install 784801555  #OneNote
+mas install 747633105  #Minify = HTML/CSS/JS minifier
+mas install 768053424  #Gapplin = SVG Viewer
+mas install 1163798887 #Savage = SVG optimizer
 
 echo "Installing cask apps..."
 brew tap caskroom/cask
