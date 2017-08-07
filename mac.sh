@@ -234,6 +234,7 @@ brew cask install etcher
 brew cask install front
 brew cask install firefox
 brew cask install get-lyrical
+brew cask install gfxcardstatus # Notifications when graphics card changes
 brew cask install google-chrome
 brew cask install google-backup-and-sync
 brew cask install handbrake
