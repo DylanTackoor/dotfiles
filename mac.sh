@@ -226,7 +226,7 @@ brew cask install appcleaner # More throughrouly deletes apps
 # brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
 brew cask install arduino
 # brew cask install atom
-brew cask install bartender
+brew cask install bartender # Hides menu bar icons
 brew cask install caffeine
 brew cask install calibre
 brew cask install cyberduck
@@ -292,7 +292,7 @@ brew cask install quicklookapk
 # read id_rsa_pub
 # echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
 
-# TODO
+# TODO: 
 # echo "Generating new ssh key and uploading to GitHub..."
 # echo "Enter Github token to add ssh key: "
 # read github_token
@@ -459,6 +459,7 @@ chsh -s /bin/zsh
 
 # Post Install
 # make gfxcardstatus hidden by bartender
+# remove gfxcardstatus from notification center
 
 echo ""
 echo "===================="
