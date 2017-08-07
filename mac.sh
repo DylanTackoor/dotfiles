@@ -222,6 +222,7 @@ echo "Installing cask apps..."
 brew tap caskroom/cask
 brew cask install 1password
 brew cask install alfred
+brew cask install appcleaner # More throughrouly deletes apps
 brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
 brew cask install arduino
 # brew cask install atom
