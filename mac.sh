@@ -186,7 +186,7 @@ brew install dockutil # cli for dock rearrangment
 brew install ffmpeg # youtube-dl dependency
 brew install htop
 brew install neofetch
-brew install neovim/neovim/neovim
+brew install neovim
 brew install python
 brew install python3
 brew install shellcheck # Bash file linting
