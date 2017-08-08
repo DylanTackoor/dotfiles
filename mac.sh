@@ -233,6 +233,7 @@ brew cask install cyberduck
 brew cask install dash
 brew cask install dropbox
 brew cask install etcher
+brew cask install flux # Better dimming that night shift
 brew cask install front
 brew cask install firefox
 brew cask install get-lyrical # Adds lyrics to music selected in iTunes
