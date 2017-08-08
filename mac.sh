@@ -422,6 +422,8 @@ echo "Reorganizing dock..."
 echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
 
+# TODO: Chrome open PDFs with Preview
+
 # echo "Installing printer drivers..."
 # cd ~/Downloads/ || exit
 # wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
