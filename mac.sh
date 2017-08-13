@@ -90,6 +90,9 @@ echo "Expanding save panel by default..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
+# TODO:
+# echo "Maxing key repeat sped..."
+
 echo "Disabling automatically rearranging spaces..."
 defaults write com.apple.dock mru-spaces -bool false
 
