@@ -33,6 +33,25 @@ fi
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
+# Capturing info for later
+echo "Full name:"
+read fullName
+
+echo "Phone Number (XXX-XXX-XXX):"
+read phoneNumber
+
+echo "Contact Email:"
+read contactEmail
+
+echo "Apple ID Email:"
+read appleIDemail
+
+echo "Apple ID Password:"
+read appleIDpassword
+
+echo "Git email:"
+read GitEmail
+
 # TODO: Research valid computer names
 # echo "Setting computer name (as done via System Preferences → Sharing)"
 # sudo scutil --set ComputerName "0x6D746873"
@@ -60,7 +79,7 @@ sudo spctl --master-disable
 spctl --status
 
 echo "Setting lockscreen message..."
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to Dylan Tackoor. Contact at 786-471-5379 or mynameisdylantackoor@gmail.com"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to $fullName. Contact at $phoneNumber or $contactEmail"
 
 echo "Enabling tap to click for this user & login screen..."
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -208,7 +227,7 @@ brew install wifi-password #CLI to pull up currently connected wifi's password
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
 echo "Signing into Mac App Store..."
-mas signin mynameisdylantackoor@gmail.com #"passwordInQuotes"
+mas signin $appleIDemail "$appleIDpassword"
 
 echo "Updating Mac App Store apps..."
 mas upgrade
@@ -308,8 +327,8 @@ brew cask install quicklookapk
 # curl -d "login=geetarista&token=${github_token}&title=`scutil --get ComputerName`&key=${github_key}" http://github.com/api/v2/yaml/user/key/add
 
 echo "Setting up git identity..."
-git config --global user.name "Dylan Tackoor"
-git config --global user.email mynameisdylantackoor@gmail.com
+git config --global user.name "$fullName"
+git config --global user.email $GitEmail
 
 echo "Installing Node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
