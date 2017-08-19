@@ -51,13 +51,9 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true && \
 defaults write -g WebKitDeveloperExtras -bool true
 
-# TODO
-# echo "Forcing Airdrop to always be on..."
-
 echo "Dimming hidden Dock icons..."
 defaults write com.apple.Dock showhidden -bool YES && killall Dock
 
-# TODO: figure out which is better
 echo "Disabling Gatekeeper..."
 sudo spctl --master-disable
 spctl --status
@@ -90,9 +86,6 @@ echo "Expanding save panel by default..."
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# TODO:
-# echo "Maxing key repeat sped..."
-
 echo "Disabling automatically rearranging spaces..."
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -121,11 +114,6 @@ echo "Avoiding creation of .DS_Store files on network or USB volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# TODO: 4 finger dragging
-# TODO: Enable all trackpad gestures
-
-# TODO: Enable play feedback when volume is changed
-
 echo "Starting iCal on Monday..."
 defaults write com.apple.iCal "first day of week" -int 1
 
@@ -144,6 +132,8 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Setting up folders..."
 mkdir ~/Developer/
+mkdir ~/Developer/Team53
+mkdir ~/Developer/Pearl
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
 
@@ -163,14 +153,24 @@ sudo osascript -e '
   end tell
 '
 
-# TODO
-# echo "Setting User profile picture..."
+# echo "Setting User profile picture if no Apple account..."
 # mkdir cd ~/Pictures/Profile/
 # cd ~/Pictures/Profile/ || exit
 # wget http://graph.facebook.com/100000998230153/picture?type=large&w‌​idth=720&height=720
 # dscl . delete /Users/admin jpegphoto
 # dscl . delete /Users/admin Picture
 # dscl . create /Users/admin Picture "/Library/User Pictures/wunderman.tif"
+
+# TODO: 4 finger dragging
+# TODO: Enable all trackpad gestures
+
+# TODO: Enable play feedback when volume is changed
+
+# TODO:
+# echo "Maxing key repeat sped..."
+
+# TODO:
+# echo "Forcing Airdrop to always be on..."
 
 echo "Enabling daily autoupdates..."
 defaults write com.apple.commerce AutoUpdate -bool true
@@ -234,6 +234,7 @@ brew cask install caffeine
 brew cask install calibre
 brew cask install cyberduck
 brew cask install dash
+brew cask install docker-toolbox
 brew cask install dropbox
 brew cask install etcher
 brew cask install flux # Better dimming that night shift
@@ -313,12 +314,7 @@ echo "Installing Node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
 echo "Installing Node.js global packages..."
-npm install -g typescript gulp npm-check node-sass mocha unibeautify-cli reload changelog nave @angular/cli express-generator csvtojson js-beautify
-
-echo "Caching yarn packages..."
-mkdir ~/Developer/yarnTemp/
-cd ~/Developer/yarnTemp/ || exit
-npm install -g react express ejs webpack nodemailer morgan
+npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify
 
 echo "Installing multiple Node.js versions..."
 nave install latest
