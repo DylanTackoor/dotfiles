@@ -27,6 +27,7 @@ else
    echo "Installing command-line tools..."
    xcode-select --install
    read -n 1 -s -p "Once installed, press any key to continue"
+   printf "\n"
 fi
 
 echo "Closing System Preferences if open..."
