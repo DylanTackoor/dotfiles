@@ -30,5 +30,11 @@ sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc
 sudo apt update
 sudo apt install steam
 
+#Install the latest git Version
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install git
+
 echo "Cleaning up..."
 sudo apt autoremove -y

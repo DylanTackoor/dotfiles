@@ -201,29 +201,30 @@ softwareupdate -l && sudo softwareupdate -i
 
 echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-sudo chown -R $USER /usr/local #fixes permission error w/nodejs
-brew install cask
-brew install clang-format
-brew install cowsay
-brew install dockutil # cli for dock rearrangment
+sudo chown -R $USER /usr/local #f ixes permission error w/nodejs
+brew install cask # Install GUI applications
+brew install clang-format # C/C++/Obj-C linter
+brew install dockutil # Dock rearragment cli
 brew install ffmpeg # youtube-dl dependency
-brew install htop
-brew install neofetch
-brew install neovim
+brew install htop # Terminal activity monitor
+brew install neofetch # Displays system info
+brew install neovim # Vim fork
 brew install python
 brew install python3
 brew install shellcheck # Bash file linting
-brew install speedtest_cli
+brew install speedtest_cli # Speedtest.net cli
 brew install tidy-html5 # Atom html Linter
-brew install tree
-brew install unrar
+brew install tree # Prints filetree 
+brew install unrar # rar archive cli
 brew install wget
-brew install youtube-dl
-brew install mas
-brew install no-more-secrets
+brew install youtube-dl # YouTube Downloader
+brew install mas # Mac App Store CLI
 brew install wifi-password #CLI to pull up currently connected wifi's password
 
-#Brew update checker with notification center support
+brew install cowsay
+brew install no-more-secrets
+
+# Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
 echo "Signing into Mac App Store..."
@@ -243,60 +244,61 @@ mas install 1163798887 #Savage = SVG optimizer
 
 echo "Installing cask apps..."
 brew tap caskroom/cask
-brew cask install 1password
-brew cask install alfred
+brew cask install 1password # Best password manager
+brew cask install alfred # Spotlight replacement
 brew cask install appcleaner # More throughrouly deletes apps
 # brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
-brew cask install arduino
-# brew cask install atom
+brew cask install arduino # Arduino controller IDE
+# brew cask install atom # GitHub text editor
 brew cask install bartender # Hides menu bar icons
-brew cask install caffeine
-brew cask install calibre
-brew cask install cyberduck
-brew cask install dash
+brew cask install caffeine # Menubar icon toggling computer sleep
+brew cask install calibre # eBook manager
+brew cask install cyberduck # FTP/SFTP client
+brew cask install dash # Offline documentation downloader/indexer w/IDE plugins
 brew cask install docker-toolbox
 brew cask install dropbox
-brew cask install etcher
+brew cask install etcher # Linux live USB creator
 brew cask install flux # Better dimming that night shift
-brew cask install front
+brew cask install front # Share email inbox app
 brew cask install firefox
 brew cask install get-lyrical # Adds lyrics to music selected in iTunes
 brew cask install gfxcardstatus # Notifications when graphics card changes
 brew cask install google-chrome
-brew cask install google-backup-and-sync
-brew cask install handbrake
-brew cask install imageoptim
+brew cask install google-backup-and-sync # New Google Drive client
+brew cask install handbrake # Converts video formats
+brew cask install imageoptim # Optimizes images to arbitray degrees
 brew cask install install-disk-creator # Used to create macOS install USBs
-brew cask install iterm2
+brew cask install iterm2 # Alternative Terminal app
 brew cask install jetbrains-toolbox
 brew cask install mailbutler # makes Mail.app not suck
 brew cask install microsoft-office
 brew cask install monolingual # removes unneeded languages
-brew cask install obs
+brew cask install obs # Livestreaming software
 brew cask install onyx # Computer diagnostic tool
 brew cask install plex-media-player
-brew cask install postman
-brew cask install robomongo
-brew cask install sequel-pro
+brew cask install postman # Great API endpoint testing tool
+brew cask install robomongo # MongoDB GUI
+brew cask install sequel-pro # SQL GUI
 brew cask install skype
 # brew cask install simple-comic
 # brew cask install sitesucker #TODO: cask not found
 brew cask install steam
-brew cask install teamviewer
-brew cask install telegram-desktop
-brew cask install the-unarchiver
-brew cask install toggldesktop
-brew cask install transmission
-brew cask install unity
-brew cask install virtualbox
-brew cask install vlc
+brew cask install teamviewer # Cross platform remote desktop
+brew cask install telegram-desktop # Chat service
+brew cask install the-unarchiver # 
+brew cask install toggldesktop # Time tracker
+brew cask install transmission # Best Mac/Linux client
+brew cask install unity # 3D application engine
+brew cask install visual-studio-code # Microsoft's lightweight text editor
+brew cask install virtualbox # Virtualization
+brew cask install vlc # Plays almost any video/audio filetype
 brew cask install whatsapp
 # brew cask install yacreader
 
 echo "Installing quicklook plugins..."
-brew cask install qladdict # srt files
-brew cask install qlcolorcode # previews syntax highlighted sourcecode
-brew cask install qlvideo # many video files
+brew cask install qladdict # Subtitle srt files
+brew cask install qlcolorcode # Syntax highlighted sourcecode
+brew cask install qlvideo
 brew cask install quicklook-csv
 brew cask install quicklook-json
 # brew cask install qlstephen
@@ -304,7 +306,7 @@ brew cask install qlmarkdown
 # brew cask install qlprettypatch
 brew cask install qlimagesize # Displays image size in preview
 brew cask install betterzipql
-brew cask install webpquicklook
+brew cask install webpquicklook # Google's Webp image format
 brew cask install suspicious-package
 brew cask install provisionql
 brew cask install quicklookapk
@@ -364,32 +366,19 @@ echo "Installing vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "Setting up fonts..."
-cd ~ || exit
-git clone https://github.com/powerline/fonts.git
-cd fonts || exit
-./install.sh
-cd ..
-rm -rf fonts
-
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 echo "Configuring transmission..."
-# Use `~/Downloads/Torrenting` to store incomplete downloads
 mkdir ~/Downloads/Torrenting
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
+defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true # Use `~/Downloads/Torrenting` to store incomplete downloads
 defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrenting"
-# Don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
+defaults write org.m0k.transmission DownloadAsk -bool false # Don’t prompt for confirmation before downloading
 defaults write org.m0k.transmission MagnetOpenAsk -bool false
-# Trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-# Hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
-# Hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
+defaults write org.m0k.transmission DeleteOriginalTorrent -bool true # Trash original torrent files
+defaults write org.m0k.transmission WarningDonate -bool false # Hide donate message
+defaults write org.m0k.transmission WarningLegal -bool false # Hide legal disclaimer
 
 echo "Cleaning up Brew..."
 brew cask cleanup
@@ -455,9 +444,6 @@ open -a "Google Chrome" --args --make-default-browser
 # rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
 # # TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
 
-echo "Raising Timemachine backup priority until reboot..."
-sudo sysctl debug.lowpri_throttle_enabled=0
-
 # # Download/compile cs50.h
 # cd ~/Downloads/ || exit
 # git clone https://github.com/cs50/libcs50.git
@@ -470,6 +456,14 @@ sudo sysctl debug.lowpri_throttle_enabled=0
 # # TODO: make this OS/shell dependent
 # echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
 # echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
+
+echo "Setting up Powerline for ..."
+cd ~ || exit
+git clone https://github.com/powerline/fonts.git
+cd fonts || exit
+./install.sh
+cd ..
+rm -rf fonts
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
