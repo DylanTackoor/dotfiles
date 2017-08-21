@@ -151,11 +151,13 @@ echo "Disabling file extension editing warning..."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Setting up folders..."
-mkdir ~/Developer/
-mkdir ~/Developer/Team53
-mkdir ~/Developer/Pearl
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
+
+mkdir ~/Developer/
+
+mkdir ~/Developer/Team53
+mkdir ~/Developer/Pearl
 
 echo "Changing screenshot location..."
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
@@ -203,8 +205,9 @@ echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 sudo chown -R $USER /usr/local #f ixes permission error w/nodejs
 brew install cask # Install GUI applications
-brew install clang-format # C/C++/Obj-C linter
 brew install dockutil # Dock rearragment cli
+
+brew install clang-format # C/C++/Obj-C linter
 brew install ffmpeg # youtube-dl dependency
 brew install htop # Terminal activity monitor
 brew install neofetch # Displays system info
@@ -248,16 +251,10 @@ brew cask install 1password # Best password manager
 brew cask install alfred # Spotlight replacement
 brew cask install appcleaner # More throughrouly deletes apps
 # brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
-brew cask install arduino # Arduino controller IDE
-# brew cask install atom # GitHub text editor
 brew cask install bartender # Hides menu bar icons
 brew cask install caffeine # Menubar icon toggling computer sleep
-brew cask install calibre # eBook manager
 brew cask install cyberduck # FTP/SFTP client
-brew cask install dash # Offline documentation downloader/indexer w/IDE plugins
-brew cask install docker-toolbox
 brew cask install dropbox
-brew cask install etcher # Linux live USB creator
 brew cask install flux # Better dimming that night shift
 brew cask install front # Share email inbox app
 brew cask install firefox
@@ -266,19 +263,10 @@ brew cask install gfxcardstatus # Notifications when graphics card changes
 brew cask install google-chrome
 brew cask install google-backup-and-sync # New Google Drive client
 brew cask install handbrake # Converts video formats
-brew cask install imageoptim # Optimizes images to arbitray degrees
-brew cask install install-disk-creator # Used to create macOS install USBs
-brew cask install iterm2 # Alternative Terminal app
-brew cask install jetbrains-toolbox
 brew cask install mailbutler # makes Mail.app not suck
 brew cask install microsoft-office
 brew cask install monolingual # removes unneeded languages
-brew cask install obs # Livestreaming software
-brew cask install onyx # Computer diagnostic tool
 brew cask install plex-media-player
-brew cask install postman # Great API endpoint testing tool
-brew cask install robomongo # MongoDB GUI
-brew cask install sequel-pro # SQL GUI
 brew cask install skype
 # brew cask install simple-comic
 # brew cask install sitesucker #TODO: cask not found
@@ -288,12 +276,27 @@ brew cask install telegram-desktop # Chat service
 brew cask install the-unarchiver # 
 brew cask install toggldesktop # Time tracker
 brew cask install transmission # Best Mac/Linux client
-brew cask install unity # 3D application engine
-brew cask install visual-studio-code # Microsoft's lightweight text editor
-brew cask install virtualbox # Virtualization
 brew cask install vlc # Plays almost any video/audio filetype
 brew cask install whatsapp
 # brew cask install yacreader
+
+# brew cask install atom # GitHub text editor
+brew cask install arduino # Arduino controller IDE
+brew cask install calibre # eBook manager
+brew cask install dash # Offline documentation downloader/indexer w/IDE plugins
+brew cask install docker-toolbox
+brew cask install etcher # Linux live USB creator
+brew cask install imageoptim # Optimizes images to arbitray degrees
+brew cask install install-disk-creator # Used to create macOS install USBs
+brew cask install iterm2 # Alternative Terminal app
+brew cask install jetbrains-toolbox
+brew cask install onyx # Computer diagnostic tool
+brew cask install postman # Great API endpoint testing tool
+brew cask install robomongo # MongoDB GUI
+brew cask install sequel-pro # SQL GUI
+brew cask install unity # 3D application engine
+brew cask install visual-studio-code # Microsoft's lightweight text editor
+brew cask install virtualbox # Virtualization
 
 echo "Installing quicklook plugins..."
 brew cask install qladdict # Subtitle srt files
