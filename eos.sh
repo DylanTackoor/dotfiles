@@ -51,6 +51,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install -y steam git google-chrome-stable nodejs php zeal code
 sudo apt install -y calibre vlc mongodb transmission virtualbox arduino
+sudo apt install unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
 # TODO: fix npm permission
