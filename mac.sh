@@ -33,6 +33,10 @@ fi
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
+TODO: listen for -dev and -dylan flags
+
+
+# TODO: only ask if not -dylan
 # Capturing info for later
 echo "Full name:"
 read fullName
@@ -51,6 +55,25 @@ read appleIDpassword
 
 echo "Git email:"
 read GitEmail
+
+TODO: if -dylan use these values
+# echo "Full name:"
+# read fullName
+
+# echo "Phone Number (XXX-XXX-XXX):"
+# read phoneNumber
+
+# echo "Contact Email:"
+# read contactEmail
+
+# echo "Apple ID Email:"
+# read appleIDemail
+
+# echo "Apple ID Password:"
+# read appleIDpassword
+
+# echo "Git email:"
+# read GitEmail
 
 # TODO: Research valid computer names
 # echo "Setting computer name (as done via System Preferences → Sharing)"
