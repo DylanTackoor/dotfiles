@@ -517,4 +517,6 @@ npm -v
 python3 --version
 php -v
 docker -v
+echo "Typescript:"
+tsc -v
 # mongod --version
