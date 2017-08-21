@@ -80,3 +80,21 @@ nave use latest
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
 sudo apt autoremove -y
+
+echo ""
+echo "===================="
+echo " THAT'S ALL, FOLKS! "
+echo "===================="
+echo ""
+git --version
+atom -v
+echo "Visual Studio Code:"
+code -v
+node -v
+npm -v
+python3 --version
+php -v
+echo "Typescript:"
+tsc -v
+# docker -v
+# mongod --version
