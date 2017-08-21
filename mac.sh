@@ -482,3 +482,13 @@ echo "===================="
 echo " THAT'S ALL, FOLKS! "
 echo "===================="
 echo ""
+git --version
+atom -v
+echo "Visual Studio Code:"
+code -v
+node -v
+npm -v
+python3 --version
+php -v
+docker -v
+# mongod --version
