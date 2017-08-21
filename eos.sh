@@ -2,6 +2,9 @@
 
 clear
 
+# 4k scaling
+gsettings set org.gnome.desktop.interface text-scaling-factor 1.35
+
 echo "==========================="
 echo " elementaryOS SETUP SCRIPT "
 echo "==========================="
@@ -11,30 +14,68 @@ echo "Updating..."
 sudo apt update
 sudo apt upgrade -y
 
-echo "Installing apps..."
-# TODO: Install the latest git Version
+# Allows for adding package repos
+sudo apt install -y software-properties-common
+
+#Install Ubuntu Restricted Extras
+sudo apt install -y ubuntu-restricted-extras
+
+echo "Adding repos..."
+# Install the latest git Version
 sudo add-apt-repository ppa:git-core/ppa
-sudo apt update
-sudo apt dist-upgrade
-sudo apt install git
 
-# TODO: Install the latest Version of VirtualBox
-wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" >> /etc/apt/sources.list.d/virtualbox.list'
-sudo apt update
-sudo apt install virtualbox-4.3
+# Google Chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
-# TODO: Install Steam
+# Install Steam
 wget http://repo.steampowered.com/steam/signature.gpg && sudo apt-key add signature.gpg
 sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list'
-sudo apt update
-sudo apt install steam
 
-#Install the latest git Version
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get dist-upgrade
-sudo apt-get install git
+# Zeal code documentation index
+sudo add-apt-repository ppa:zeal-developers/ppa
+
+# Visual Studio Code
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# PHP
+sudo add-apt-repository ppa:ondrej/php
+
+# Node.js
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+
+echo "Installing apps..."
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y steam git google-chrome-stable nodejs php zeal code
+sudo apt install -y calibre vlc mongodb transmission virtualbox arduino
+# TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
+
+# TODO: fix npm permission
+npm install -g typescript reload csvtojson js-beautify nave
+
+# Postman API Tester
+wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+sudo tar -xzf postman.tar.gz -C /opt
+rm postman.tar.gz
+sudo ln -s /opt/Postman/Postman /usr/bin/postman
+cat > ~/.local/share/applications/postman.desktop <<EOL
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=postman
+Icon=/opt/Postman/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOL
+
+echo "Installing Node.js versions..."
+nave install lts
+nave use latest
 
 echo "Cleaning up..."
+sudo apt purge -y epiphany-browser
 sudo apt autoremove -y
