@@ -24,6 +24,9 @@ echo "Adding repos..."
 # Install the latest git Version
 sudo add-apt-repository ppa:git-core/ppa
 
+# elementaryOS tweaks
+sudo add-apt-repository ppa:philip.scott/elementary-tweaks
+
 # Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -52,7 +55,7 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 echo "Installing apps..."
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom
+sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks
 sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp
 sudo apt install unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
@@ -63,7 +66,7 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 source ~/.profile
 
-echo "Installing NPM stoofs..."
+echo "Installing NPM packages..."
 npm install -g typescript reload csvtojson js-beautify nave
 
 echo "Installing Postman API tester..."
