@@ -102,6 +102,9 @@ apm install language-babel atom-typescript sass-autocompile language-ejs languag
 apm install linter linter-tidy linter-csslint linter-php linter-scss-lint linter-clang linter-tslint linter-jsonlint linter-pylint linter-shellcheck linter-handlebars
 apm install minimap minimap-highlight-selected minimap-find-and-replace minimap-pigments minimap-linter
 
+echo "Setting up folders..."
+mkdir ~/Developer/
+
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
 sudo apt autoremove -y
