@@ -40,6 +40,9 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
+# Atom
+sudo add-apt-repository ppa:webupd8team/atom
+
 # PHP
 sudo add-apt-repository ppa:ondrej/php
 
@@ -49,15 +52,21 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 echo "Installing apps..."
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y steam git google-chrome-stable nodejs php zeal code
-sudo apt install -y calibre vlc mongodb transmission virtualbox arduino
+sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom
+sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp
 sudo apt install unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
-# TODO: fix npm permission
+echo "Fixing NPM permission issues...."
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+export PATH=~/.npm-global/bin:$PATH
+source ~/.profile
+
+echo "Installing NPM stoofs..."
 npm install -g typescript reload csvtojson js-beautify nave
 
-# Postman API Tester
+echo "Installing Postman API tester..."
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
 sudo tar -xzf postman.tar.gz -C /opt
 rm postman.tar.gz
@@ -73,9 +82,25 @@ Type=Application
 Categories=Development;
 EOL
 
+echo "Installing Dropbox + elementaryOS tweaks..."
+git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
+bash /tmp/elementary-dropbox/install.sh -y
+
 echo "Installing Node.js versions..."
 nave install lts
 nave use latest
+
+echo "Installing code linters..."
+sudo apt install -y clang-format
+sudo apt install -y shellcheck
+sudo apt install -y speedtest_cli
+sudo apt install -y tidy-html5
+
+echo "Installing Atom plugins..."
+apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify color-picker todo-show tokamak-terminal
+apm install language-babel atom-typescript sass-autocompile language-ejs language-htaccess
+apm install linter linter-tidy linter-csslint linter-php linter-scss-lint linter-clang linter-tslint linter-jsonlint linter-pylint linter-shellcheck linter-handlebars
+apm install minimap minimap-highlight-selected minimap-find-and-replace minimap-pigments minimap-linter
 
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
