@@ -19,31 +19,37 @@ choco install -y firefox
 choco install -y 7zip.install
 choco install -y steam
 choco install -y skype
-choco install -y visualstudiocode
 choco install -y telegram
 choco install -y ccleaner
 choco install -y malwarebytes
 choco install -y atom
-choco install -y virtualbox
 choco install -y dropbox
 choco install -y windirstat
 choco install -y teamviewer
 choco install -y itunes
 choco install -y gimp
 choco install -y calibre
-choco install -y unity
-choco install -y cyberduck.install
+choco install -y spotify
 choco install -y whatsapp
 choco install -y slack
 choco install -y f.lux
+choco install -y obs-studio
+choco install -y handbrake
+choco install -y google-backup-and-sync
+
+REM Dev Tools
+choco install -y docker-for-windows
+choco install -y visualstudiocode
+choco install -y virtualbox
+choco install -y unity
+choco install -y cyberduck.install
 choco install -y postman
 choco install -y robo3t.install
 choco install -y etcher
-choco install -y obs-studio
 choco install -y arduino
-choco install -y handbrake
 choco install -y velocity
-choco install -y google-backup-and-sync
+choco install -y webstorm
+choco install pycharm-community
 
 REM CLI tools
 choco install -y python3
