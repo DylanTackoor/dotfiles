@@ -53,17 +53,7 @@ REM Games
 choco install -y steam
 choco install -y minecraft
 
-REM Utilities
-choco install -y ccleaner
-choco install -y gimp
-choco install -y malwarebytes
-choco install -y windirstat
-choco install -y teamviewer
-choco install -y f.lux
-choco install -y obs-studio
-choco install -y handbrake
-
-REM Dev Tools
+REM Text Editors/IDEs
 choco install -y visualstudiocode
 choco install -y atom
 choco install -y unity
@@ -73,20 +63,44 @@ choco install -y webstorm
 choco install -y pycharm-community
 choco install -y phpstorm
 
+REM Other Dev Tools
 choco install -y velocity
-
 choco install -y cyberduck.install
+choco install -y putty.portable
 
+REM Database Tools
 choco install -y postman
 choco install -y robo3t.install
 choco install -y mysql.workbench
 
+REM Software Setup
 choco install -y virtualbox
+choco install -y virtualbox.extensionpack
 choco install -y docker-toolbox
 choco install -y etcher
 
+REM Image editing
+choco install -y inkscape
+choco install -y gimp
+
+REM Benchmarking
+choco install cpu-z
+choco install aida64-extreme
+
+REM PC Maintenance
+choco install -y ccleaner
+choco install -ydefraggler
+choco install -y windirstat
+
+REM Utilities
+choco install -y malwarebytes
+choco install -y teamviewer
+choco install -y f.lux
+choco install -y obs-studio
+choco install -y handbrake
+
 REM Node.js global packages
-npm install -g gulp csvtojson js-beautify typescript
+npm install -g gulp csvtojson js-beautify typescript reload nodemon nodemailer nave express express-generator
 
 REM Visual Studio Code Extensions
 code --install-extension eg2.tslint
