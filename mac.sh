@@ -147,6 +147,13 @@ echo "Disabling Dashboard..."
 defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
+echo "Activity monitor showing stats in dock..."
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+echo "Sorting Activity Monitor results by CPU usage..."
+defaults write com.apple.ActivityMonitor SortColumn -string "CPUUsage"
+defaults write com.apple.ActivityMonitor SortDirection -int 0
+
 echo "Column view by default..."
 defaults write com.apple.Finder FXPreferredViewStyle clmv
 
