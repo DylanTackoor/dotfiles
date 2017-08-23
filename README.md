@@ -23,8 +23,6 @@ $ chmod +x mac.sh
 $ ./mac.sh
 ```
 
-## Remotely install using curl
-
 Alternatively, you can install this into `~/dotfiles` remotely without Git using curl:
 
 ```sh
