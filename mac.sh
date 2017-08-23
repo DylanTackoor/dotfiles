@@ -34,7 +34,7 @@ fi
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
-TODO: listen for -dev and -dylan flags
+# TODO: listen for -dev and -dylan flags
 
 
 # TODO: only ask if not -dylan
