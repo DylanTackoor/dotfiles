@@ -54,7 +54,7 @@ read appleIDpassword
 echo "Git email:"
 read GitEmail
 
-TODO: if -dylan use these values
+# TODO: if -dylan use these values
 # echo "Full name:"
 # read fullName
 
