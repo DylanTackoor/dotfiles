@@ -49,7 +49,7 @@ choco install -y etcher
 choco install -y arduino
 choco install -y velocity
 choco install -y webstorm
-choco install pycharm-community
+choco install -y pycharm-community
 
 REM CLI tools
 choco install -y python3
