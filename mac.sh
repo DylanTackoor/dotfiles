@@ -193,6 +193,9 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 echo "Keeping folders on top of file views..."
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
+echo "Enabling autoupdates for Safari extensions..."
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
+
 # echo "Adding iOS/watchOS simulators to Launchpad..."
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
