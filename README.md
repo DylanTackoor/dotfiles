@@ -14,6 +14,29 @@ Goals:
 
 ### Mac
 
+#### Installation
+
+```sh
+$ git clone https://github.com/dylantackoor/dotfiles.git ~/dotfiles
+$ cd ~/dotfiles
+$ chmod +x mac.sh
+$ ./mac.sh
+```
+
+## Remotely install using curl
+
+Alternatively, you can install this into `~/dotfiles` remotely without Git using curl:
+
+```sh
+sh -c "`curl -fsSL https://raw.github.com/dylantackoor/dotfiles/master/mac.sh`"
+```
+
+Or, using wget:
+
+```sh
+sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/dylantackoor/dotfiles/master/mac.sh`"
+```
+
 ### elementaryOS
 
 ### Windows 10
