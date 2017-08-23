@@ -160,6 +160,9 @@ defaults write com.apple.Finder FXPreferredViewStyle clmv
 echo "Enabling copy emails as plaintext from Mail.app..."
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 
+echo "Allowing text-selection in Quick Look"
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
 echo "Searching current dir by default..."
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
