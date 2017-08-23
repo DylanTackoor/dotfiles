@@ -38,39 +38,23 @@ osascript -e 'tell application "System Preferences" to quit'
 # Capturing info for later
 echo "Full name:"
 read fullName
-
 echo "Phone Number (XXX-XXX-XXX):"
 read phoneNumber
-
 echo "Contact Email:"
 read contactEmail
-
 echo "Apple ID Email:"
 read appleIDemail
-
 echo "Apple ID Password:"
 read appleIDpassword
-
 echo "Git email:"
 read GitEmail
 
 # TODO: if -dylan use these values
-# echo "Full name:"
 # read fullName
-
-# echo "Phone Number (XXX-XXX-XXX):"
 # read phoneNumber
-
-# echo "Contact Email:"
 # read contactEmail
-
-# echo "Apple ID Email:"
 # read appleIDemail
-
-# echo "Apple ID Password:"
 # read appleIDpassword
-
-# echo "Git email:"
 # read GitEmail
 
 # TODO: Research valid computer names
@@ -237,9 +221,6 @@ sudo osascript -e '
 # TODO: Enable all trackpad gestures
 
 # TODO: Enable play feedback when volume is changed
-
-# TODO:
-# echo "Maxing key repeat sped..."
 
 # TODO:
 # echo "Forcing Airdrop to always be on..."
