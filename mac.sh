@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-# https://github.com/nicksp/dotfiles/blob/master/osx/set-defaults.sh
-
 clear
 
 echo "===================="
