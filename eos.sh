@@ -52,13 +52,30 @@ sudo add-apt-repository ppa:ondrej/php
 # Node.js
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
+# Neovim
+# sudo add-apt-repository ppa:neovim-ppa/stable # TODO: Figure out security problem here
+
 echo "Installing apps..."
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks
-sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp
+sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks # neovim
+sudo apt install -y tlp tlp-rdw # Laptop power stuff
+sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp zsh python3-pip python-dev python-pip python3-dev
 sudo apt install unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
+
+echo "Updating pip..."
+pip3 install --upgrade pip
+
+# echo "Installing up Neovim providers..."
+# # sudo gem install neovim # TODO: fix this
+# pip install --user --upgrade neovim
+# pip3 install --user --upgrade neovim
+
+echo "Configuring fuck command... (lol)"
+sudo pip3 install thefuck
+fuck
+fuck
 
 echo "Fixing NPM permission issues...."
 mkdir ~/.npm-global
@@ -85,6 +102,13 @@ Type=Application
 Categories=Development;
 EOL
 
+# echo "Installing up Neovim providers..."
+# sudo gem install neovim
+# pip install --upgrade pip
+# pip2 install --user --upgrade neovim
+# pip3 install --user --upgrade neovim
+# #TODO: Install copy util
+
 echo "Installing Dropbox + elementaryOS tweaks..."
 git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
 bash /tmp/elementary-dropbox/install.sh -y
@@ -94,10 +118,7 @@ nave install lts
 nave use latest
 
 echo "Installing code linters..."
-sudo apt install -y clang-format
-sudo apt install -y shellcheck
-sudo apt install -y speedtest_cli
-sudo apt install -y tidy-html5
+sudo apt install -y clang-format shellcheck speedtest_cli tidy-html5
 
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify color-picker todo-show tokamak-terminal
@@ -113,10 +134,7 @@ sudo apt purge -y epiphany-browser
 sudo apt autoremove -y
 
 echo "Installing Oh-My-ZSH..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-cp ~/.zshrc ~/.zshrc.orig
-cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
-chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo ""
 echo "===================="
