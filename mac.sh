@@ -166,6 +166,9 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 echo "Speeding up key repeat..."
 defaults write -g KeyRepeat -int 0
 
+echo "Disabling HDD motion sensor protection..."
+sudo pmset -a sms 0
+
 echo "Searching current dir by default..."
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
