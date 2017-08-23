@@ -48,3 +48,9 @@ sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/dylan
 ### NeoVim
 
 ### Zsh
+
+## Sources
+
+- [Getting Started With Dotfiles](https://medium.com/@webprolific/getting-started-with-dotfiles-43c3602fd789)
+- https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+- https://github.com/nicksp/dotfiles/blob/master/osx/set-defaults.sh
