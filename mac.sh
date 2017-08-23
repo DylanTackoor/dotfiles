@@ -437,6 +437,10 @@ defaults write org.m0k.transmission MagnetOpenAsk -bool false
 defaults write org.m0k.transmission DeleteOriginalTorrent -bool true # Trash original torrent files
 defaults write org.m0k.transmission WarningDonate -bool false # Hide donate message
 defaults write org.m0k.transmission WarningLegal -bool false # Hide legal disclaimer
+# Blocks bad IPs & updates list automatically
+defaults write org.m0k.transmission BlocklistNew -bool true
+defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
+defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 echo "Cleaning up Brew..."
 brew cask cleanup
