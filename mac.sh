@@ -132,6 +132,9 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 echo "Disabling automatically rearranging spaces..."
 defaults write com.apple.dock mru-spaces -bool false
 
+echo "Enabling Airdrop over ethernet..."
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+
 echo "Require password immediately after sleep..."
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
