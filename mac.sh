@@ -190,6 +190,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 echo "Disabling file extension editing warning..."
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+echo "Keeping folders on top of file views..."
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
 echo "Setting up folders..."
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
