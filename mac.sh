@@ -240,6 +240,7 @@ brew install python3
 brew install shellcheck # Bash file linting
 brew install speedtest_cli # Speedtest.net cli
 brew install tidy-html5 # Atom html Linter
+brew install thefuck # Runs last command without typo
 brew install tree # Prints filetree 
 brew install unrar # rar archive cli
 brew install wget
@@ -391,6 +392,10 @@ pip3 install --user --upgrade neovim
 echo "Installing vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Configuring fuck command... (lol)"
+fuck
+fuck
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
