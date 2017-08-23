@@ -163,6 +163,9 @@ defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
 echo "Allowing text-selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
+echo "Speeding up key repeat..."
+defaults write -g KeyRepeat -int 0
+
 echo "Searching current dir by default..."
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
