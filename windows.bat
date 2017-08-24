@@ -102,7 +102,7 @@ choco install -y obs-studio
 choco install -y handbrake
 
 REM Node.js global packages
-npm install -g gulp csvtojson js-beautify typescript reload nodemon nodemailer nave express express-generator
+npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
 
 REM Visual Studio Code Extensions
 code --install-extension eg2.tslint
