@@ -83,13 +83,14 @@ REM Image editing
 choco install -y inkscape
 choco install -y gimp
 
-REM Benchmarking
-choco install cpu-z
-choco install aida64-extreme
+REM Monitoring
+choco install -y cpu-z
+choco install -y hwmonitor
+choco install -y aida64-extreme
 
 REM PC Maintenance
 choco install -y ccleaner
-choco install -ydefraggler
+choco install -y defraggler
 choco install -y windirstat
 
 REM Utilities
