@@ -65,6 +65,7 @@ choco install -y phpstorm
 
 REM Other Dev Tools
 choco install -y velocity
+choco install -y toggl
 choco install -y cyberduck.install
 choco install -y putty.portable
 
