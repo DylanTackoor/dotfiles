@@ -96,6 +96,7 @@ choco install -y windirstat
 
 REM Utilities
 choco install -y malwarebytes
+choco install -y transmission
 choco install -y teamviewer
 choco install -y f.lux
 choco install -y obs-studio
