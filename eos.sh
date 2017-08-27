@@ -83,8 +83,9 @@ npm config set prefix '~/.npm-global'
 export PATH=~/.npm-global/bin:$PATH
 source ~/.profile
 
+# TODO: Make this universal
 echo "Installing NPM packages..."
-npm install -g typescript reload csvtojson js-beautify nave
+npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
 
 echo "Installing Postman API tester..."
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz

@@ -370,8 +370,9 @@ git config --global user.email $GitEmail
 echo "Installing Node.js"
 curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
-echo "Installing Node.js global packages..."
-npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify
+# TODO: Make this universal
+echo "Installing NPM packages..."
+npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
 
 echo "Installing multiple Node.js versions..."
 nave install latest
