@@ -129,6 +129,7 @@ echo "===================="
 echo " THAT'S ALL, FOLKS! "
 echo "===================="
 echo ""
+notify-send -i utilities-terminal elementary-script "Setup completed!"
 git --version
 atom -v
 echo "Visual Studio Code:"
