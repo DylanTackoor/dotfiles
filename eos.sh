@@ -15,45 +15,32 @@ sudo apt update
 sudo apt upgrade -y
 
 # Allows for adding package repos
-sudo apt install -y software-properties-common
-
-#Install Ubuntu Restricted Extras
-sudo apt install -y ubuntu-restricted-extras
+sudo apt install -y software-properties-common ubuntu-restricted-extras # TODO: research restricted extras being necessary. believe it's just for mp3
 
 echo "Adding repos..."
-# Install the latest git Version
-sudo add-apt-repository ppa:git-core/ppa
-
-# elementaryOS tweaks
-sudo add-apt-repository ppa:philip.scott/elementary-tweaks
+sudo apt-add-repository -y ppa:nathandyer/vocal-stable #Vocal Podcast
+sudo add-apt-repository -y ppa:webupd8team/atom # Atom text editor
+sudo add-apt-repository -y ppa:ondrej/php # PHP
+sudo add-apt-repository -y ppa:zeal-developers/ppa # Zeal code documentation index
+sudo add-apt-repository -y ppa:git-core/ppa # Git
+sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks # elementaryOS system tweaks UI
+# sudo add-apt-repository -y ppa:neovim-ppa/stable # Neovim # TODO: Figure out security problem here
 
 # Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
-# Install Steam
+# Steam
 wget http://repo.steampowered.com/steam/signature.gpg && sudo apt-key add signature.gpg
 sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list'
-
-# Zeal code documentation index
-sudo add-apt-repository ppa:zeal-developers/ppa
 
 # Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-# Atom
-sudo add-apt-repository ppa:webupd8team/atom
-
-# PHP
-sudo add-apt-repository ppa:ondrej/php
-
 # Node.js
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-
-# Neovim
-# sudo add-apt-repository ppa:neovim-ppa/stable # TODO: Figure out security problem here
 
 echo "Installing apps..."
 sudo apt update
@@ -61,7 +48,7 @@ sudo apt upgrade -y
 sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks # neovim
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp zsh python3-pip python-dev python-pip python3-dev
-sudo apt install unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
+sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
 echo "Updating pip..."
