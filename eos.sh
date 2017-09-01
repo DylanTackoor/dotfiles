@@ -45,19 +45,22 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 echo "Installing apps..."
 sudo apt update
 sudo apt upgrade -y
+sudo apt install -y speedtest_cli #CLIs
+sudo apt install -y clang-format shellcheck tidy-html5 #linters
 sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks # neovim
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp zsh python3-pip python-dev python-pip python3-dev
+sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
 sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
-echo "Installling Teamviewer..."
-sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install gdebi
-wget http://download.teamviewer.com/download/version_11x/teamviewer_i386.deb
-sudo gdebi teamviewer_linux.deb
-sudo dpkg --remove-architecture i386
+# echo "Installling Teamviewer..."
+# sudo dpkg --add-architecture i386
+# sudo apt-get update
+# sudo apt-get install gdebi
+# wget http://download.teamviewer.com/download/version_11x/teamviewer_i386.deb
+# sudo gdebi teamviewer_linux.deb
+# sudo dpkg --remove-architecture i386
 
 echo "Updating pip..."
 pip3 install --upgrade pip
@@ -105,16 +108,13 @@ EOL
 # pip3 install --user --upgrade neovim
 # #TODO: Install copy util
 
-echo "Installing Dropbox + elementaryOS tweaks..."
-git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
-bash /tmp/elementary-dropbox/install.sh -y
+# echo "Installing Dropbox + elementaryOS tweaks..."
+# git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
+# bash /tmp/elementary-dropbox/install.sh -y
 
 echo "Installing Node.js versions..."
 nave install lts
 nave use latest
-
-echo "Installing code linters..."
-sudo apt install -y clang-format shellcheck speedtest_cli tidy-html5
 
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify color-picker todo-show tokamak-terminal
@@ -148,5 +148,5 @@ python3 --version
 php -v
 echo "Typescript:"
 tsc -v
+mongod --version
 # docker -v
-# mongod --version
