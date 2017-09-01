@@ -51,6 +51,14 @@ sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp zsh
 sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
+echo "Installling Teamviewer..."
+sudo dpkg --add-architecture i386
+sudo apt-get update
+sudo apt-get install gdebi
+wget http://download.teamviewer.com/download/version_11x/teamviewer_i386.deb
+sudo gdebi teamviewer_linux.deb
+sudo dpkg --remove-architecture i386
+
 echo "Updating pip..."
 pip3 install --upgrade pip
 
