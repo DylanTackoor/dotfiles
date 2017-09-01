@@ -45,13 +45,15 @@ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 echo "Installing apps..."
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y speedtest_cli #CLIs
+sudo apt install -y speedtest_cli git #CLIs
 sudo apt install -y clang-format shellcheck tidy-html5 #linters
-sudo apt install -y steam git google-chrome-stable nodejs php zeal code atom elementary-tweaks # neovim
+sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp inkscape shutter #GUI Apps
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
-sudo apt install -y calibre vlc mongodb transmission virtualbox arduino gimp zsh python3-pip python-dev python-pip python3-dev
+sudo apt install -y zeal code atom arduino zsh virtualbox tmux #neovim
+sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev # Programming languages
+sudo apt install -y elementary-tweaks #Elementary OS specific
 sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
-sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller
+sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller #unarchivers
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
 # echo "Installling Teamviewer..."
