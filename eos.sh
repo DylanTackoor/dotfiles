@@ -60,7 +60,7 @@ sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutil
 # sudo dpkg --add-architecture i386
 # sudo apt-get update
 # sudo apt-get install gdebi
-# wget http://download.teamviewer.com/download/version_11x/teamviewer_i386.deb
+# wget http://download.teamviewer.com/download/version_12x/teamviewer_i386.deb
 # sudo gdebi teamviewer_linux.deb
 # sudo dpkg --remove-architecture i386
 
