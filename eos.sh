@@ -47,7 +47,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install -y speedtest_cli git #CLIs
 sudo apt install -y clang-format shellcheck tidy-html5 #linters
-sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp inkscape shutter #GUI Apps
+sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp inkscape #GUI Apps
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino zsh virtualbox tmux #neovim
 sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev # Programming languages
