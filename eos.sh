@@ -114,9 +114,9 @@ EOL
 # git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
 # bash /tmp/elementary-dropbox/install.sh -y
 
-echo "Installing Node.js versions..."
-nave install lts
-nave use latest
+# echo "Installing Node.js versions..."
+# nave install lts
+# nave use latest
 
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify color-picker todo-show tokamak-terminal
