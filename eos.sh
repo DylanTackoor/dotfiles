@@ -24,10 +24,10 @@ sudo add-apt-repository -y ppa:ondrej/php # PHP
 sudo add-apt-repository -y ppa:zeal-developers/ppa # Zeal code documentation index
 sudo add-apt-repository -y ppa:git-core/ppa # Git
 sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks # elementaryOS system tweaks UI
-sudo apt-add-repository ppa:nathandyer/vocal-stable # elementaryOS Podcast organizer
-sudo apt-add-repository ppa:tomato-team/tomato-daily # elementaryOS time tracker
-sudo add-apt-repository ppa:voldyman/markmywords # elementaryOS markdown editor
-sudo apt-add-repository ppa:bablu-boy/nutty.0.1 # elementaryOS network monitor
+sudo apt-add-repository -y ppa:nathandyer/vocal-stable # elementaryOS Podcast organizer
+sudo apt-add-repository -y ppa:tomato-team/tomato-daily # elementaryOS time tracker
+sudo apt-add-repository -y ppa:voldyman/markmywords # elementaryOS markdown editor
+sudo apt-add-repository -y ppa:bablu-boy/nutty.0.1 # elementaryOS network monitor
 # sudo add-apt-repository -y ppa:neovim-ppa/stable # Neovim # TODO: Figure out security problem here
 
 # Google Chrome
