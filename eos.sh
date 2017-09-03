@@ -24,6 +24,7 @@ sudo add-apt-repository -y ppa:ondrej/php # PHP
 sudo add-apt-repository -y ppa:zeal-developers/ppa # Zeal code documentation index
 sudo add-apt-repository -y ppa:git-core/ppa # Git
 sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks # elementaryOS system tweaks UI
+sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-add-repository -y ppa:nathandyer/vocal-stable # elementaryOS Podcast organizer
 sudo apt-add-repository -y ppa:tomato-team/tomato-daily # elementaryOS time tracker
 sudo apt-add-repository -y ppa:voldyman/markmywords # elementaryOS markdown editor
@@ -55,7 +56,7 @@ sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp ink
 sudo apt install -y virtualbox docker # container stuff
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino #neovim
-sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev # Programming languages
+sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev oracle-java8-installer # Programming languages
 sudo apt install -y elementary-tweaks vocal tomato mark-my-words nutty #Elementary OS specific
 sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
 sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller #unarchivers
