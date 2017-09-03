@@ -158,7 +158,7 @@ mongod --version
 # docker -v
 
 function reboot() {
-  read -p "Do you want to reboot your computer now? (y/N)" choice
+  read -p "Some changes will not take effect until the computer is rebooted. Reboot now? (y/N)" choice
   case "$choice" in
     y | Yes | yes ) echo "Yes"; exit;; # If y | yes, reboot
     n | N | No | no) echo "No"; exit;; # If n | no, exit
