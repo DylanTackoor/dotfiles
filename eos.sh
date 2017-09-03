@@ -59,8 +59,8 @@ sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino #neovim
 sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev oracle-java8-installer # Programming languages
 sudo apt install -y elementary-tweaks vocal tomato mark-my-words nutty #Elementary OS specific
-sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
-sudo apt install -y unace unrar zip unzip xz-utils p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller #unarchivers
+sudo apt install -y rar unrar zip unzip #unarchivers
+# sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
 # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
 
 # echo "Installling Teamviewer..."
