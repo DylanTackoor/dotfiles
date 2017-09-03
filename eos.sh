@@ -25,6 +25,7 @@ sudo add-apt-repository -y ppa:zeal-developers/ppa # Zeal code documentation ind
 sudo add-apt-repository -y ppa:git-core/ppa # Git
 sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks # elementaryOS system tweaks UI
 sudo add-apt-repository -y ppa:webupd8team/java
+sudo add-apt-repository -y ppa:atareao/telegram
 sudo apt-add-repository -y ppa:nathandyer/vocal-stable # elementaryOS Podcast organizer
 sudo apt-add-repository -y ppa:tomato-team/tomato-daily # elementaryOS time tracker
 sudo apt-add-repository -y ppa:voldyman/markmywords # elementaryOS markdown editor
@@ -52,7 +53,7 @@ sudo apt update
 sudo apt upgrade -y
 sudo apt install -y git htop tmux zsh #CLIs speedtest_cli 
 sudo apt install -y clang-format shellcheck #linters tidy-html5
-sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp inkscape gparted gnome-system-monitor #GUI Apps
+sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp inkscape gparted gnome-system-monitor telegram #GUI Apps
 sudo apt install -y virtualbox docker # container stuff
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino #neovim
