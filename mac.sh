@@ -234,6 +234,7 @@ softwareupdate -l && sudo softwareupdate -i
 
 echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
 sudo chown -R $USER /usr/local #f ixes permission error w/nodejs
 brew install cask # Install GUI applications
 brew install dockutil # Dock rearragment cli
