@@ -40,6 +40,10 @@ sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable
 wget http://repo.steampowered.com/steam/signature.gpg && sudo apt-key add signature.gpg
 sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list'
 
+# Yarn JS package manager
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
 # Visual Studio Code
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -57,7 +61,7 @@ sudo apt install -y steam calibre transmission google-chrome-stable vlc gimp ink
 sudo apt install -y virtualbox docker # container stuff
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino #neovim
-sudo apt install -y nodejs php mongodb python3-pip python-dev python-pip python3-dev oracle-java8-installer # Programming languages
+sudo apt install -y nodejs yarn php mongodb python3-pip python-dev python-pip python3-dev oracle-java8-installer # Programming languages
 sudo apt install -y elementary-tweaks vocal tomato mark-my-words nutty #Elementary OS specific
 sudo apt install -y rar unrar zip unzip #unarchivers
 # sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
