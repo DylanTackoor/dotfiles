@@ -433,7 +433,7 @@ brew update; brew upgrade; brew prune; brew cleanup; brew doctor
 echo "Cleaning up Garage Band..."
 rm -rf /Applications/GarageBand
 rm -rf /Library/Application Support/GarageBand
-rm -rf /Library/Audio/Apple Loops/Apple/Apple Loops for GarageBand
+rm -rf /Library/Audio/Apple Loops/Apple/Apple\ Loops\ for\ GarageBand
 rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.bom
 rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.plist
 rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.bom
