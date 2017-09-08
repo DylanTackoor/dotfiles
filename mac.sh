@@ -190,9 +190,6 @@ mkdir ~/Pictures/Wallpapers/
 
 mkdir ~/Developer/
 
-mkdir ~/Developer/Team53
-mkdir ~/Developer/Pearl
-
 echo "Changing screenshot location..."
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
 
@@ -347,13 +344,9 @@ brew cask install suspicious-package
 brew cask install provisionql
 brew cask install quicklookapk
 
-# echo "Setting up SSH key..."
-# echo "id_rsa: "
-# read id_rsa
-# echo $id_rsa >> $HOME/.ssh/id_rsa
-# echo "id_rsa.pub: "
-# read id_rsa_pub
-# echo $id_rsa_pub >> $HOME/.ssh/id_rsa.pub
+echo "Setting up git identity..."
+git config --global user.name "$fullName"
+git config --global user.email $GitEmail
 
 # TODO: 
 # echo "Generating new ssh key and uploading to GitHub..."
@@ -364,9 +357,30 @@ brew cask install quicklookapk
 # export github_key=`cat $HOME/.ssh/id_rsa.pub`
 # curl -d "login=geetarista&token=${github_token}&title=`scutil --get ComputerName`&key=${github_key}" http://github.com/api/v2/yaml/user/key/add
 
-echo "Setting up git identity..."
-git config --global user.name "$fullName"
-git config --global user.email $GitEmail
+echo "Cloning repositories..."
+cd ~/Developer
+git clone git@github.com:DylanTackoor/dotfiles.git
+git clone git@github.com:DylanTackoor/dylantackoor.com.git
+
+mkdir ~/Developer/boilerplates
+cd ~/Developer/boilerplates
+git clone git@github.com:DylanTackoor/HTML-Boilerplate.git
+git clone git@github.com:DylanTackoor/LAMP-Boilerplate.git
+git clone git@github.com:DylanTackoor/Express-Boilerplate.git
+git clone git@github.com:DylanTackoor/Unity-Boilerplate.git
+
+mkdir ~/Developer/pearl
+cd ~/Developer/Pearl
+git clone git@github.com:hellopearlcare/geolocations.git
+git clone git@github.com:hellopearlcare/legal.git
+git clone git@github.com:hellopearlcare/feedback.git
+git clone git@github.com:hellopearlcare/dentists.git
+git clone git@github.com:jlares/pearl-backend.git
+git clone git@github.com:jlares/pearl-frontend.git
+
+mkdir ~/Developer/team53
+cd ~/Developer/Team53
+git clone git@github.com:DylanTackoor/oterodentalcenters.com.git
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
