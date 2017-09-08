@@ -174,10 +174,6 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 echo "Enabling autoupdates for Safari extensions..."
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
-# echo "Adding iOS/watchOS simulators to Launchpad..."
-# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
-# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
-
 echo "Setting up folders..."
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
@@ -373,6 +369,11 @@ git clone git@github.com:jlares/pearl-frontend.git
 mkdir ~/Developer/team53
 cd ~/Developer/Team53
 git clone git@github.com:DylanTackoor/oterodentalcenters.com.git
+
+# TODO: run this if Xcode.app exists
+# echo "Adding iOS/watchOS simulators to Launchpad..."
+# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
