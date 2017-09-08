@@ -226,6 +226,7 @@ softwareupdate -l && sudo softwareupdate -i
 echo "Installing command-line applications..."
 brew install cask # Install GUI applications
 brew install dockutil # Dock rearragment cli
+brew install mas # Mac App Store CLI
 
 brew install clang-format # C/C++/Obj-C linter
 brew install ffmpeg # youtube-dl dependency
@@ -241,8 +242,8 @@ brew install tidy-html5 # Atom html Linter
 brew install tree # Prints filetree 
 brew install unrar # rar archive cli
 brew install wget
+brew install yarn
 brew install youtube-dl # YouTube Downloader
-brew install mas # Mac App Store CLI
 brew install wifi-password #CLI to pull up currently connected wifi's password
 
 brew install cowsay
