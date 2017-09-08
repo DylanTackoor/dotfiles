@@ -378,10 +378,6 @@ git clone git@github.com:DylanTackoor/oterodentalcenters.com.git
 echo "Installing NPM packages..."
 npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
 
-echo "Installing multiple Node.js versions..."
-nave install latest
-nave install lts
-
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine tokamak-terminal
 apm install language-babel atom-typescript sass-autocompile language-ejs language-htaccess
