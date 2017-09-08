@@ -83,11 +83,6 @@ pip3 install --upgrade pip
 # pip install --user --upgrade neovim
 # pip3 install --user --upgrade neovim
 
-# echo "Configuring fuck command... (lol)"
-# sudo pip3 install thefuck
-# fuck
-# fuck
-
 echo "Fixing NPM permission issues...."
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
