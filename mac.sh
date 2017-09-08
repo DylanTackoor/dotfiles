@@ -235,7 +235,6 @@ softwareupdate -l && sudo softwareupdate -i
 echo "Installing Brew and command-line applications..."
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew analytics off
-sudo chown -R $USER /usr/local #f ixes permission error w/nodejs
 brew install cask # Install GUI applications
 brew install dockutil # Dock rearragment cli
 
@@ -244,6 +243,7 @@ brew install ffmpeg # youtube-dl dependency
 brew install htop # Terminal activity monitor
 brew install neofetch # Displays system info
 brew install neovim # Vim fork
+brew install node
 brew install python
 brew install python3
 brew install shellcheck # Bash file linting
@@ -367,9 +367,6 @@ brew cask install quicklookapk
 echo "Setting up git identity..."
 git config --global user.name "$fullName"
 git config --global user.email $GitEmail
-
-echo "Installing Node.js"
-curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
