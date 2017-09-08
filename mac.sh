@@ -18,15 +18,9 @@ caffeinate -d 3600 &
 # echo "Joining Wifi..."
 # networksetup -setairportnetwork en0 WIFI_SSID WIFI_PASSWORD
 
-if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
-   test -d "${xpath}" && test -x "${xpath}" ; then
-   echo "Found Xcode command-line tools"
-else
-   echo "Installing command-line tools..."
-   xcode-select --install
-   read -n 1 -s -p "Once installed, press any key to continue"
-   printf "\n"
-fi
+echo "Installing Brew & Xcode's Command Line Tools"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew analytics off
 
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
@@ -229,9 +223,7 @@ defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
 
-echo "Installing Brew and command-line applications..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew analytics off
+echo "Installing command-line applications..."
 brew install cask # Install GUI applications
 brew install dockutil # Dock rearragment cli
 
