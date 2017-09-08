@@ -266,7 +266,6 @@ mas install 1163798887 #Savage = SVG optimizer
 echo "Installing cask apps..."
 brew tap caskroom/cask
 brew cask install 1password # Best password manager
-brew cask install alfred # Spotlight replacement
 brew cask install appcleaner # More throughrouly deletes apps
 # brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
 brew cask install bartender # Hides menu bar icons
@@ -287,7 +286,6 @@ brew cask install monolingual # removes unneeded languages
 brew cask install plex-media-player
 brew cask install skype
 # brew cask install simple-comic
-# brew cask install sitesucker #TODO: cask not found
 brew cask install steam
 brew cask install teamviewer # Cross platform remote desktop
 brew cask install telegram-desktop # Chat service
@@ -312,6 +310,7 @@ brew cask install onyx # Computer diagnostic tool
 brew cask install postman # Great API endpoint testing tool
 brew cask install robomongo # MongoDB GUI
 brew cask install sequel-pro # SQL GUI
+# brew cask install sitesucker #TODO: cask not found
 brew cask install unity # 3D application engine
 brew cask install visual-studio-code # Microsoft's lightweight text editor
 brew cask install virtualbox # Virtualization
