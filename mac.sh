@@ -310,6 +310,7 @@ brew cask install onyx # Computer diagnostic tool
 brew cask install postman # Great API endpoint testing tool
 brew cask install robomongo # MongoDB GUI
 brew cask install sequel-pro # SQL GUI
+brew cask install macdown # Markdown Editor w/side-by-side renderer
 # brew cask install sitesucker #TODO: cask not found
 brew cask install unity # 3D application engine
 brew cask install visual-studio-code # Microsoft's lightweight text editor
