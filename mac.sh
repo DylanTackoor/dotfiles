@@ -426,18 +426,18 @@ brew update; brew upgrade; brew prune; brew cleanup; brew doctor
 
 # TODO: confirm this is useful
 echo "Cleaning up Garage Band..."
-rm -rf /Applications/GarageBand
-rm -rf /Library/Application Support/GarageBand
-rm -rf /Library/Audio/Apple Loops/Apple/Apple\ Loops\ for\ GarageBand
-rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.bom
-rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.plist
-rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.bom
-rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.plist
-rm -rf ~/Library/Application Scripts/com.apple.STMExtension.GarageBand
-rm -rf ~/library/Containers/com.apple.STMExtension.GarageBand
+sudo rm -rf /Applications/GarageBand
+sudo rm -rf /Library/Application Support/GarageBand
+sudo rm -rf /Library/Audio/Apple Loops/Apple/Apple\ Loops\ for\ GarageBand
+sudo rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.bom
+sudo rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.plist
+sudo rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.bom
+sudo rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.plist
+sudo rm -rf ~/Library/Application Scripts/com.apple.STMExtension.GarageBand
+sudo rm -rf ~/library/Containers/com.apple.STMExtension.GarageBand
 
 echo "Cleaning up Office..."
-rm -rf /Applications/Microsoft\ Outlook.app
+sudo rm -rf /Applications/Microsoft\ Outlook.app
 
 echo "Alphabetizing Launchpad..."
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
