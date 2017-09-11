@@ -230,6 +230,7 @@ brew install htop # Terminal activity monitor
 brew install neofetch # Displays system info
 brew install neovim # Vim fork
 brew install node
+brew install ruby
 brew install python
 brew install python3
 brew install shellcheck # Bash file linting
@@ -378,6 +379,9 @@ git clone git@github.com:DylanTackoor/oterodentalcenters.com.git
 # TODO: Make this universal
 echo "Installing NPM packages..."
 npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
+
+echo "Installing Jekyll..."
+gem install jekyll bundler
 
 echo "Installing Atom plugins..."
 apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine tokamak-terminal
