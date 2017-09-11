@@ -323,7 +323,7 @@ brew cask install qlcolorcode # Syntax highlighted sourcecode
 brew cask install qlvideo
 brew cask install quicklook-csv
 brew cask install quicklook-json
-# brew cask install qlstephen
+brew cask install qlstephen # Plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.
 brew cask install qlmarkdown
 # brew cask install qlprettypatch
 brew cask install qlimagesize # Displays image size in preview
@@ -357,6 +357,7 @@ git clone git@github.com:DylanTackoor/HTML-Boilerplate.git
 git clone git@github.com:DylanTackoor/LAMP-Boilerplate.git
 git clone git@github.com:DylanTackoor/Express-Boilerplate.git
 git clone git@github.com:DylanTackoor/Unity-Boilerplate.git
+git clone git@github.com:DylanTackoor/Jekyll-Boilerplate.git
 
 mkdir ~/Developer/pearl
 cd ~/Developer/Pearl
