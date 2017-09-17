@@ -295,6 +295,7 @@ brew cask install toggldesktop # Time tracker
 brew cask install transmission # Best Mac/Linux client
 brew cask install vlc # Plays almost any video/audio filetype
 brew cask install whatsapp
+brew cask install daisydisk # Disk Cleaner
 # brew cask install yacreader
 
 # brew cask install atom # GitHub text editor
