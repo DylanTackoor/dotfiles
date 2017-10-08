@@ -56,7 +56,6 @@ sudo add-apt-repository 'deb http://typora.io linux/'
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 echo "Installing apps..."
-sudo apt update
 sudo apt upgrade -y
 sudo apt install -y git htop tmux zsh #CLIs speedtest_cli 
 sudo apt install -y clang-format shellcheck #linters tidy-html5
@@ -94,7 +93,7 @@ source ~/.profile
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-npm install -g typescript gulp node-sass reload @angular/cli express-generator csvtojson js-beautify create-react-app
+npm install -g typescript gulp node-sass reload csvtojson js-beautify
 
 echo "Installing Postman API tester..."
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
