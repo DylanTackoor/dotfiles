@@ -352,27 +352,6 @@ cd ~/Developer
 git clone git@github.com:DylanTackoor/dotfiles.git
 git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
-mkdir ~/Developer/boilerplates
-cd ~/Developer/boilerplates
-git clone git@github.com:DylanTackoor/HTML-Boilerplate.git
-git clone git@github.com:DylanTackoor/LAMP-Boilerplate.git
-git clone git@github.com:DylanTackoor/Express-Boilerplate.git
-git clone git@github.com:DylanTackoor/Unity-Boilerplate.git
-git clone git@github.com:DylanTackoor/Jekyll-Boilerplate.git
-
-mkdir ~/Developer/pearl
-cd ~/Developer/Pearl
-git clone git@github.com:hellopearlcare/geolocations.git
-git clone git@github.com:hellopearlcare/legal.git
-git clone git@github.com:hellopearlcare/feedback.git
-git clone git@github.com:hellopearlcare/dentists.git
-git clone git@github.com:jlares/pearl-backend.git
-git clone git@github.com:jlares/pearl-frontend.git
-
-mkdir ~/Developer/team53
-cd ~/Developer/Team53
-git clone git@github.com:DylanTackoor/oterodentalcenters.com.git
-
 # TODO: run this if Xcode.app exists
 # echo "Adding iOS/watchOS simulators to Launchpad..."
 # sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
