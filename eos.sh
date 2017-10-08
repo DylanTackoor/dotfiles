@@ -15,7 +15,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # Allows for adding package repos
-sudo apt install -y software-properties-common ubuntu-restricted-extras # TODO: research restricted extras being necessary. believe it's just for mp3
+sudo apt install -y software-properties-common
 
 echo "Adding repos..."
 sudo apt-add-repository -y ppa:nathandyer/vocal-stable #Vocal Podcast
