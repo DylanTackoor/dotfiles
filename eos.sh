@@ -87,7 +87,9 @@ apps=(
     code
     atom
     arduino
+    neovim
     nodejs
+    ruby-dev
     yarn
     php
     mongodb
@@ -116,13 +118,13 @@ eval $installApps
 # sudo dpkg --remove-architecture i386
 
 echo "Updating pip..."
-pip3 install --upgrade pip
-pip install speedtest-cli
+pip install --upgrade pip
+pip3 install --upgrade pip3
 
-# echo "Installing up Neovim providers..."
-# # sudo gem install neovim # TODO: fix this
-# pip install --user --upgrade neovim
-# pip3 install --user --upgrade neovim
+echo "Installing up Neovim providers..."
+sudo gem install neovim
+pip install --user --upgrade neovim
+pip3 install --user --upgrade neovim
 
 echo "Fixing NPM permission issues...."
 mkdir ~/.npm-global
@@ -207,6 +209,8 @@ mkdir ~/Developer/
 
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
+sudo apt update
+sudo apt upgrade -y
 sudo apt autoremove -y
 
 echo "Installing Oh-My-ZSH..."
