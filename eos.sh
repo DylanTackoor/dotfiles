@@ -18,18 +18,25 @@ sudo apt upgrade -y
 sudo apt install -y software-properties-common
 
 echo "Adding repos..."
-sudo apt-add-repository -y ppa:nathandyer/vocal-stable #Vocal Podcast
-sudo add-apt-repository -y ppa:webupd8team/atom # Atom text editor
-sudo add-apt-repository -y ppa:ondrej/php # PHP
-sudo add-apt-repository -y ppa:zeal-developers/ppa # Zeal code documentation index
-sudo add-apt-repository -y ppa:git-core/ppa # Git
-sudo add-apt-repository -y ppa:philip.scott/elementary-tweaks # elementaryOS system tweaks UI
-# sudo add-apt-repository -y ppa:webupd8team/java
-# sudo add-apt-repository -y ppa:atareao/telegram
-sudo apt-add-repository -y ppa:nathandyer/vocal-stable # elementaryOS Podcast organizer
-sudo apt-add-repository -y ppa:tomato-team/tomato-daily # elementaryOS time tracker
-sudo apt-add-repository -y ppa:bablu-boy/nutty.0.1 # elementaryOS network monitor
-# sudo add-apt-repository -y ppa:neovim-ppa/stable # Neovim # TODO: Figure out security problem here
+addRepo="sudo apt-add-repository -y ppa:"
+repos=(
+    nathandyer/vocal-stable #Vocal Podcast
+    webupd8team/atom # Atom text editor
+    ondrej/php # PHP
+    zeal-developers/ppa # Zeal code documentation index
+    git-core/ppa # Git
+    philip.scott/elementary-tweaks # elementaryOS system tweaks UI
+    nathandyer/vocal-stable # elementaryOS Podcast organizer
+    tomato-team/tomato-daily # elementaryOS time tracker
+    bablu-boy/nutty.0.1 # elementaryOS network monitor
+    # neovim-ppa/stable # Neovim # TODO: Figure out security problem here
+    # webupd8team/java
+)
+
+for repo in ${repos[@]}
+do
+    eval "$addRepo$repo"
+done
 
 # Google Chrome
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -51,23 +58,54 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 # Typora markdown editor
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
 sudo add-apt-repository 'deb http://typora.io linux/'
-
+ 
 # Node.js
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
 echo "Installing apps..."
-sudo apt upgrade -y
-sudo apt install -y git htop tmux zsh #CLIs speedtest_cli 
-sudo apt install -y clang-format shellcheck #linters tidy-html5
-sudo apt install -y steam calibre transmission google-chrome-stable typora vlc gimp inkscape gparted gnome-system-monitor #GUI Apps
-sudo apt install -y virtualbox docker # container stuff
-sudo apt install -y tlp tlp-rdw # Laptop power stuff
-sudo apt install -y zeal code atom arduino #neovim
-sudo apt install -y nodejs yarn php mongodb python3-pip python-dev python-pip python3-dev #oracle-java8-installer # Programming languages
-sudo apt install -y elementary-tweaks vocal tomato nutty #Elementary OS specific
-sudo apt install -y rar unrar zip unzip #unarchivers
-# sudo apt install -y valac libgranite-dev libpackagekit-glib2-dev libunity-dev #for eddy package installer
-# TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
+installApps="sudo apt install -y "
+apps=(
+    git
+    htop
+    tmux
+    zsh
+    clang-format shellcheck
+    steam
+    calibre
+    transmission
+    google-chrome-stable
+    typora
+    vlc
+    gimp
+    inkscape
+    gparted
+    gnome-system-monitor
+    virtualbox
+    docker
+    tlp tlp-rdw
+    zeal
+    code
+    atom
+    arduino
+    nodejs
+    yarn
+    php
+    mongodb
+    python3-pip python-dev python-pip python3-dev
+    elementary-tweaks
+    vocal
+    tomato
+    nutty
+    rar unrar zip unzip
+    # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
+)
+
+for app in ${apps[@]}
+do
+    installApps="$installApps $app"
+done
+
+eval $installApps
 
 # echo "Installling Teamviewer..."
 # sudo dpkg --add-architecture i386
@@ -124,10 +162,45 @@ EOL
 # bash /tmp/elementary-dropbox/install.sh -y
 
 echo "Installing Atom plugins..."
-apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify color-picker todo-show tokamak-terminal
-apm install language-babel atom-typescript sass-autocompile language-ejs language-htaccess
-apm install linter linter-tidy linter-csslint linter-php linter-scss-lint linter-clang linter-tslint linter-jsonlint linter-pylint linter-shellcheck linter-handlebars
-apm install minimap minimap-highlight-selected minimap-find-and-replace minimap-pigments minimap-linter
+installpackages="apm install "
+packages=(
+    file-icons
+    pigments
+    less-than-slash
+    highlight-selected
+    autocomplete-modules
+    atom-beautify
+    color-picker
+    todo-show
+    tokamak-terminal
+    language-babel
+    atom-typescript
+    sass-autocompile
+    language-htaccess
+    linter
+    linter-tidy
+    linter-csslint
+    linter-php
+    linter-scss-lint
+    linter-clang
+    linter-tslint
+    linter-jsonlint
+    linter-pylint
+    linter-shellcheck
+    linter-handlebars
+    minimap
+    minimap-highlight-selected
+    minimap-find-and-replace
+    minimap-pigments
+    minimap-linter
+)
+
+for package in ${packages[@]}
+do
+    installpackages="$installpackages $package"
+done
+
+eval $installpackages
 
 echo "Setting up folders..."
 mkdir ~/Developer/
