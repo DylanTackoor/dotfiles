@@ -220,31 +220,41 @@ echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
 
 echo "Installing command-line applications..."
-brew install cask # Install GUI applications
-brew install dockutil # Dock rearragment cli
-brew install mas # Mac App Store CLI
+installBrews="brew install "
+brews=(
+    cask # Install GUI applications
+    dockutil # Dock rearragment cli
+    mas # Mac App Store CLI
 
-brew install clang-format # C/C++/Obj-C linter
-brew install ffmpeg # youtube-dl dependency
-brew install htop # Terminal activity monitor
-brew install neofetch # Displays system info
-brew install neovim # Vim fork
-brew install node
-brew install ruby
-brew install python
-brew install python3
-brew install shellcheck # Bash file linting
-brew install speedtest_cli # Speedtest.net cli
-brew install tidy-html5 # Atom html Linter
-brew install tree # Prints filetree 
-brew install unrar # rar archive cli
-brew install wget
-brew install yarn
-brew install youtube-dl # YouTube Downloader
-brew install wifi-password #CLI to pull up currently connected wifi's password
+    clang-format # C/C++/Obj-C linter
+    ffmpeg # youtube-dl dependency
+    htop # Terminal activity monitor
+    neofetch # Displays system info
+    neovim # Vim fork
+    node
+    ruby
+    python
+    python3
+    shellcheck # Bash file linting
+    speedtest_cli # Speedtest.net cli
+    tidy-html5 # Atom html Linter
+    tree # Prints filetree 
+    unrar # rar archive cli
+    wget
+    yarn
+    youtube-dl # YouTube Downloader
+    wifi-password #CLI to pull up currently connected wifi's password
 
-brew install cowsay
-brew install no-more-secrets
+    cowsay
+    no-more-secrets
+)
+
+for brew in ${brews[@]}
+do
+    installBrews="$installBrews $brew"
+done
+
+eval $installBrews
 
 # Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
@@ -264,75 +274,82 @@ mas install 747633105  #Minify = HTML/CSS/JS minifier
 mas install 768053424  #Gapplin = SVG Viewer
 mas install 1163798887 #Savage = SVG optimizer
 
-echo "Installing cask apps..."
+echo "Installing casks..."
 brew tap caskroom/cask
-brew cask install 1password # Best password manager
-brew cask install appcleaner # More throughrouly deletes apps
-# brew cask install android-file-transfer # TODO: Replace this as it's pretty broken
-brew cask install bartender # Hides menu bar icons
-brew cask install caffeine # Menubar icon toggling computer sleep
-brew cask install cyberduck # FTP/SFTP client
-brew cask install dropbox
-brew cask install flux # Better dimming that night shift
-brew cask install front # Share email inbox app
-brew cask install firefox
-brew cask install get-lyrical # Adds lyrics to music selected in iTunes
-brew cask install gfxcardstatus # Notifications when graphics card changes
-brew cask install google-chrome
-brew cask install google-backup-and-sync # New Google Drive client
-brew cask install handbrake # Converts video formats
-brew cask install mailbutler # makes Mail.app not suck
-brew cask install microsoft-office
-brew cask install monolingual # removes unneeded languages
-brew cask install plex-media-player
-brew cask install skype
-# brew cask install simple-comic
-brew cask install steam
-brew cask install teamviewer # Cross platform remote desktop
-brew cask install telegram-desktop # Chat service
-brew cask install the-unarchiver # 
-brew cask install toggldesktop # Time tracker
-brew cask install transmission # Best Mac/Linux client
-brew cask install vlc # Plays almost any video/audio filetype
-brew cask install whatsapp
-brew cask install daisydisk # Disk Cleaner
-# brew cask install yacreader
+installCasks="brew cask install "
+casks=(
+    1password # Best password manager
+    appcleaner # More throughrouly deletes apps
+    # android-file-transfer # TODO: Replace this as it's pretty broken
+    bartender # Hides menu bar icons
+    caffeine # Menubar icon toggling computer sleep
+    cyberduck # FTP/SFTP client
+    dropbox
+    flux # Better dimming that night shift
+    front # Share email inbox app
+    firefox
+    get-lyrical # Adds lyrics to music selected in iTunes
+    gfxcardstatus # Notifications when graphics card changes
+    google-chrome
+    google-backup-and-sync # New Google Drive client
+    handbrake # Converts video formats
+    microsoft-office
+    monolingual # removes unneeded languages
+    plex-media-player
+    skype
+    # simple-comic
+    steam
+    teamviewer # Cross platform remote desktop
+    telegram-desktop # Chat service
+    the-unarchiver # 
+    toggldesktop # Time tracker
+    transmission # Best Mac/Linux client
+    vlc # Plays almost any video/audio filetype
+    whatsapp
+    daisydisk # Disk Cleaner
+    # yacreader
+    atom # GitHub text editor
+    arduino # Arduino controller IDE
+    calibre # eBook manager
+    dash # Offline documentation downloader/indexer w/IDE plugins
+    docker-toolbox
+    etcher # Linux live USB creator
+    imageoptim # Optimizes images to arbitray degrees
+    install-disk-creator # Used to create macOS install USBs
+    iterm2 # Alternative Terminal app
+    # jetbrains-toolbox
+    onyx # Computer diagnostic tool
+    postman # Great API endpoint testing tool
+    # robomongo # MongoDB GUI
+    sequel-pro # SQL GUI
+    typora # Markdown Editor
+    # sitesucker #TODO: cask not found
+    unity # 3D application engine
+    visual-studio-code # Microsoft's lightweight text editor
+    virtualbox # Virtualization
+    
+    qladdict # Subtitle srt files
+    qlcolorcode # Syntax highlighted sourcecode
+    qlvideo
+    quicklook-csv
+    quicklook-json
+    qlstephen # Plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.
+    qlmarkdown
+    # qlprettypatch
+    qlimagesize # Displays image size in preview
+    betterzipql
+    webpquicklook # Google's Webp image format
+    suspicious-package
+    provisionql
+    quicklookapk
+)
 
-# brew cask install atom # GitHub text editor
-brew cask install arduino # Arduino controller IDE
-brew cask install calibre # eBook manager
-brew cask install dash # Offline documentation downloader/indexer w/IDE plugins
-brew cask install docker-toolbox
-brew cask install etcher # Linux live USB creator
-brew cask install imageoptim # Optimizes images to arbitray degrees
-brew cask install install-disk-creator # Used to create macOS install USBs
-brew cask install iterm2 # Alternative Terminal app
-brew cask install jetbrains-toolbox
-brew cask install onyx # Computer diagnostic tool
-brew cask install postman # Great API endpoint testing tool
-brew cask install robomongo # MongoDB GUI
-brew cask install sequel-pro # SQL GUI
-brew cask install macdown # Markdown Editor w/side-by-side renderer
-# brew cask install sitesucker #TODO: cask not found
-brew cask install unity # 3D application engine
-brew cask install visual-studio-code # Microsoft's lightweight text editor
-brew cask install virtualbox # Virtualization
+for cask in ${casks[@]}
+do
+    installCasks="$installCasks $cask"
+done
 
-echo "Installing quicklook plugins..."
-brew cask install qladdict # Subtitle srt files
-brew cask install qlcolorcode # Syntax highlighted sourcecode
-brew cask install qlvideo
-brew cask install quicklook-csv
-brew cask install quicklook-json
-brew cask install qlstephen # Plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.
-brew cask install qlmarkdown
-# brew cask install qlprettypatch
-brew cask install qlimagesize # Displays image size in preview
-brew cask install betterzipql
-brew cask install webpquicklook # Google's Webp image format
-brew cask install suspicious-package
-brew cask install provisionql
-brew cask install quicklookapk
+eval $installCasks
 
 echo "Setting up git identity..."
 git config --global user.name "$fullName"
@@ -359,16 +376,51 @@ git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
+npm install -g typescript gulp node-sass reload nave csvtojson js-beautify create-react-app
 
 echo "Installing Jekyll..."
 gem install jekyll bundler
 
 echo "Installing Atom plugins..."
-apm install file-icons pigments less-than-slash highlight-selected autocomplete-modules atom-beautify auto-update-packages color-picker todo-show git-time-machine tokamak-terminal
-apm install language-babel atom-typescript sass-autocompile language-ejs language-htaccess
-apm install linter linter-tidy linter-csslint linter-php linter-scss-lint linter-clang linter-tslint linter-jsonlint linter-pylint linter-shellcheck linter-handlebars
-apm install minimap minimap-highlight-selected minimap-find-and-replace minimap-pigments minimap-linter
+installpackages="apm install "
+packages=(
+    file-icons
+    pigments
+    less-than-slash
+    highlight-selected
+    autocomplete-modules
+    atom-beautify
+    color-picker
+    todo-show
+    tokamak-terminal
+    language-babel
+    atom-typescript
+    sass-autocompile
+    language-htaccess
+    linter
+    linter-tidy
+    linter-csslint
+    linter-php
+    linter-scss-lint
+    linter-clang
+    linter-tslint
+    linter-jsonlint
+    linter-pylint
+    linter-shellcheck
+    linter-handlebars
+    minimap
+    minimap-highlight-selected
+    minimap-find-and-replace
+    minimap-pigments
+    minimap-linter
+)
+
+for package in ${packages[@]}
+do
+    installpackages="$installpackages $package"
+done
+
+eval $installpackages
 #Check the Hide Ignored Names from your file tree so that .DS_Store and .git don't appear needlessly.
 #atom-beautify HTML > indent inner html
 #atom-beautify Obj-C > clang-format
