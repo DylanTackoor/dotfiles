@@ -59,7 +59,7 @@ echo "Installing apps..."
 sudo apt upgrade -y
 sudo apt install -y git htop tmux zsh #CLIs speedtest_cli 
 sudo apt install -y clang-format shellcheck #linters tidy-html5
-sudo apt install -y steam calibre transmission google-chrome-stable typora vlc gimp inkscape gparted gnome-system-monitor telegram #GUI Apps
+sudo apt install -y steam calibre transmission google-chrome-stable typora vlc gimp inkscape gparted gnome-system-monitor #GUI Apps
 sudo apt install -y virtualbox docker # container stuff
 sudo apt install -y tlp tlp-rdw # Laptop power stuff
 sudo apt install -y zeal code atom arduino #neovim
@@ -79,6 +79,7 @@ sudo apt install -y rar unrar zip unzip #unarchivers
 
 echo "Updating pip..."
 pip3 install --upgrade pip
+pip install speedtest-cli
 
 # echo "Installing up Neovim providers..."
 # # sudo gem install neovim # TODO: fix this
