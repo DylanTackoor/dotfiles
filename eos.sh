@@ -29,7 +29,7 @@ repos=(
     nathandyer/vocal-stable # elementaryOS Podcast organizer
     tomato-team/tomato-daily # elementaryOS time tracker
     bablu-boy/nutty.0.1 # elementaryOS network monitor
-    # neovim-ppa/stable # Neovim # TODO: Figure out security problem here
+    neovim-ppa/stable # Neovim
     # webupd8team/java
 )
 
