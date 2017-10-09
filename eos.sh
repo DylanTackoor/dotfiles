@@ -223,7 +223,5 @@ python3 --version
 php -v
 echo "Typescript:"
 tsc -v
-mongod --version
-# docker -v
 
 # TODO: prompt to reboot
