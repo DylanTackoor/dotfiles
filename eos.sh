@@ -70,32 +70,21 @@ apps=(
     tmux
     zsh
     clang-format shellcheck
-    steam
-    calibre
+    steam calibre vocal
     transmission
-    google-chrome-stable
+    google-chrome-stable firefox
     typora
-    vlc
-    gimp
-    inkscape
+    gimp inkscape
     gparted
     gnome-system-monitor
     virtualbox
     docker
     tlp tlp-rdw
     zeal
-    code
-    atom
-    arduino
-    neovim
-    nodejs
-    ruby-dev
+    code atom arduino neovim
+    nodejs ruby-dev php python3-pip python-dev python-pip python3-dev
     yarn
-    php
-    mongodb
-    python3-pip python-dev python-pip python3-dev
     elementary-tweaks
-    vocal
     tomato
     nutty
     rar unrar zip unzip
