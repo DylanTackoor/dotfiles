@@ -83,7 +83,7 @@ apps=(
     zeal
     code atom arduino neovim
     nodejs ruby-dev php python3-pip python-dev python-pip python3-dev
-    yarn
+    yarn hugo
     elementary-tweaks
     tomato
     nutty
