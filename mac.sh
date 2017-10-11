@@ -351,6 +351,9 @@ done
 
 eval $installCasks
 
+echo "Installing pip packages..."
+sudo pip install pylint
+
 echo "Setting up git identity..."
 git config --global user.name "$fullName"
 git config --global user.email $GitEmail
@@ -377,9 +380,6 @@ git clone git@github.com:DylanTackoor/dylantackoor.com.git
 # TODO: Make this universal
 echo "Installing NPM packages..."
 npm install -g typescript gulp node-sass reload nave csvtojson js-beautify create-react-app
-
-echo "Installing Jekyll..."
-gem install jekyll bundler
 
 echo "Installing Atom plugins..."
 installpackages="apm install "
