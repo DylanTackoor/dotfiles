@@ -62,6 +62,10 @@ sudo add-apt-repository 'deb http://typora.io linux/'
 # Node.js
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 
+# Etcher
+echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
+sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
+
 echo "Installing apps..."
 installApps="sudo apt install -y "
 apps=(
@@ -77,6 +81,7 @@ apps=(
     gimp inkscape
     gparted
     gnome-system-monitor
+    etcher-electron
     virtualbox
     docker
     tlp tlp-rdw
@@ -88,7 +93,7 @@ apps=(
     tomato
     nutty
     rar unrar zip unzip
-    # TODO: figure out how to install Slack, Etcher, Docker, Telegram, Robo 3T
+    # TODO: figure out how to install Slack, Docker, Telegram, Robo 3T
 )
 
 for app in ${apps[@]}
