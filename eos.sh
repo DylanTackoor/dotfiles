@@ -200,6 +200,11 @@ eval $installpackages
 
 echo "Setting up folders..."
 mkdir ~/Developer/
+mkdir ~/.config
+
+# Setting up Neovim
+cd ~/.config || exit
+git clone git@github.com:DylanTackoor/nvim.git
 
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
