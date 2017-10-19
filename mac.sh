@@ -431,6 +431,7 @@ eval $installpackages
 
 echo "Installing Spacemacs..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+ln -s ~/Developer/dotfiles/.spacemacs ~/.spacemacs
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
