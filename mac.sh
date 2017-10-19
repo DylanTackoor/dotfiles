@@ -220,6 +220,11 @@ echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
 
 echo "Installing command-line applications..."
+# TODO: Clean this
+brew tap d12frosted/emacs-plus
+brew install emacs-plus --HEAD --with-natural-title-bars
+brew linkapps emacs-plus
+
 installBrews="brew install "
 brews=(
     cask # Install GUI applications
@@ -230,7 +235,6 @@ brews=(
     ffmpeg # youtube-dl dependency
     htop # Terminal activity monitor
     neofetch # Displays system info
-    neovim # Vim fork
     node
     ruby
     python
@@ -425,20 +429,8 @@ eval $installpackages
 #atom-beautify HTML > indent inner html
 #atom-beautify Obj-C > clang-format
 
-echo "Cloning Neovim setup..."
-mkdir ~/.config/
-cd ~/.config/ || exit
-git clone git@github.com:DylanTackoor/nvim.git
-
-echo "Installing up Neovim providers..."
-sudo gem install neovim
-pip install --upgrade pip
-pip2 install --user --upgrade neovim
-pip3 install --user --upgrade neovim
-
-echo "Installing vim-plug..."
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+echo "Installing Spacemacs..."
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
