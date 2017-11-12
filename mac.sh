@@ -428,6 +428,7 @@ yarn add global typescript gulp node-sass reload eslint
 echo "Installing Spacemacs..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -s ~/Developer/dotfiles/.spacemacs ~/.spacemacs
+yarn global add tern
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
