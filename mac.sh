@@ -284,7 +284,7 @@ installCasks="brew cask install "
 casks=(
     1password # Best password manager
     appcleaner # More throughrouly deletes apps
-    # android-file-transfer # TODO: Replace this as it's pretty broken
+    android-file-transfer # TODO: Replace this as it's pretty broken
     bartender # Hides menu bar icons
     caffeine # Menubar icon toggling computer sleep
     cyberduck # FTP/SFTP client
@@ -300,19 +300,19 @@ casks=(
     microsoft-office
     monolingual # removes unneeded languages
     plex-media-player
-    skype
     # simple-comic
     steam
     teamviewer # Cross platform remote desktop
     telegram-desktop # Chat service
-    the-unarchiver # 
+    the-unarchiver 
     toggldesktop # Time tracker
     transmission # Best Mac/Linux client
     vlc # Plays almost any video/audio filetype
-    whatsapp
+    musicbrainz-picard
+    # whatsapp
     daisydisk # Disk Cleaner
     # yacreader
-    atom # GitHub text editor
+    # atom # GitHub text editor
     arduino # Arduino controller IDE
     calibre # eBook manager
     dash # Offline documentation downloader/indexer w/IDE plugins
@@ -328,10 +328,9 @@ casks=(
     sequel-pro # SQL GUI
     typora # Markdown Editor
     # sitesucker #TODO: cask not found
-    unity # 3D application engine
-    visual-studio-code # Microsoft's lightweight text editor
+    # unity # 3D application engine
     virtualbox # Virtualization
-    
+
     qladdict # Subtitle srt files
     qlcolorcode # Syntax highlighted sourcecode
     qlvideo
@@ -383,51 +382,48 @@ git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-npm install -g typescript gulp node-sass reload nave csvtojson js-beautify create-react-app
+yarn add global typescript gulp node-sass reload eslint
 
-echo "Installing Atom plugins..."
-installpackages="apm install "
-packages=(
-    file-icons
-    pigments
-    less-than-slash
-    highlight-selected
-    autocomplete-modules
-    atom-beautify
-    color-picker
-    todo-show
-    tokamak-terminal
-    language-babel
-    atom-typescript
-    sass-autocompile
-    language-htaccess
-    linter
-    linter-tidy
-    linter-csslint
-    linter-php
-    linter-scss-lint
-    linter-clang
-    linter-tslint
-    linter-jsonlint
-    linter-pylint
-    linter-shellcheck
-    linter-handlebars
-    minimap
-    minimap-highlight-selected
-    minimap-find-and-replace
-    minimap-pigments
-    minimap-linter
-)
+# echo "Installing Atom plugins..."
+# installpackages="apm install "
+# packages=(
+#     file-icons
+#     pigments
+#     less-than-slash
+#     highlight-selected
+#     autocomplete-modules
+#     atom-beautify
+#     color-picker
+#     todo-show
+#     tokamak-terminal
+#     language-babel
+#     atom-typescript
+#     sass-autocompile
+#     language-htaccess
+#     linter
+#     linter-tidy
+#     linter-csslint
+#     linter-php
+#     linter-scss-lint
+#     linter-clang
+#     linter-tslint
+#     linter-jsonlint
+#     linter-pylint
+#     linter-shellcheck
+#     linter-handlebars
+#     minimap
+#     minimap-highlight-selected
+#     minimap-find-and-replace
+#     minimap-pigments
+#     minimap-linter
+# )
 
-for package in ${packages[@]}
-do
-    installpackages="$installpackages $package"
-done
+# for package in ${packages[@]}
+# do
+#     installpackages="$installpackages $package"
+# done
 
-eval $installpackages
-#Check the Hide Ignored Names from your file tree so that .DS_Store and .git don't appear needlessly.
-#atom-beautify HTML > indent inner html
-#atom-beautify Obj-C > clang-format
+# eval $installpackages
 
 echo "Installing Spacemacs..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -533,7 +529,7 @@ cd ~ || exit
 git clone https://github.com/powerline/fonts.git
 cd fonts || exit
 ./install.sh
-cd ..
+cd .. || exit
 rm -rf fonts
 
 echo "Installing Oh-My-ZSH..."
@@ -554,9 +550,6 @@ echo " THAT'S ALL, FOLKS! "
 echo "===================="
 echo ""
 git --version
-atom -v
-echo "Visual Studio Code:"
-code -v
 node -v
 npm -v
 python3 --version
@@ -564,7 +557,6 @@ php -v
 docker -v
 echo "Typescript:"
 tsc -v
-# mongod --version
 
 function reboot() {
   read -p "Do you want to reboot your computer now? (y/N)" choice
