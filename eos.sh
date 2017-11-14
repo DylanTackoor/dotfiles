@@ -57,9 +57,9 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
 sudo add-apt-repository 'deb http://typora.io linux/'
 
-# Etcher
-echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
-sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
+# # Etcher
+# echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/apt/sources.list.d/etcher.list
+# sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 379CE192D401AB61
 
 # Node.js
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -79,7 +79,7 @@ apps=(
     gimp inkscape
     gparted
     gnome-system-monitor
-    etcher-electron
+    # etcher-electron
     virtualbox
     docker
     tlp tlp-rdw
