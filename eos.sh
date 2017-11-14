@@ -19,8 +19,8 @@ sudo apt install -y software-properties-common
 
 echo "Adding repos..."
 addRepo="sudo apt-add-repository -y ppa:"
+
 repos=(
-    nathandyer/vocal-stable #Vocal Podcast
     ondrej/php # PHP
     zeal-developers/ppa # Zeal code documentation index
     git-core/ppa # Git
