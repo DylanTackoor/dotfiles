@@ -25,7 +25,7 @@ repos=(
     zeal-developers/ppa # Zeal code documentation index
     git-core/ppa # Git
     philip.scott/elementary-tweaks # elementaryOS system tweaks UI
-    nathandyer/vocal-stable # elementaryOS Podcast organizer
+    # nathandyer/vocal-stable # elementaryOS Podcast organizer # TODO: broken
     tomato-team/tomato-daily # elementaryOS time tracker
     bablu-boy/nutty.0.1 # elementaryOS network monitor
     # webupd8team/java
@@ -72,7 +72,7 @@ apps=(
     tmux
     zsh
     clang-format shellcheck
-    steam calibre vocal
+    steam calibre
     transmission
     google-chrome-stable firefox
     typora
