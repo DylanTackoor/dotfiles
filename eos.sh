@@ -21,7 +21,6 @@ echo "Adding repos..."
 addRepo="sudo apt-add-repository -y ppa:"
 repos=(
     nathandyer/vocal-stable #Vocal Podcast
-    webupd8team/atom # Atom text editor
     ondrej/php # PHP
     zeal-developers/ppa # Zeal code documentation index
     git-core/ppa # Git
@@ -29,7 +28,6 @@ repos=(
     nathandyer/vocal-stable # elementaryOS Podcast organizer
     tomato-team/tomato-daily # elementaryOS time tracker
     bablu-boy/nutty.0.1 # elementaryOS network monitor
-    neovim-ppa/stable # Neovim
     # webupd8team/java
 )
 
@@ -86,7 +84,7 @@ apps=(
     docker
     tlp tlp-rdw
     zeal
-    code atom arduino neovim
+    code arduino
     nodejs ruby-dev php python3-pip python-dev python-pip python3-dev
     yarn hugo
     elementary-tweaks
@@ -115,20 +113,20 @@ echo "Updating pip..."
 pip install --upgrade pip
 pip3 install --upgrade pip3
 
-echo "Installing up Neovim providers..."
-sudo gem install neovim
-pip install --user --upgrade neovim
-pip3 install --user --upgrade neovim
-
-echo "Fixing NPM permission issues...."
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
-export PATH=~/.npm-global/bin:$PATH
-source ~/.profile
+# echo "Fixing NPM permission issues...."
+# mkdir ~/.npm-global
+# npm config set prefix '~/.npm-global'
+# export PATH=~/.npm-global/bin:$PATH
+# source ~/.profile
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-npm install -g typescript gulp node-sass reload csvtojson js-beautify
+yarn global add typescript gulp node-sass reload eslint csvtojson
+
+echo "Installing Spacemacs..."
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+ln -s ~/Developer/dotfiles/config/.spacemacs ~/.spacemacs
+yarn global add tern
 
 echo "Installing Postman API tester..."
 wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
@@ -146,65 +144,13 @@ Type=Application
 Categories=Development;
 EOL
 
-# echo "Installing up Neovim providers..."
-# sudo gem install neovim
-# pip install --upgrade pip
-# pip2 install --user --upgrade neovim
-# pip3 install --user --upgrade neovim
-# #TODO: Install copy util
-
 # echo "Installing Dropbox + elementaryOS tweaks..."
 # git clone https://github.com/zant95/elementary-dropbox /tmp/elementary-dropbox
 # bash /tmp/elementary-dropbox/install.sh -y
 
-echo "Installing Atom plugins..."
-installpackages="apm install "
-packages=(
-    file-icons
-    pigments
-    less-than-slash
-    highlight-selected
-    autocomplete-modules
-    atom-beautify
-    color-picker
-    todo-show
-    tokamak-terminal
-    language-babel
-    atom-typescript
-    sass-autocompile
-    language-htaccess
-    linter
-    linter-tidy
-    linter-csslint
-    linter-php
-    linter-scss-lint
-    linter-clang
-    linter-tslint
-    linter-jsonlint
-    linter-pylint
-    linter-shellcheck
-    linter-handlebars
-    minimap
-    minimap-highlight-selected
-    minimap-find-and-replace
-    minimap-pigments
-    minimap-linter
-)
-
-for package in ${packages[@]}
-do
-    installpackages="$installpackages $package"
-done
-
-eval $installpackages
-
 echo "Setting up folders..."
 mkdir ~/Developer/
 mkdir ~/.config
-
-# Setting up Neovim
-cd ~/.config || exit
-git clone git@github.com:DylanTackoor/nvim.git
 
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
@@ -224,7 +170,6 @@ echo "===================="
 echo ""
 notify-send -i utilities-terminal elementary-script "Setup completed!"
 git --version
-atom -v
 echo "Visual Studio Code:"
 code -v
 node -v
