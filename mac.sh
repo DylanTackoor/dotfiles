@@ -25,10 +25,6 @@ brew analytics off
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
-# TODO: listen for -dev and -dylan flags
-
-
-# TODO: only ask if not -dylan
 # Capturing info for later
 echo "Full name:"
 read fullName
@@ -36,20 +32,10 @@ echo "Phone Number (XXX-XXX-XXX):"
 read phoneNumber
 echo "Contact Email:"
 read contactEmail
-echo "Apple ID Email:"
-read appleIDemail
-echo "Apple ID Password:"
-read appleIDpassword
-echo "Git email:"
-read GitEmail
-
-# TODO: if -dylan use these values
-# read fullName
-# read phoneNumber
-# read contactEmail
+# echo "Apple ID Email:"
 # read appleIDemail
+# echo "Apple ID Password:"
 # read appleIDpassword
-# read GitEmail
 
 # TODO: Research valid computer names
 # echo "Setting computer name (as done via System Preferences → Sharing)"
@@ -213,11 +199,20 @@ sudo osascript -e '
 # echo "Forcing Airdrop to always be on..."
 
 echo "Enabling daily autoupdates..."
-defaults write com.apple.commerce AutoUpdate -bool true
+defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
+defaults write com.apple.commerce AutoUpdate -bool true
+
 
 echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
+
+echo "Linking config files..."
+ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
+ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
+ln -s ~/Developer/dotfiles/config/.gitconfig ~/.gitconfig
+ln -s ~/Developer/dotfiles/config/.eslintrc.js ~/.eslintrc.js # Provides syntax rules for js without local eslintrc.js
 
 echo "Installing command-line applications..."
 # TODO: Clean this
@@ -263,8 +258,8 @@ eval $installBrews
 # Brew update checker with notification center support
 curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
-echo "Signing into Mac App Store..."
-mas signin $appleIDemail "$appleIDpassword"
+# echo "Signing into Mac App Store..."
+# mas signin $appleIDemail "$appleIDpassword"
 
 echo "Updating Mac App Store apps..."
 mas upgrade
@@ -357,10 +352,6 @@ eval $installCasks
 echo "Installing pip packages..."
 sudo pip install pylint
 
-echo "Setting up git identity..."
-git config --global user.name "$fullName"
-git config --global user.email $GitEmail
-
 # TODO: 
 # echo "Generating new ssh key and uploading to GitHub..."
 # echo "Enter Github token to add ssh key: "
@@ -427,12 +418,15 @@ yarn add global typescript gulp node-sass reload eslint
 
 echo "Installing Spacemacs..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-ln -s ~/Developer/dotfiles/.spacemacs ~/.spacemacs
+ln -s ~/Developer/dotfiles/config/.spacemacs ~/.spacemacs
 yarn global add tern
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
 defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
+
+echo "Configuring iTerm 2"
+defaults write com.googlecode.iterm2 PromptOnQuit -bool false # Don’t display the annoying prompt when quitting iTerm
 
 echo "Configuring transmission..."
 mkdir ~/Downloads/Torrenting
