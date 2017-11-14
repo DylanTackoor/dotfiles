@@ -214,12 +214,15 @@ ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
 ln -s ~/Developer/dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/Developer/dotfiles/config/.eslintrc.js ~/.eslintrc.js # Provides syntax rules for js without local eslintrc.js
 
-echo "Installing command-line applications..."
-# TODO: Clean this
+echo "Installing Spacemacs prereqs..."
+# TODO: Refactor if possible
 brew tap d12frosted/emacs-plus
+brew tap caskroom/fonts
+brew cask install font-source-code-pro
 brew install emacs-plus --HEAD --with-natural-title-bars
 brew linkapps emacs-plus
 
+echo "Installing command-line applications..."
 installBrews="brew install "
 brews=(
     cask # Install GUI applications
@@ -284,6 +287,7 @@ casks=(
     caffeine # Menubar icon toggling computer sleep
     cyberduck # FTP/SFTP client
     dropbox
+    emacs # Text editor
     flux # Better dimming that night shift
     front # Share email inbox app
     firefox
@@ -416,7 +420,7 @@ yarn add global typescript gulp node-sass reload eslint
 
 # eval $installpackages
 
-echo "Installing Spacemacs..."
+echo "Installing more Spacemacs stuff..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 ln -s ~/Developer/dotfiles/config/.spacemacs ~/.spacemacs
 yarn global add tern
