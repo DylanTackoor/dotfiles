@@ -377,7 +377,7 @@ git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-yarn add global typescript gulp node-sass reload eslint
+yarn global add typescript gulp node-sass reload eslint csvtojson
 
 # echo "Installing Atom plugins..."
 # installpackages="apm install "
