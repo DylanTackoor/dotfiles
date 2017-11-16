@@ -182,22 +182,6 @@ sudo osascript -e '
   end tell
 '
 
-# echo "Setting User profile picture if no Apple account..."
-# mkdir cd ~/Pictures/Profile/
-# cd ~/Pictures/Profile/ || exit
-# wget http://graph.facebook.com/100000998230153/picture?type=large&w‌​idth=720&height=720
-# dscl . delete /Users/admin jpegphoto
-# dscl . delete /Users/admin Picture
-# dscl . create /Users/admin Picture "/Library/User Pictures/wunderman.tif"
-
-# TODO: 4 finger dragging
-# TODO: Enable all trackpad gestures
-
-# TODO: Enable play feedback when volume is changed
-
-# TODO:
-# echo "Forcing Airdrop to always be on..."
-
 echo "Enabling daily autoupdates..."
 defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
@@ -211,6 +195,8 @@ softwareupdate -l && sudo softwareupdate -i
 echo "Linking config files..."
 ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
 ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+git config --list
 ln -s ~/Developer/dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/Developer/dotfiles/config/.eslintrc.js ~/.eslintrc.js # Provides syntax rules for js without local eslintrc.js
 
@@ -370,55 +356,9 @@ cd ~/Developer
 git clone git@github.com:DylanTackoor/dotfiles.git
 git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
-# TODO: run this if Xcode.app exists
-# echo "Adding iOS/watchOS simulators to Launchpad..."
-# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
-# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
-
 # TODO: Make this universal
 echo "Installing NPM packages..."
 yarn global add typescript gulp node-sass reload eslint csvtojson
-
-# echo "Installing Atom plugins..."
-# installpackages="apm install "
-# packages=(
-#     file-icons
-#     pigments
-#     less-than-slash
-#     highlight-selected
-#     autocomplete-modules
-#     atom-beautify
-#     color-picker
-#     todo-show
-#     tokamak-terminal
-#     language-babel
-#     atom-typescript
-#     sass-autocompile
-#     language-htaccess
-#     linter
-#     linter-tidy
-#     linter-csslint
-#     linter-php
-#     linter-scss-lint
-#     linter-clang
-#     linter-tslint
-#     linter-jsonlint
-#     linter-pylint
-#     linter-shellcheck
-#     linter-handlebars
-#     minimap
-#     minimap-highlight-selected
-#     minimap-find-and-replace
-#     minimap-pigments
-#     minimap-linter
-# )
-
-# for package in ${packages[@]}
-# do
-#     installpackages="$installpackages $package"
-# done
-
-# eval $installpackages
 
 echo "Installing more Spacemacs stuff..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -468,6 +408,25 @@ sudo rm -rf /Applications/Microsoft\ Outlook.app
 echo "Alphabetizing Launchpad..."
 defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 
+echo "Defaulting to Google Chrome..."
+open -a "Google Chrome" --args --make-default-browser
+
+echo "Setting up Powerline for ..."
+cd ~ || exit
+git clone https://github.com/powerline/fonts.git
+cd fonts || exit
+./install.sh
+cd .. || exit
+rm -rf fonts
+
+echo "Installing Oh-My-ZSH..."
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+chsh -s /bin/zsh
+# TODO: swap to agnoster theme
+# TODO: remove $User@%m from theme
+
+# TODO: Chrome open PDFs with Preview
+
 # TODO:
 # echo "Reorganizing dock..."
 # sudo dockutil --remove 'Siri' --allhomes
@@ -494,48 +453,25 @@ defaults write com.apple.dock ResetLaunchPad -bool true; killall Dock
 # sudo dockutil --add /Applications/Atom.app --after 'Webstorm' --allhomes
 # sudo dockutil --add /Applications/iTerm.app --after 'Atom' --allhomes
 
-echo "Defaulting to Google Chrome..."
-open -a "Google Chrome" --args --make-default-browser
+# TODO: run this if Xcode.app exists
+# echo "Adding iOS/watchOS simulators to Launchpad..."
+# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator.app" "/Applications/Simulator.app"
+# sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (Watch).app" "/Applications/Simulator (Watch).app"
 
-# TODO: Chrome open PDFs with Preview
+# TODO: 4 finger dragging
+# TODO: Enable all trackpad gestures
 
-# echo "Installing printer drivers..."
-# cd ~/Downloads/ || exit
-# wget http://business.toshiba.com/downloads/KB/f1Ulds/12966/TOSHIBA_ColorMFP_X7.dmg.gz
-# gunzip TOSHIBA_ColorMFP_X7.dmg.gz
-# sudo hdiutil attach TOSHIBA_ColorMFP_X7.dmg
-# cd /Volumes/TOSHIBA\ ColorMFP || exit
-# sudo installer -package /Volumes/TOSHIBA\ ColorMFP/TOSHIBA\ ColorMFP\ X7.pkg.pkg -target /
-# sudo hdiutil detach /Volumes/TOSHIBA\ ColorMFP
-# rm ~/Downloads/TOSHIBA_ColorMFP_X7.dmg
-# # TODO: Install Printer: 147.70.69.252 - http://macstuff.beachdogs.org/blog/?p=26
+# TODO: Enable play feedback when volume is changed
 
-# # Download/compile cs50.h
-# cd ~/Downloads/ || exit
-# git clone https://github.com/cs50/libcs50.git
-# cd libcs50 || exit
-# sudo make install
-# cd ..
-# rm -rf libcs50
+# TODO: Forcing Airdrop to always be on...
 
-# # Setup custom make50 command
-# # TODO: make this OS/shell dependent
-# echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.bash_profile
-# echo "alias make50='make CC=clang CFLAGS=\"-ggdb3 -O0 -std=c99 -Wall -Werror\" LDLIBS=\"-lcs50 -lm\"'" >> ~/.zshrc
-
-echo "Setting up Powerline for ..."
-cd ~ || exit
-git clone https://github.com/powerline/fonts.git
-cd fonts || exit
-./install.sh
-cd .. || exit
-rm -rf fonts
-
-echo "Installing Oh-My-ZSH..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-chsh -s /bin/zsh
-# TODO: swap to agnoster theme
-# TODO: remove $User@%m from theme
+# echo "Setting User profile picture if no Apple account..."
+# mkdir cd ~/Pictures/Profile/
+# cd ~/Pictures/Profile/ || exit
+# wget http://graph.facebook.com/100000998230153/picture?type=large&w‌​idth=720&height=720
+# dscl . delete /Users/admin jpegphoto
+# dscl . delete /Users/admin Picture
+# dscl . create /Users/admin Picture "/Library/User Pictures/wunderman.tif"
 
 # Post Install
 # make gfxcardstatus hidden by bartender
