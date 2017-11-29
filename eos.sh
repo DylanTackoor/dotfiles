@@ -121,7 +121,7 @@ pip3 install --upgrade pip3
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
-yarn global add typescript gulp node-sass reload eslint csvtojson
+yarn global add typescript gulp node-sass reload eslint csvtojson tldr
 
 echo "Installing Spacemacs..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
@@ -150,7 +150,6 @@ EOL
 
 echo "Setting up folders..."
 mkdir ~/Developer/
-mkdir ~/.config
 
 echo "Cleaning up..."
 sudo apt purge -y epiphany-browser
