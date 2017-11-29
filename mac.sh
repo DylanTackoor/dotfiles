@@ -163,7 +163,6 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 echo "Setting up folders..."
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
-
 mkdir ~/Developer/
 
 echo "Changing screenshot location..."
@@ -187,7 +186,6 @@ defaults write com.apple.SoftwareUpdate AutomaticCheckEnabled -bool true
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 defaults write com.apple.commerce AutoUpdate -bool true
-
 
 echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
@@ -270,7 +268,6 @@ casks=(
     appcleaner # More throughrouly deletes apps
     android-file-transfer # TODO: Replace this as it's pretty broken
     bartender # Hides menu bar icons
-    caffeine # Menubar icon toggling computer sleep
     cyberduck # FTP/SFTP client
     dropbox
     emacs # Text editor
@@ -387,11 +384,13 @@ defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.n
 defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
 
 echo "Cleaning up Brew..."
+brew cleanup
 brew cask cleanup
 brew update; brew upgrade; brew prune; brew cleanup; brew doctor
 
 # TODO: confirm this is useful
 echo "Cleaning up Garage Band..."
+# TODO: only do this if actually installed
 sudo rm -rf /Applications/GarageBand
 sudo rm -rf /Library/Application Support/GarageBand
 sudo rm -rf /Library/Audio/Apple Loops/Apple/Apple\ Loops\ for\ GarageBand
