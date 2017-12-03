@@ -25,6 +25,21 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-extra-parens": 2,
+        "require-jsdoc": 1,
+        "valid-jsdoc": 1,
+        "no-eval": 2,
+        "no-magic-numbers": 1,
+        "no-self-compare": 2,
+        "vars-on-top": 2,
+        "yoda": 2,
+        "camelcase": 2,
+        "arrow-body-style": 1,
+        "arrow-spacing": 2,
+        "arrow-parens": 2,
+        "eol-last": 2,
+        "capitalized-comments": 2,
+        "brace-style": 2
     }
 };
