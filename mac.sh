@@ -285,6 +285,7 @@ casks=(
     plex-media-player
     # simple-comic
     steam
+    signal
     teamviewer # Cross platform remote desktop
     telegram-desktop # Chat service
     the-unarchiver 
