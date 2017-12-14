@@ -218,6 +218,7 @@ brews=(
     htop # Terminal activity monitor
     neofetch # Displays system info
     node
+    r
     ruby
     python
     python3
@@ -271,7 +272,6 @@ casks=(
     bartender # Hides menu bar icons
     cyberduck # FTP/SFTP client
     dropbox
-    emacs # Text editor
     flux # Better dimming that night shift
     front # Share email inbox app
     firefox
@@ -309,6 +309,7 @@ casks=(
     onyx # Computer diagnostic tool
     postman # Great API endpoint testing tool
     # robomongo # MongoDB GUI
+    rstudio
     sequel-pro # SQL GUI
     typora # Markdown Editor
     # sitesucker #TODO: cask not found
