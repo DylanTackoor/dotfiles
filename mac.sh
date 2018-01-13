@@ -160,6 +160,9 @@ defaults write com.apple.finder _FXSortFoldersFirst -bool true
 echo "Enabling autoupdates for Safari extensions..."
 defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
+echo "Enabling SSH"
+sudo systemsetup -setremotelogin on
+
 echo "Setting up folders..."
 mkdir ~/Pictures/Screenshots/
 mkdir ~/Pictures/Wallpapers/
