@@ -93,4 +93,5 @@ alias gp="git push"
 alias gpo="git push origin"
 
 # Brew aliases
-alias update50="brew upgrade && brew cask upgrade && brew cleanup && brew cask cleanup"
+alias update50="brew upgrade && brew cask upgrade && mas upgrade && brew cleanup && brew cask cleanup"
+alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""
