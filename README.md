@@ -16,6 +16,16 @@ Goals:
 
 #### Installation
 
+Quick (less secure) way:
+
+```sh
+wget -O - https://raw.githubusercontent.com/DylanTackoor/dotfiles/master/mac.sh | sudo sh
+```
+
+
+
+Manual way:
+
 ```sh
 $ git clone https://github.com/dylantackoor/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles

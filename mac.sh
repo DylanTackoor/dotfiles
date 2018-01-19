@@ -163,11 +163,6 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 echo "Enabling SSH"
 sudo systemsetup -setremotelogin on
 
-echo "Setting up folders..."
-mkdir ~/Pictures/Screenshots/
-mkdir ~/Pictures/Wallpapers/
-mkdir ~/Developer/
-
 echo "Changing screenshot location..."
 defaults write com.apple.screencapture location ~/Pictures/Screenshots/ && killall SystemUIServer
 
@@ -192,6 +187,16 @@ defaults write com.apple.commerce AutoUpdate -bool true
 
 echo "Updating system..."
 softwareupdate -l && sudo softwareupdate -i
+
+echo "Setting up folders..."
+mkdir ~/Pictures/Screenshots/
+mkdir ~/Pictures/Wallpapers/
+mkdir ~/Developer/
+
+echo "Cloning repositories..."
+cd ~/Developer
+git clone git@github.com:DylanTackoor/dotfiles.git
+git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 echo "Linking config files..."
 ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
@@ -353,11 +358,6 @@ sudo pip install pylint
 # read github_title
 # export github_key=`cat $HOME/.ssh/id_rsa.pub`
 # curl -d "login=geetarista&token=${github_token}&title=`scutil --get ComputerName`&key=${github_key}" http://github.com/api/v2/yaml/user/key/add
-
-echo "Cloning repositories..."
-cd ~/Developer
-git clone git@github.com:DylanTackoor/dotfiles.git
-git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 # TODO: Make this universal
 echo "Installing NPM packages..."
