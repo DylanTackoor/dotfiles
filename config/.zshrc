@@ -89,7 +89,7 @@ alias gs="git status"
 alias gc="git commit"
 alias gcm="git commit -m"
 alias gcma="git commit -am"
-alias gp="git push"
+# alias gp="git push"
 alias gpo="git push origin"
 
 # Brew aliases
