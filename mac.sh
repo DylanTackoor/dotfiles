@@ -229,7 +229,7 @@ brews=(
     speedtest_cli # Speedtest.net cli
     tldr # man pages for humans
     tidy-html5 # Atom html Linter
-    tree # Prints filetree 
+    tree # Prints filetree
     unrar # rar archive cli
     wget
     yarn
