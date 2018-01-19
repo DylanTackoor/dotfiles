@@ -336,7 +336,7 @@ done
 eval $installCasks
 
 echo "Installing pip packages..."
-sudo pip install pylint
+pip3 install pylint
 
 # TODO: 
 # echo "Generating new ssh key and uploading to GitHub..."
