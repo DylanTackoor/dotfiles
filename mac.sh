@@ -241,7 +241,7 @@ done
 eval $installBrews
 
 # Brew update checker with notification center support
-curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
+# curl -s https://raw.githubusercontent.com/stephennancekivell/brew-update-notifier/master/install.sh | sh
 
 # echo "Signing into Mac App Store..."
 # mas signin $appleIDemail "$appleIDpassword"
