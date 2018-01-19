@@ -25,18 +25,6 @@ brew analytics off
 echo "Closing System Preferences if open..."
 osascript -e 'tell application "System Preferences" to quit'
 
-# Capturing info for later
-echo "Full name:"
-read fullName
-echo "Phone Number (XXX-XXX-XXX):"
-read phoneNumber
-echo "Contact Email:"
-read contactEmail
-# echo "Apple ID Email:"
-# read appleIDemail
-# echo "Apple ID Password:"
-# read appleIDpassword
-
 # TODO: Research valid computer names
 # echo "Setting computer name (as done via System Preferences → Sharing)"
 # sudo scutil --set ComputerName "0x6D746873"
@@ -64,7 +52,7 @@ sudo spctl --master-disable
 spctl --status
 
 echo "Setting lockscreen message..."
-sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to $fullName. Contact at $phoneNumber or $contactEmail"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "This Mac belongs to Dylan Tackoor. Contact at 786-471-5379 or mynameisdylantackoor@gmail.com"
 
 echo "Enabling tap to click for this user & login screen..."
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
