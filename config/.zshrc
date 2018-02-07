@@ -93,5 +93,6 @@ alias gcma="git commit -am"
 alias gpo="git push origin"
 
 # Brew aliases
-alias update50="brew upgrade && brew cask upgrade && mas upgrade && brew cleanup && brew cask cleanup"
+alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && brew cleanup && brew cask cleanup"
+alias spacemacs="emacs -nw"
 alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""
