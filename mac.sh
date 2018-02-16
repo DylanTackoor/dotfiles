@@ -38,6 +38,9 @@ defaults write com.apple.PowerChime ChimeOnAllHardware -bool true; open /System/
 echo "Syncing time..."
 sudo ntpdate -u time.apple.com
 
+echo "Enabling keyrepeat globally..."
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 echo "Enabling Safari developer options..."
 defaults write com.apple.Safari IncludeDevelopMenu -bool true && \
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true && \
@@ -256,61 +259,61 @@ mas install 436203431  #XnConvert
 mas install 784801555  #OneNote
 mas install 747633105  #Minify = HTML/CSS/JS minifier
 mas install 768053424  #Gapplin = SVG Viewer
+mas install 568494494  #Pocket
 mas install 1163798887 #Savage = SVG optimizer
 
 echo "Installing casks..."
 brew tap caskroom/cask
 installCasks="brew cask install "
 casks=(
+    # android-file-transfer # TODO: Replace this as it's pretty broken
+    # daisydisk # Disk Cleaner
+    # docker-toolbox
+    # jetbrains-toolbox
+    # simple-comic
+    # sitesucker #TODO: cask not found
+    # whatsapp
+    # yacreader
     1password # Best password manager
     appcleaner # More throughrouly deletes apps
-    android-file-transfer # TODO: Replace this as it's pretty broken
+    arduino # Arduino controller IDE
     bartender # Hides menu bar icons
+    calibre # eBook manager
     cyberduck # FTP/SFTP client
+    dash # Offline documentation downloader/indexer w/IDE plugins
     dropbox
-    flux # Better dimming that night shift
-    front # Share email inbox app
+    epic-games # Unreal Engine 4
+    etcher # Linux live USB creator
     firefox
+    flux # Better dimming that night shift
     get-lyrical # Adds lyrics to music selected in iTunes
     gfxcardstatus # Notifications when graphics card changes
-    google-chrome
     google-backup-and-sync # New Google Drive client
+    google-chrome
     handbrake # Converts video formats
-    microsoft-office
-    monolingual # removes unneeded languages
-    plex-media-player
-    # simple-comic
-    steam
-    signal
-    teamviewer # Cross platform remote desktop
-    telegram-desktop # Chat service
-    the-unarchiver 
-    toggldesktop # Time tracker
-    transmission # Best Mac/Linux client
-    vlc # Plays almost any video/audio filetype
-    musicbrainz-picard
-    # whatsapp
-    daisydisk # Disk Cleaner
-    # yacreader
-    # atom # GitHub text editor
-    arduino # Arduino controller IDE
-    calibre # eBook manager
-    dash # Offline documentation downloader/indexer w/IDE plugins
-    docker-toolbox
-    etcher # Linux live USB creator
+    harvest # Time tracker
     imageoptim # Optimizes images to arbitray degrees
     install-disk-creator # Used to create macOS install USBs
     iterm2 # Alternative Terminal app
-    # jetbrains-toolbox
+    microsoft-office
+    monolingual # removes unneeded languages
+    musicbrainz-picard # Music tagging
     onyx # Computer diagnostic tool
+    plex-media-player
     postman # Great API endpoint testing tool
-    # robomongo # MongoDB GUI
-    rstudio
+    robomongo # MongoDB GUI
+    rstudio # Data Science R IDE
     sequel-pro # SQL GUI
+    signal # Encrypted chat
+    steam # Video games
+    teamviewer # Cross platform remote desktop
+    telegram-desktop # Chat service
+    the-unarchiver
+    toggldesktop # Time tracker
+    transmission # Best Mac/Linux client
     typora # Markdown Editor
-    # sitesucker #TODO: cask not found
-    # unity # 3D application engine
     virtualbox # Virtualization
+    vlc # Plays almost any video/audio filetype
 
     qladdict # Subtitle srt files
     qlcolorcode # Syntax highlighted sourcecode
