@@ -253,7 +253,7 @@ echo "Updating Mac App Store apps..."
 mas upgrade
 
 echo "Installing Mac App Store apps..."
-# mas install 497799835 #Xcode
+mas install 497799835 #Xcode
 mas install 803453959  #Slack
 mas install 436203431  #XnConvert
 mas install 784801555  #OneNote
