@@ -74,6 +74,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
+export PATH="/usr/local/sbin:$PATH"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -88,11 +89,12 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias gs="git status"
 alias gc="git commit"
 alias gcm="git commit -m"
-alias gcma="git commit -am"
-# alias gp="git push"
+alias gcam="git commit -am"
 alias gpo="git push origin"
+alias gpush="git push"
+alias gpull="git pull"
 
 # Brew aliases
-alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && brew cleanup && brew cask cleanup"
+alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && tldr --update && brew cleanup && brew cask cleanup"
 alias spacemacs="emacs -nw"
-alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""
+alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""export PATH="/usr/local/sbin:$PATH"
