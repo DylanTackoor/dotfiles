@@ -1,19 +1,24 @@
 REM Install Chocolatey package manager
 Set-ExecutionPolicy unrestricted
 Invoke-Expression ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
+refreshenv
+choco install -y chocolatey-core.extension
 
-REM CLI tools
-choco install -y openssh
+REM Programming Languages
 choco install -y python3
-choco install -y youtube-dl
-choco install -y git.install
-choco install -y neovim
 choco install -y php
-choco install -y curl
-choco install -y wget
 choco install -y mysql
 choco install -y sqlite
 choco install -y nodejs.install
+choco install -y jre8
+
+REM CLI tools
+choco install -y openssh
+choco install -y youtube-dl
+choco install -y git.install
+choco install -y neovim
+choco install -y curl
+choco install -y wget
 choco install -y yarn
 
 REM Browsers
@@ -28,6 +33,7 @@ REM Messaging
 choco install -y telegram
 choco install -y whatsapp
 choco install -y slack
+choco install -y discord
 
 REM Cloud Storage
 choco install -y dropbox
@@ -38,6 +44,7 @@ REM Personal Library
 choco install -y itunes
 choco install -y calibre
 choco install -y plexmediaserver
+choco install -y vlc
 
 REM Games
 choco install -y steam
@@ -47,8 +54,6 @@ choco install -y minecraft
 
 REM Text Editors/IDEs
 choco install -y visualstudiocode
-choco install -y atom
-choco install -y unity
 choco install -y arduino
 
 REM Other Dev Tools
@@ -56,20 +61,23 @@ choco install -y velocity
 choco install -y toggl
 choco install -y cyberduck.install
 choco install -y putty.install
+choco install -y virtualbox
+choco install -y virtualbox.extensionpack
 
 REM Database Tools
 choco install -y postman
 choco install -y mysql.workbench
 
 REM Software Setup
-choco install -y virtualbox
-choco install -y virtualbox.extensionpack
-choco install -y docker-toolbox
+REM choco install -y docker-toolbox
 choco install -y etcher
+choco install -y rufus
 
-REM Image editing
+REM Game development
+choco install -y epicgameslauncher
 choco install -y inkscape
 choco install -y gimp
+choco install -y blender
 
 REM Monitoring
 choco install -y cpu-z
@@ -89,10 +97,12 @@ choco install -y teamviewer
 choco install -y f.lux
 choco install -y obs-studio
 choco install -y handbrake
+choco install -y geforce-experience
+
+refreshenv
 
 REM Node.js global packages
 yarn global add typescript gulp node-sass reload eslint csvtojson
-npm install -g typescript gulp node-sass reload nave @angular/cli express-generator csvtojson js-beautify create-react-app
 
 REM Visual Studio Code Extensions
 code --install-extension eg2.tslint
@@ -111,6 +121,9 @@ REM Disable UAC Prompt
 C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
 
 REM TODO: Disable Sticky Keys shortcut
+
+REM Disable Internet Explorer
+Disable-WindowsOptionalFeature -online -FeatureName internet-explorer-optional-amd64
 
 REM Run Windows Update
 wuauclt.exe /updatenow
