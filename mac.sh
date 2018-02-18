@@ -185,12 +185,13 @@ mkdir ~/Pictures/Wallpapers/
 mkdir ~/Developer/
 
 echo "Cloning repositories..."
-cd ~/Developer
+cd ~/Developer || exit
 git clone git@github.com:DylanTackoor/dotfiles.git
 git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 echo "Linking config files..."
 ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
+ln -s ~/Developer/dotfiles/config/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --list
