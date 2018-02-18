@@ -106,6 +106,23 @@ yarn global add typescript gulp node-sass reload eslint csvtojson
 
 REM Visual Studio Code Extensions
 code --install-extension eg2.tslint
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension zhuangtongfa.material-theme
+code --install-extension deerawan.vscode-dash
+code --install-extension mkxml.vscode-filesize
+code --install-extension felixfbecker.php-intellisense
+code --install-extension stubailo.ignore-gitignore
+code --install-extension christian-kohler.npm-intellisense
+code --install-extension ms-python.python
+code --install-extension timonwong.shellcheck
+code --install-extension shinnn.stylelint
+code --install-extension wayou.vscode-todo-highlight
+code --install-extension eg2.vscode-npm-script
+code --install-extension joelday.docthis
+code --install-extension pmneo.tsimporter
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension robertohuertasm.vscode-icons
+code --install-extension ms-vscode.cpptools
 
 REM Enables Windows Linux Subsystem (Bash)
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
