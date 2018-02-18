@@ -122,8 +122,5 @@ C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Micro
 
 REM TODO: Disable Sticky Keys shortcut
 
-REM Disable Internet Explorer
-Disable-WindowsOptionalFeature -online -FeatureName internet-explorer-optional-amd64
-
 REM Run Windows Update
 wuauclt.exe /updatenow
