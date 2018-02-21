@@ -387,6 +387,9 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 
 echo "Configuring iTerm 2"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false # Don’t display the annoying prompt when quitting iTerm
+# Touchbar Plugin
+cd ${ZSH_CUSTOM1:-$ZSH/custom}/plugins || exit
+git clone https://github.com/iam4x/zsh-iterm-touchbar.git
 
 echo "Configuring transmission..."
 mkdir ~/Downloads/Torrenting
