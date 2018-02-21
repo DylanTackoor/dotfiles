@@ -356,6 +356,7 @@ echo "Installing NPM packages..."
 yarn global add typescript gulp node-sass reload eslint csvtojson
 
 echo "Installing Visual Studio Code extensions..."
+code --install-extension felipe.nasc-touchbar
 code --install-extension eg2.tslint
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension zhuangtongfa.material-theme
