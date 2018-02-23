@@ -191,7 +191,6 @@ git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 echo "Linking config files..."
 ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
-ln -s ~/Developer/dotfiles/config/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --list
@@ -330,7 +329,8 @@ pip3 install pylint
 echo "Installing NPM packages..."
 yarn global add typescript gulp node-sass reload eslint csvtojson
 
-echo "Installing Visual Studio Code extensions..."
+echo "Setting up Visual Studio Code..."
+ln -s ~/Developer/dotfiles/config/settings.json ~/Library/Application\ Support/Code/User/settings.json
 code --install-extension eg2.tslint
 code --install-extension christian-kohler.npm-intellisense
 code --install-extension zhuangtongfa.material-theme
