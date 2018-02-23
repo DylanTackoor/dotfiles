@@ -186,8 +186,7 @@ mkdir ~/Developer/
 
 echo "Cloning repositories..."
 cd ~/Developer || exit
-git clone git@github.com:DylanTackoor/dotfiles.git
-git clone git@github.com:DylanTackoor/dylantackoor.com.git
+git clone https://github.com/DylanTackoor/dotfiles.git
 
 echo "Linking config files..."
 ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
