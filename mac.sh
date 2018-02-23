@@ -304,6 +304,8 @@ casks=(
     postman # Great API endpoint testing tool
     robomongo # MongoDB GUI
     rstudio # Data Science R IDE
+    resilio-sync # P2P folder sync tool
+    rocket # Gitmoji insertion tool
     sequel-pro # SQL GUI
     signal # Encrypted chat
     steam # Video games
@@ -315,6 +317,7 @@ casks=(
     typora # Markdown Editor
     virtualbox # Virtualization
     vlc # Plays almost any video/audio filetype
+    visual-studio-code # text editor
 
     qladdict # Subtitle srt files
     qlcolorcode # Syntax highlighted sourcecode
