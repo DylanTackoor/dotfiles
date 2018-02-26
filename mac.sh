@@ -117,7 +117,7 @@ echo "Allowing text-selection in Quick Look"
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 echo "Speeding up key repeat..."
-defaults write -g KeyRepeat -int 0
+defaults write -g KeyRepeat -int 2
 
 echo "Disabling HDD motion sensor protection..."
 sudo pmset -a sms 0
