@@ -1,6 +1,6 @@
 // Visual Studio Code settings
 {
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "One Dark Pro",
     "editor.tabSize": 2,
     "terminal.external.osxExec": "iTerm.app",
     "window.zoomLevel": 1,
@@ -29,5 +29,6 @@
     "nasc-touchbar.goToDefinition": false,
     "nasc-touchbar.showReferences": true,
     "nasc-touchbar.togglePanel": false,
-    "nasc-touchbar.selectNext": false
+    "nasc-touchbar.selectNext": false,
+    "eslint.packageManager": "yarn"
 }
