@@ -292,7 +292,6 @@ casks=(
     google-backup-and-sync # New Google Drive client
     google-chrome
     handbrake # Converts video formats
-    harvest # Time tracker
     imageoptim # Optimizes images to arbitray degrees
     install-disk-creator # Used to create macOS install USBs
     iterm2 # Alternative Terminal app
@@ -318,6 +317,12 @@ casks=(
     virtualbox # Virtualization
     vlc # Plays almost any video/audio filetype
     visual-studio-code # text editor
+
+    flycut # clipboard history
+    microsoft-teams # Slack clone
+    basecamp
+    harvest # Time tracker
+    spectacle
 
     qladdict # Subtitle srt files
     qlcolorcode # Syntax highlighted sourcecode
