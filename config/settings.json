@@ -30,5 +30,10 @@
     "nasc-touchbar.showReferences": true,
     "nasc-touchbar.togglePanel": false,
     "nasc-touchbar.selectNext": false,
-    "eslint.packageManager": "yarn"
+    "eslint.packageManager": "yarn",
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers"
+    ],
+    "gitlens.codeLens.authors.command": "gitlens.diffWithPrevious"
 }
