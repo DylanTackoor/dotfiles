@@ -98,3 +98,5 @@ alias gpull="git pull"
 alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && tldr --update && brew cleanup && brew cask cleanup"
 alias spacemacs="emacs -nw"
 alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""export PATH="/usr/local/sbin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
