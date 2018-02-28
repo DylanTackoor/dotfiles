@@ -4,7 +4,7 @@ What good is a dev setup if you can't replicate it? Don't you only really know s
 
 Goals:
 
-- Separation of concerns: This script will contain everything, but is subdivided into groups: User, Dev, Dylan
+- Automatic: minimal number of clicks required
 - Reusable: Can be be run multiple times to reset system without breaking things
 - Clarity: Documented meticulously to:
     1. Keep things clear for myself
@@ -16,15 +16,7 @@ Goals:
 
 #### Installation
 
-Quick (less secure) way:
-
-```sh
-wget -O - https://raw.githubusercontent.com/DylanTackoor/dotfiles/master/mac.sh | sudo sh
-```
-
-
-
-Manual way:
+Safe way:
 
 ```sh
 $ git clone https://github.com/dylantackoor/dotfiles.git ~/dotfiles
@@ -47,15 +39,21 @@ sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/dylan
 
 ### elementaryOS
 
+//TODO:
+
 ### Windows 10
+
+//TODO:
 
 ## Software
 
-### Vim
+Symlinks are created for tracking the following config files:
 
-### NeoVim
-
-### Zsh
+- Visual Studio Code
+- Spacemacs
+- Git
+- Zsh
+- eslint
 
 ## Sources
 
