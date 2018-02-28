@@ -519,6 +519,8 @@ php -v
 docker -v
 echo "Typescript:"
 tsc -v
+sw_vers # macOS version info
+uptime
 
 function reboot() {
   read -p "Do you want to reboot your computer now? (y/N)" choice
