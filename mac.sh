@@ -295,6 +295,7 @@ casks=(
     imageoptim # Optimizes images to arbitray degrees
     install-disk-creator # Used to create macOS install USBs
     iterm2 # Alternative Terminal app
+    marshallofsound-google-play-music-player # Google Play Music desktop wrapper
     microsoft-office
     monolingual # removes unneeded languages
     musicbrainz-picard # Music tagging
@@ -342,10 +343,9 @@ casks=(
 
 for cask in ${casks[@]}
 do
-    installCasks="$installCasks $cask"
+    eval "$installCasks $cask"
 done
 
-eval $installCasks
 
 echo "Installing pip packages..."
 pip3 install pylint
@@ -364,25 +364,42 @@ echo "Installing NPM packages..."
 yarn global add typescript gulp node-sass reload eslint csvtojson
 
 echo "Installing Visual Studio Code extensions..."
-code --install-extension felipe.nasc-touchbar
-code --install-extension eg2.tslint
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension zhuangtongfa.material-theme
-code --install-extension deerawan.vscode-dash
-code --install-extension mkxml.vscode-filesize
-code --install-extension felixfbecker.php-intellisense
-code --install-extension stubailo.ignore-gitignore
-code --install-extension christian-kohler.npm-intellisense
-code --install-extension ms-python.python
-code --install-extension timonwong.shellcheck
-code --install-extension shinnn.stylelint
-code --install-extension wayou.vscode-todo-highlight
-code --install-extension eg2.vscode-npm-script
-code --install-extension joelday.docthis
-code --install-extension pmneo.tsimporter
-code --install-extension formulahendry.auto-rename-tag
-code --install-extension robertohuertasm.vscode-icons
-code --install-extension ms-vscode.cpptools
+installExtension="code --install-extension"
+extensions=(
+    felipe.nasc-touchbar
+    shardulm94.trailing-spaces # Highlights whitespace to be deleted
+    dbaeumer.vscode-eslint # JavaScript style linting
+    christian-kohler.path-intellisense # validates/autocompletes filepaths
+    WakaTime.vscode-wakatime # Tracks time in different langauges
+    eamodio.gitlens # Best git intergration
+    eg2.tslint
+    2gua.rainbow-brackets # alternating bracket colors
+    pranaygp.vscode-css-peek # Peek at css definitions
+    Zignd.html-css-class-completion
+    christian-kohler.npm-intellisense # linting for file paths
+    zhuangtongfa.material-theme # Atom One Dark theme
+    deerawan.vscode-dash
+    mkxml.vscode-filesize # Shows current
+    felixfbecker.php-intellisense
+    stubailo.ignore-gitignore # applies gitignore rules to search
+    christian-kohler.npm-intellisense
+    ms-python.python
+    timonwong.shellcheck
+    shinnn.stylelint
+    wayou.vscode-todo-highlight # Highlights TODO: comments
+    eg2.vscode-npm-script
+    joelday.docthis # generates JS doc
+    formulahendry.auto-rename-tag # mirrors tag changes to opening & closing tags
+    robertohuertasm.vscode-icons
+    ms-vscode.cpptools
+
+    pmneo.tsimporter # automagically downloads typescript typings
+)
+
+for extension in ${extensions[@]}
+do
+    eval "$installExtension $extension"
+done
 
 echo "Installing more Spacemacs stuff..."
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
