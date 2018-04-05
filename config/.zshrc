@@ -99,4 +99,8 @@ alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global 
 alias spacemacs="emacs -nw"
 alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""export PATH="/usr/local/sbin:$PATH"
 
+# Other
+alias aws="~/bin/aws"
+alias chromeInsecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/test1 --no-default-browser-check --no-first-run --disable-default-apps --disable-popup-blocking --disable-translate --disable-web-security"
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
