@@ -95,7 +95,7 @@ alias gpush="git push"
 alias gpull="git pull"
 
 # Brew aliases
-alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && tldr --update && brew cleanup && brew cask cleanup"
+alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && upgrade_oh_my_zsh && tldr --update && brew cleanup && brew cask cleanup"
 alias spacemacs="emacs -nw"
 alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""export PATH="/usr/local/sbin:$PATH"
 
