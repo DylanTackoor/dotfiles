@@ -95,7 +95,7 @@ alias gpush="git push"
 alias gpull="git pull"
 
 # Brew aliases
-alias update50="brew upgrade && brew cask upgrade && mas upgrade && yarn global upgrade && upgrade_oh_my_zsh && tldr --update && brew cleanup && brew cask cleanup"
+alias update50="brew upgrade && brew cask upgrade && mas upgrade && npm upgrade -g && upgrade_oh_my_zsh && tldr --update && brew cleanup && brew cask cleanup"
 alias spacemacs="emacs -nw"
 alias youtube-dl numbered="youtube-dl -o \"%(playlist_index)s-%(title)s.%(ext)s\""export PATH="/usr/local/sbin:$PATH"
 
@@ -104,3 +104,4 @@ alias aws="~/bin/aws"
 alias chromeInsecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/test1 --no-default-browser-check --no-first-run --disable-default-apps --disable-popup-blocking --disable-translate --disable-web-security"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export LOLCOMMITS_STEALTH="true"
