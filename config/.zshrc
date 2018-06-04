@@ -104,4 +104,5 @@ alias aws="~/bin/aws"
 alias chromeInsecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/test1 --no-default-browser-check --no-first-run --disable-default-apps --disable-popup-blocking --disable-translate --disable-web-security"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export PATH="/usr/local/opt/node@8/bin:$PATH"
 export LOLCOMMITS_STEALTH="true"
