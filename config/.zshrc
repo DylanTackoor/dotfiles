@@ -106,3 +106,5 @@ alias chromeInsecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Ch
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 export LOLCOMMITS_STEALTH="true"
+export LOLCOMMITS_FORK="true"
+export LOLCOMMITS_DELAY="2"
