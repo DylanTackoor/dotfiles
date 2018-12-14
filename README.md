@@ -28,13 +28,13 @@ $ ./mac.sh
 Alternatively, you can install this into `~/dotfiles` remotely without Git using curl:
 
 ```sh
-sh -c "`curl -fsSL https://raw.github.com/dylantackoor/dotfiles/master/mac.sh`"
+sh -c "`curl -fsSL https://raw.github.com/dylantackoor/dotfiles/master/mac-online.sh`"
 ```
 
 Or, using wget:
 
 ```sh
-sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/dylantackoor/dotfiles/master/mac.sh`"
+sh -c "`wget -O - --no-check-certificate https://raw.githubusercontent.com/dylantackoor/dotfiles/master/mac-online.sh`"
 ```
 
 ### elementaryOS
