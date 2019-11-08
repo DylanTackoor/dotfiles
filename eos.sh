@@ -15,7 +15,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # Allows for adding package repos
-sudo apt install -y software-properties-common
+sudo apt install -y software-properties-common snapd
 
 echo "Adding repos..."
 addRepo="sudo apt-add-repository -y ppa:"
