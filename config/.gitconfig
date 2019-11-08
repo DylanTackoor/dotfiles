@@ -2,4 +2,4 @@
 	name = Dylan Tackoor
 	email = mynameisdylantackoor@gmail.com
 [core]
-	excludesfile = /Users/dylantackoor/.gitignore_global
+	excludesfile = /home/dylan/.gitignore_global
