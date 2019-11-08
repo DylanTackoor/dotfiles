@@ -190,13 +190,11 @@ git clone git@github.com:DylanTackoor/dotfiles.git
 git clone git@github.com:DylanTackoor/dylantackoor.com.git
 
 echo "Linking config files..."
-ln -s ~/Developer/dotfiles/config/.zshrc ~/.zshrc
-ln -s ~/Developer/dotfiles/config/settings.json ~/Library/Application\ Support/Code/User/settings.json
-ln -s ~/Developer/dotfiles/config/.gitignore_global ~/.gitignore_global
+ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --list
-ln -s ~/Developer/dotfiles/config/.gitconfig ~/.gitconfig
-ln -s ~/Developer/dotfiles/config/.eslintrc.js ~/.eslintrc.js # Provides syntax rules for js without local eslintrc.js
 
 echo "Installing Spacemacs prereqs..."
 # TODO: Refactor if possible
@@ -350,7 +348,7 @@ done
 echo "Installing pip packages..."
 pip3 install pylint
 
-# TODO: 
+# TODO:
 # echo "Generating new ssh key and uploading to GitHub..."
 # echo "Enter Github token to add ssh key: "
 # read github_token
