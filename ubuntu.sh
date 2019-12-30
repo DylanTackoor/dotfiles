@@ -44,10 +44,8 @@ wget -q -O - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 echo "Adding Docker repository..."
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   disco \
-   stable"
+wget -q -O - https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
 
 echo "Adding Minecraft Bedrock Edition repository..."
 sudo dpkg --add-architecture i386
@@ -123,6 +121,8 @@ echo "OLED Brightness Fix..."
 sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightness/
 cd /opt/icc-brightness/ || exit
 sudo make install
+
+# TODO: Trackpad gestures
 
 echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64 -O /usr/local/bin/ctop
