@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # zsh-wakatime
-plugins=(npm git-auto-fetch git zsh-nvm node zsh-autosuggestions)
+plugins=(autoupdate docker npm git-auto-fetch git zsh-nvm node zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -18,5 +18,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export PATH="/usr/local/sbin:$PATH"
 
 # Aliases
-alias update50="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && upgrade_oh_my_zsh && neofetch"
-alias lzd='lazydocker'
+alias update50="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && tldr --update && upgrade_oh_my_zsh && neofetch"
+
+[[ -s "/home/dylan/.gvm/scripts/gvm" ]] && source "/home/dylan/.gvm/scripts/gvm"
