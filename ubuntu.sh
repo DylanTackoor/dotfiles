@@ -114,7 +114,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
 echo "Installing snaps..."
-sudo snap install rocketchat-desktop discord
+sudo snap install rocketchat-desktop discord postman
 sudo snap install --classic slack
 
 echo "OLED Brightness Fix..."
@@ -160,6 +160,10 @@ echo "Cleaning up..."
 sudo apt update
 sudo apt autoremove -y
 
+echo "Fixing Razer suspend..."
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
+sudo update-grub
+
 echo ""
 echo "===================="
 echo " THAT'S ALL, FOLKS! "
@@ -170,3 +174,6 @@ code -v
 node -v
 npm -v
 tsc -v
+
+# # TODO: wait for Enter
+# sudo reboot
