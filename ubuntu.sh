@@ -7,13 +7,6 @@ echo " Ubuntu 19.10 SETUP SCRIPT "
 echo "==========================="
 echo ""
 
-echo "Setting up folders..."
-mkdir ~/Developer/
-ln -s ~/.dotfiles/wallpapers ~/Pictures/Wallpapers
-ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
-
 echo "Adding repos..."
 repos=(
     zeal-developers/ppa # Code documentation index
@@ -101,10 +94,21 @@ eval $installApps
 echo "Adding $USERNAME to open-razer group..."
 sudo gpasswd -a $USERNAME plugdev
 
+echo "Cloning..."
+git clone https://github.com/DylanTackoor/dotfiles.git ~/.dotfiles
+
+echo "Setting up folders..."
+chmod -R +x ./commands/*
+mkdir ~/Developer/
+ln -s ~/.dotfiles/wallpapers ~/Pictures/Wallpapers
+ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
+
 echo "Configuring Gnome..."
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.interface clock-format 12h
-gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark
+gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
@@ -163,6 +167,14 @@ sudo apt autoremove -y
 echo "Fixing Razer suspend..."
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
 sudo update-grub
+
+echo "Underclockingn CPU..."
+sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
+sudo set-max-cpu-frequency 2.2
+
+echo "Setting Brightness"
+sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
+set-lum 0.7
 
 echo ""
 echo "===================="

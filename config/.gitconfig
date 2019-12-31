@@ -1,5 +1,6 @@
 [user]
 	name = Dylan Tackoor
 	email = mynameisdylantackoor@gmail.com
+
 [core]
 	excludesfile = /home/dylan/.gitignore_global

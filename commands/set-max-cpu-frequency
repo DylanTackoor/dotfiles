@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+newvalue=${"$(echo "$1 * 1000000" | bc)"%.*}
+for file in /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq; do echo $newvalue > "$file"; done
