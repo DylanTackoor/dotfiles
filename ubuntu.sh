@@ -164,11 +164,6 @@ gvm install go1.13.5
 gvm use go1.13.5 --default
 gvm uninstall go1.4
 
-echo "Cleaning up..."
-rm -rf ~/Templates ~/Public
-sudo apt update
-sudo apt autoremove -y
-
 echo "Fixing Razer suspend..."
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
 sudo update-grub
@@ -180,6 +175,10 @@ sudo set-max-cpu-frequency 2.2
 echo "Setting Brightness"
 sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
 set-lum 0.7
+
+echo "Cleaning up..."
+rm -rf ~/Templates ~/Public
+sudo apt autoremove -y
 
 echo ""
 echo "===================="
