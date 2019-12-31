@@ -116,6 +116,7 @@ gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-autom
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action suspend
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
 
 echo "Installing snaps..."
 sudo snap install rocketchat-desktop discord postman
@@ -125,6 +126,9 @@ echo "OLED Brightness Fix..."
 sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightness/
 cd /opt/icc-brightness/ || exit
 sudo make install
+
+echo "Enabling Power Management"
+sudo systemctl enable tlp
 
 # TODO: Trackpad gestures
 
@@ -161,6 +165,7 @@ gvm use go1.13.5 --default
 gvm uninstall go1.4
 
 echo "Cleaning up..."
+rm -rf ~/Templates ~/Public
 sudo apt update
 sudo apt autoremove -y
 
