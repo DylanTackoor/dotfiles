@@ -1,3 +1,4 @@
 #!/bin/zsh
 
+# FIXME: getting xrand not found error but still works
 xrand --output eDP1 --brightness "$1" || xrandr --output eDP-1 --brightness "$1" || xrandr --output eDP-1–1 --brightness "$0"
