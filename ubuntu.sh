@@ -20,33 +20,46 @@ do
     eval "sudo apt-add-repository -y ppa:$repo"
 done
 
-# FIXME: make adding repos idempotent
+# TODO: clean this up somehow
+echo "Adding Repos..."
 
-echo "Adding Google Chrome repository..."
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+if ! grep -q "^deb .*http://dl.google.com/linux/chrome/deb/" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Google Chrome repository..."
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+fi
 
-echo "Adding Steam repository..."
-wget http://repo.steampowered.com/steam/signature.gpg && sudo apt-key add signature.gpg
-sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list'
+if ! grep -q "^deb .*http://repo.steampowered.com/steam/" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Steam repository..."
+    wget http://repo.steampowered.com/steam/signature.gpg && sudo apt-key add signature.gpg
+    sudo sh -c 'echo "deb http://repo.steampowered.com/steam/ precise steam" >> /etc/apt/sources.list.d/steam.list'
+fi
 
-echo "Adding Visual Studio Code repository..."
-wget https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+if ! grep -q "^deb .*https://packages.microsoft.com/repos/vscode" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Visual Studio Code repository..."
+    wget https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+fi
 
-echo "Adding Spotify repository..."
-wget -q -O - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+if ! grep -q "^deb .*http://repository.spotify.com" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Spotify repository..."
+    wget -q -O - https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+fi
 
-echo "Adding Docker repository..."
-wget -q -O - https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
+if ! grep -q "^deb .*https://download.docker.com/linux/ubuntu" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Docker repository..."
+    wget -q -O - https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable"
+fi
 
-echo "Adding Minecraft Bedrock Edition repository..."
-sudo dpkg --add-architecture i386
-wget -q -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add -
-sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ disco main'
+if ! grep -q "^deb .*http://mcpelauncher.mrarm.io/apt/ubuntu/" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+    echo "Adding Minecraft Bedrock Edition repository..."
+    sudo dpkg --add-architecture i386
+    wget -q -O - https://mcpelauncher.mrarm.io/apt/conf/public.gpg.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ disco main'
+fi
 
 echo "Updating..."
 sudo apt update
