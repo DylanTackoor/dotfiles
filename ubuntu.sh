@@ -13,11 +13,14 @@ repos=(
     git-core/ppa # Git
     linrunner/tlp # Battery optimizations
     openrazer/stable # Razer Hardware Drivers
+    # ppa:boltgolt/howdy # Face Unlock
 )
 for repo in ${repos[@]}
 do
     eval "sudo apt-add-repository -y ppa:$repo"
 done
+
+# FIXME: make adding repos idempotent
 
 echo "Adding Google Chrome repository..."
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -67,7 +70,9 @@ apps=(
     tlp tlp-rdw
     zeal
     code
+    plank
     rar unrar zip unzip
+    # howdy
 
     # OLED Brightness Fix
     liblcms2-dev
@@ -91,9 +96,6 @@ do
 done
 eval $installApps
 
-echo "Adding $USERNAME to open-razer group..."
-sudo gpasswd -a $USERNAME plugdev
-
 echo "Cloning..."
 git clone https://github.com/DylanTackoor/dotfiles.git ~/.dotfiles
 
@@ -105,19 +107,6 @@ ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
 
-echo "Configuring Gnome..."
-gsettings set org.gnome.desktop.datetime automatic-timezone true
-gsettings set org.gnome.desktop.interface clock-format 12h
-gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
-gsettings set org.gnome.desktop.privacy remove-old-temp-files true
-gsettings set org.gnome.desktop.privacy remove-old-trash-files true
-gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
-gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
-gsettings set org.gnome.settings-daemon.plugins.power power-button-action suspend
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
-gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
-
 echo "Installing snaps..."
 sudo snap install rocketchat-desktop discord postman
 sudo snap install --classic slack
@@ -127,10 +116,12 @@ sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightnes
 cd /opt/icc-brightness/ || exit
 sudo make install
 
-echo "Enabling Power Management"
-sudo systemctl enable tlp
-
 # TODO: Trackpad gestures
+# echo "Enabling Trackpad gestures..."
+# sudo gpasswd -a $USER input
+# sudo apt install -y libinput-tools ruby xdotool
+# sudo gem install fusuma
+# gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled
 
 echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64 -O /usr/local/bin/ctop
@@ -144,6 +135,43 @@ npm i -g typescript servor gatsby-cli tldr
 
 echo "Updating tldr pages..."
 tldr --update
+
+echo "Enabling Power Management"
+sudo systemctl enable tlp
+
+echo "Adding $USERNAME to open-razer group..."
+sudo gpasswd -a $USERNAME plugdev
+
+# TODO: Apple Emoji
+# echo "Adding Apple Emoji..."
+# sudo gem install bundler
+# sudo git clone git@github.com:samuelngs/apple-emoji-linux.git /opt/apple-emoji-linux
+# bundle install
+
+echo "Fixing Razer suspend..."
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
+sudo update-grub
+
+echo "Underclockingn CPU..."
+sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
+sudo set-max-cpu-frequency 2.2
+
+echo "Setting Brightness"
+sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
+set-lum 0.7
+
+echo "Configuring Gnome..."
+gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
+gsettings set org.gnome.desktop.datetime automatic-timezone true
+gsettings set org.gnome.desktop.interface clock-format 12h
+gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
+gsettings set org.gnome.desktop.privacy remove-old-temp-files true
+gsettings set org.gnome.desktop.privacy remove-old-trash-files true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action suspend
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -164,20 +192,9 @@ gvm install go1.13.5
 gvm use go1.13.5 --default
 gvm uninstall go1.4
 
-echo "Fixing Razer suspend..."
-sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
-sudo update-grub
-
-echo "Underclockingn CPU..."
-sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
-sudo set-max-cpu-frequency 2.2
-
-echo "Setting Brightness"
-sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
-set-lum 0.7
-
 echo "Cleaning up..."
 rm -rf ~/Templates ~/Public
+sudo apt remove -y gnome-shell-extension-ubuntu-dock
 sudo apt autoremove -y
 
 echo ""
@@ -191,5 +208,7 @@ node -v
 npm -v
 tsc -v
 
-# # TODO: wait for Enter
+# # TODO: Reboot after Enter
 # sudo reboot
+
+# xserver-xorg-input-synaptics
