@@ -119,6 +119,7 @@ ln -s ~/.dotfiles/wallpapers ~/Pictures/Wallpapers
 ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
+ln -s ~/.dotfiles/config/libinput-gestures.conf ~/.config/libinput-gestures.conf
 
 echo "Installing snaps..."
 sudo snap install rocketchat-desktop discord postman
@@ -131,10 +132,14 @@ sudo make install
 
 # TODO: Trackpad gestures
 # echo "Enabling Trackpad gestures..."
-# sudo gpasswd -a $USER input
-# sudo apt install -y libinput-tools ruby xdotool
-# sudo gem install fusuma
-# gsettings set org.gnome.desktop.peripherals.touchpad send-events enabled
+sudo gpasswd -a $USER input
+sudo apt install  -y python3 python3-setuptools xdotool python3-gi libinput-tools python-gobject xdotool wmctrl
+sudo git clone https://github.com/bulletmark/libinput-gestures.git /opt/libinput-gestures/
+cd /opt/libinput-gestures/ && sudo make install
+libinput-gestures-setup autostart
+libinput-gestures-setup start
+sudo git clone https://gitlab.com/cunidev/gestures /opt/gestures
+cd /opt/gestures && sudo python3 setup.py install
 
 echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64 -O /usr/local/bin/ctop
@@ -180,6 +185,7 @@ gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
+gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action suspend
