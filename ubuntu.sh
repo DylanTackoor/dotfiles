@@ -177,6 +177,9 @@ echo "Setting Brightness"
 sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
 set-lum 0.7
 
+echo "Downloading Gnome extensions..."
+sudo git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
+
 echo "Configuring Gnome..."
 gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
 gsettings set org.gnome.desktop.datetime automatic-timezone true
