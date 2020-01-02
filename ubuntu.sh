@@ -130,8 +130,7 @@ sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightnes
 cd /opt/icc-brightness/ || exit
 sudo make install
 
-# TODO: Trackpad gestures
-# echo "Enabling Trackpad gestures..."
+echo "Enabling Trackpad gestures..."
 sudo gpasswd -a $USER input
 sudo apt install  -y python3 python3-setuptools xdotool python3-gi libinput-tools python-gobject xdotool wmctrl
 sudo git clone https://github.com/bulletmark/libinput-gestures.git /opt/libinput-gestures/
