@@ -159,7 +159,7 @@ sudo systemctl enable tlp
 echo "Adding $USERNAME to open-razer group..."
 sudo gpasswd -a $USERNAME plugdev
 
-# TODO: Apple Emoji
+# TODO: Install Apple Emoji font
 # echo "Adding Apple Emoji..."
 # sudo gem install bundler
 # sudo git clone git@github.com:samuelngs/apple-emoji-linux.git /opt/apple-emoji-linux
@@ -178,7 +178,13 @@ sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
 set-lum 0.7
 
 echo "Downloading Gnome extensions..."
+# sudo git clone https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows.git /usr/share/gnome-shell/extensions/remove-dropdown-arrows@mpdeimos.com
+sudo git clone https://github.com/richard-fisher/hide-activities.git /usr/share/gnome-shell/extensions/hide-activities-button@gnome-shell-extensions.bookmarkd.xyz
 sudo git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
+sudo git clone https://github.com/kgshank/gse-sound-output-device-chooser.git /opt/gse-sound-output-device-chooser
+sudo ln -s /opt/gse-sound-output-device-chooser/sound-output-device-chooser@kgshank.net /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
+sudo git clone https://github.com/maoschanz/emoji-selector-for-gnome.git /opt/emoji-selector-for-gnome/
+sudo ln -s /opt/emoji-selector-for-gnome/emoji-selector@maestroschan.fr /usr/share/gnome-shell/extensions/emoji-selector@maestroschan.fr
 
 echo "Configuring Gnome..."
 gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
@@ -228,6 +234,8 @@ code -v
 node -v
 npm -v
 tsc -v
+gvm version
+go version
 
 # Prompt for reboot
 function reboot() {
@@ -246,5 +254,5 @@ then
   sudo reboot
   exit 0
 else
-  exit 1
+  exit 0
 fi
