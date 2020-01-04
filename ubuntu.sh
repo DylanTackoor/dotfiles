@@ -67,6 +67,7 @@ sudo apt upgrade -y
 echo "Installing apps..."
 apps=(
     git
+    nvidia-prime nvidia-settings xserver-xorg-video-nvidia-435
     htop
     zsh
     gnome-calendar gnome-photos gnome-maps geary
