@@ -146,9 +146,6 @@ echo "Installing ctop"
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.2/ctop-0.7.2-linux-amd64 -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
 
-echo "Installing Visual Studio Code sync extension..."
-code --install-extension shan.code-settings-sync
-
 echo "Installing NPM packages..."
 npm i -g typescript servor gatsby-cli tldr
 
@@ -235,6 +232,39 @@ export GOROOT_BOOTSTRAP=$GOROOT
 gvm install go1.13.5
 gvm use go1.13.5 --default
 gvm uninstall go1.4
+
+echo "Setting up Visual Studio Code..."
+ln -s ~/.dotfiles/config/vscode/keybindings-ubuntu.json ~/.config/Code/User/keybindings.json
+ln -s ~/.dotfiles/config/vscode/settings.json ~/.config/Code/User/settings.json
+ln -s ~/.dotfiles/config/vscode/snippets ~/.config/Code/User/snippets
+
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension deerawan.vscode-dash
+code --install-extension eamodio.gitlens
+code --install-extension eg2.vscode-npm-script
+code --install-extension esbenp.prettier-vscode
+code --install-extension fabiospampinato.vscode-todo-plus
+code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension kisstkondoros.vscode-codemetrics
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vscode.atom-keybindings
+code --install-extension ms-vscode.Go
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension pflannery.vscode-versionlens
+code --install-extension ryu1kn.partial-diff
+code --install-extension Shan.code-settings-sync
+code --install-extension shardulm94.trailing-spaces
+code --install-extension stevencl.addDocComments
+code --install-extension stubailo.ignore-gitignore
+code --install-extension Tyriar.sort-lines
+code --install-extension viktorqvarfordt.vscode-pitch-black-theme
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension vscodevim.vim
+code --install-extension WakaTime.vscode-wakatime
+code --install-extension wix.vscode-import-cost
 
 echo "Cleaning up..."
 rm -rf ~/Templates ~/Public

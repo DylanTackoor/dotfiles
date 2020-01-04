@@ -1,0 +1,93 @@
+{
+	"gitlens.advanced.messages": {
+		"suppressShowKeyBindingsNotice": true
+	},
+	"workbench.colorTheme": "Pitch Black",
+	"terminal.integrated.shell.linux": "/bin/zsh",
+	"terminal.integrated.shell.osx": "/bin/zsh",
+	"window.zoomLevel": 1,
+	"editor.formatOnPaste": true,
+	"editor.tabSize": 2,
+	"terminal.integrated.cursorStyle": "line",
+	"terminal.integrated.cursorBlinking": true,
+	"breadcrumbs.enabled": true,
+	"editor.renderWhitespace": "all",
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"debug.inlineValues": true,
+	"terminal.external.osxExec": "Hyper.app",
+	"npm.enableScriptExplorer": true,
+	"liveshare.allowGuestDebugControl": true,
+	"liveshare.allowGuestTaskControl": true,
+	"workbench.statusBar.feedback.visible": false,
+	"git.autofetch": true,
+	"eslint.alwaysShowStatus": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"versionlens.showVersionLensesAtStartup": false,
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"editor.minimap.enabled": false,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"html.format.indentInnerHtml": true,
+	"html.format.indentHandlebars": true,
+	"npm-intellisense.scanDevDependencies": true,
+	"plantuml.render": "PlantUMLServer",
+	"workbench.startupEditor": "welcomePage",
+	"sync.gist": "4a02124192924e031a57add7aa00327e",
+	"editor.insertSpaces": false,
+	"tslint.autoFixOnSave": true,
+	"terminal.integrated.rendererType": "dom",
+	"javascript.suggest.completeFunctionCalls": true,
+	"typescript.suggest.completeFunctionCalls": true,
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+	"tslint.alwaysShowStatus": true,
+	"editor.smoothScrolling": true,
+	"editor.largeFileOptimizations": false,
+	"prettier.jsxSingleQuote": true,
+	"prettier.semi": false,
+	"prettier.singleQuote": true,
+	"prettier.useTabs": true,
+	"browser-preview.startUrl": "https://localhost:8000/",
+	"terminal.explorerKind": "external",
+	"gitlens.mode.active": "review",
+	"terminal.integrated.enableBell": true,
+	"files.associations": {
+		".gcloudignore": "ignore"
+	},
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"liveshare.featureSet": "stable",
+	"workbench.iconTheme": "vscode-icons",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.formatOnSave": true,
+	"glTF.defaultV1Engine": "Three.js",
+	"glTF.defaultV2Engine": "Three.js",
+	"go.formatTool": "goimports",
+	"go.useLanguageServer": true,
+	"git.ignoreMissingGitWarning": true,
+	"terraform.indexing": {
+		"enabled": false,
+		"liveIndexing": false,
+		"delay": 500,
+		"exclude": [".terraform/**/*", "**/.terraform/**/*"]
+	},
+	"terraform.languageServer": {
+		"enabled": true,
+		"args": []
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"diffEditor.ignoreTrimWhitespace": false
+}
