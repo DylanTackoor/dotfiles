@@ -1,4 +1,5 @@
 {
+	"telemetry.enableTelemetry": false,
 	"gitlens.advanced.messages": {
 		"suppressShowKeyBindingsNotice": true
 	},
