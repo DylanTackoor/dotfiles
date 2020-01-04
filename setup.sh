@@ -9,8 +9,6 @@ esac
 
 # TODO: if machine includes UNKNOWN, log error and exit 1
 
-script=test.sh
-
 if [ -d ~/.dotfiles ]; then
     echo "Detected ${system}, using local ${script}"
     ./"${script}"
