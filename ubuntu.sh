@@ -10,13 +10,12 @@ echo ""
 echo "Adding repos..."
 repos=(
     zeal-developers/ppa # Code documentation index
-    git-core/ppa # Git
-    linrunner/tlp # Battery optimizations
-    openrazer/stable # Razer Hardware Drivers
+    git-core/ppa        # Git
+    linrunner/tlp       # Battery optimizations
+    openrazer/stable    # Razer Hardware Drivers
     # ppa:boltgolt/howdy # Face Unlock
 )
-for repo in "${repos[@]}"
-do
+for repo in "${repos[@]}"; do
     eval "sudo apt-add-repository -y ppa:$repo"
 done
 
@@ -37,7 +36,7 @@ fi
 
 if ! grep -q "^deb .*https://packages.microsoft.com/repos/vscode" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     echo "Adding Visual Studio Code repository..."
-    wget https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    wget https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 fi
@@ -105,8 +104,7 @@ apps=(
     # Minecraft
     mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa-dev:i386 msa-daemon msa-ui-qt
 )
-for app in "${apps[@]}"
-do
+for app in "${apps[@]}"; do
     installApps="sudo apt install -y $app"
 done
 eval "$installApps"
@@ -129,12 +127,11 @@ sudo snap install --classic slack
 
 echo "OLED Brightness Fix..."
 sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightness/
-cd /opt/icc-brightness/ || exit
-sudo make install
+cd /opt/icc-brightness/ && sudo make install
 
 echo "Enabling Trackpad gestures..."
 sudo gpasswd -a "$USER" input
-sudo apt install  -y python3 python3-setuptools xdotool python3-gi libinput-tools python-gobject xdotool wmctrl
+sudo apt install -y python3 python3-setuptools xdotool python3-gi libinput-tools python-gobject xdotool wmctrl
 sudo git clone https://github.com/bulletmark/libinput-gestures.git /opt/libinput-gestures/
 cd /opt/libinput-gestures/ && sudo make install
 libinput-gestures-setup autostart
@@ -245,6 +242,7 @@ code --install-extension eamodio.gitlens
 code --install-extension eg2.vscode-npm-script
 code --install-extension esbenp.prettier-vscode
 code --install-extension fabiospampinato.vscode-todo-plus
+code --install-extension foxundermoon.shell-format
 code --install-extension jpoissonnier.vscode-styled-components
 code --install-extension kisstkondoros.vscode-codemetrics
 code --install-extension kumar-harsh.graphql-for-vscode
@@ -285,20 +283,25 @@ go version
 
 # Prompt for reboot
 function reboot() {
-  read -p "Do you want to reboot your computer now? (y/N)" choice
-  case "$choice" in
-    y | Yes | yes ) echo "Yes"; exit;; # If y | yes, reboot
-    n | N | No | no) echo "No"; exit;; # If n | no, exit
-    * ) echo "Invalid answer. Enter \"y/yes\" or \"N/no\"" && return;;
-  esac
+    read -p "Do you want to reboot your computer now? (y/N)" choice
+    case "$choice" in
+    y | Yes | yes)
+        echo "Yes"
+        exit
+        ;; # If y | yes, reboot
+    n | N | No | no)
+        echo "No"
+        exit
+        ;; # If n | no, exit
+    *) echo "Invalid answer. Enter \"y/yes\" or \"N/no\"" && return ;;
+    esac
 }
 
 # Call on the function
-if [[ "Yes" == $(reboot) ]]
-then
-  echo "Rebooting."
-  sudo reboot
-  exit 0
+if [[ "Yes" == $(reboot) ]]; then
+    echo "Rebooting."
+    sudo reboot
+    exit 0
 else
-  exit 0
+    exit 0
 fi
