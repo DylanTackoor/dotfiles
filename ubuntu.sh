@@ -15,7 +15,7 @@ repos=(
     openrazer/stable # Razer Hardware Drivers
     # ppa:boltgolt/howdy # Face Unlock
 )
-for repo in ${repos[@]}
+for repo in "${repos[@]}"
 do
     eval "sudo apt-add-repository -y ppa:$repo"
 done
@@ -84,6 +84,7 @@ apps=(
     tlp tlp-rdw
     zeal
     code
+    shellcheck
     plank
     rar unrar zip unzip
     # howdy
@@ -104,11 +105,11 @@ apps=(
     # Minecraft
     mcpelauncher-client mcpelauncher-ui-qt libegl1-mesa-dev:i386 msa-daemon msa-ui-qt
 )
-for app in ${apps[@]}
+for app in "${apps[@]}"
 do
     installApps="sudo apt install -y $app"
 done
-eval $installApps
+eval "$installApps"
 
 echo "Cloning..."
 git clone https://github.com/DylanTackoor/dotfiles.git ~/.dotfiles
@@ -132,7 +133,7 @@ cd /opt/icc-brightness/ || exit
 sudo make install
 
 echo "Enabling Trackpad gestures..."
-sudo gpasswd -a $USER input
+sudo gpasswd -a "$USER" input
 sudo apt install  -y python3 python3-setuptools xdotool python3-gi libinput-tools python-gobject xdotool wmctrl
 sudo git clone https://github.com/bulletmark/libinput-gestures.git /opt/libinput-gestures/
 cd /opt/libinput-gestures/ && sudo make install
@@ -157,8 +158,8 @@ tldr --update
 echo "Enabling Power Management"
 sudo systemctl enable tlp
 
-echo "Adding $USERNAME to open-razer group..."
-sudo gpasswd -a $USERNAME plugdev
+echo "Adding \"$USERNAME\" to open-razer group..."
+sudo gpasswd -a "$USERNAME" plugdev
 
 # TODO: Install Apple Emoji font
 # echo "Adding Apple Emoji..."
@@ -215,12 +216,12 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate
-git clone https://github.com/lukechilds/zsh-nvm ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/dgnest/zsh-gvm-plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-gvm-plugin
-chsh -s /bin/zsh $USERNAME
-usermod -s /bin/zsh $USERNAME
+git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate"
+git clone https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm"
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+git clone https://github.com/dgnest/zsh-gvm-plugin "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-gvm-plugin"
+chsh -s /bin/zsh "$USERNAME"
+usermod -s /bin/zsh "$USERNAME"
 # TODO: test that this changes shell & install plugins correctly
 
 echo "Installing Go and Go Version Manager..."
