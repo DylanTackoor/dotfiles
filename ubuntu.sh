@@ -116,7 +116,7 @@ git clone https://github.com/DylanTackoor/dotfiles.git ~/.dotfiles
 echo "Setting up folders..."
 chmod -R +x ./commands/*
 mkdir ~/Developer/
-ln -s ~/.dotfiles/wallpapers ~/Pictures/Wallpapers
+ln -s ~/.dotfiles/photos/wallpapers ~/Pictures/Wallpapers
 ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
