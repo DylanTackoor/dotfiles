@@ -1,3 +1,11 @@
 #!/bin/zsh
 
-echo TODO
+cd ~/Developer/4evercraft.com
+
+echo "Downloading map..."
+rsync -rv dylantackoor@4evercraft.com:~/server/worlds/4everCraft/ ./world
+
+# TODO: run render process
+
+echo "Uploading render..."
+rsync -rv ./map/map/ dylantackoor@4evercraft.com:~/html

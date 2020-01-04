@@ -70,6 +70,7 @@ apps=(
     git
     htop
     zsh
+    gnome-calendar gnome-photos gnome-maps geary
     cowsay
     steam
     calibre
@@ -169,6 +170,7 @@ echo "Fixing Razer suspend..."
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet splash button.lid_init_state=open"' /etc/default/grub
 sudo update-grub
 
+# TODO: recursively symlink all files in commands folder
 echo "Underclockingn CPU..."
 sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
 sudo set-max-cpu-frequency 2.2
@@ -185,14 +187,25 @@ sudo git clone https://github.com/kgshank/gse-sound-output-device-chooser.git /o
 sudo ln -s /opt/gse-sound-output-device-chooser/sound-output-device-chooser@kgshank.net /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
 sudo git clone https://github.com/maoschanz/emoji-selector-for-gnome.git /opt/emoji-selector-for-gnome/
 sudo ln -s /opt/emoji-selector-for-gnome/emoji-selector@maestroschan.fr /usr/share/gnome-shell/extensions/emoji-selector@maestroschan.fr
+sudo git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git /opt/gnome-shell-extension-caffeine
+cd /usr/share/gnome-shell/extensions && sudo wget https://github.com/andyholmes/gnome-shell-extension-gsconnect/releases/download/v31-rc1/gsconnect@andyholmes.github.io.zip
+sudo unzip gsconnect@andyholmes.github.io.zip -d gsconnect@andyholmes.github.io && sudo rm -rf gsconnect@andyholmes.github.io.zip
+
+# TODO: test out caffeine
+# cd /opt/gnome-shell-extension-caffeine
+# ./update-locale.sh
+# glib-compile-schemas --strict --targetdir=caffeine@patapon.info/schemas/ caffeine@patapon.info/schemas
+# sudo ln -s /opt/gnome-shell-extension-caffeine/caffeine@patapon.info /usr/share/gnome-shell/extensions/caffeine@patapon.info
 
 echo "Configuring Gnome..."
-gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Harvard.jpg"
+gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Sari.jpg"
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
+gsettings set org.gnome.documents night-mode true
+gsettings set org.gnome.Geary startup-notifications true
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
@@ -208,6 +221,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/dgnest/zsh-gvm-plugin ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-gvm-plugin
 chsh -s /bin/zsh $USERNAME
 usermod -s /bin/zsh $USERNAME
+# TODO: test that this changes shell & install plugins correctly
 
 echo "Installing Go and Go Version Manager..."
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
