@@ -166,12 +166,13 @@ sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet sp
 sudo update-grub
 
 # TODO: recursively symlink all files in commands folder
-echo "Underclockingn CPU..."
-sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
-sudo set-max-cpu-frequency 2.2
-
-echo "Setting Brightness"
+echo "Symlinking Commands"
 sudo ln ~/.dotfiles/commands/set-lum /usr/local/bin
+sudo ln ~/.dotfiles/commands/set-max-cpu-frequency /usr/local/bin
+sudo ln ~/.dotfiles/commands/update50 /usr/local/bin
+
+echo "Testing commands..."
+sudo set-max-cpu-frequency 2.2
 set-lum 0.7
 
 echo "Downloading Gnome extensions..."

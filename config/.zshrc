@@ -18,6 +18,6 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 export PATH="/usr/local/sbin:$PATH"
 
 # Aliases
-alias update50="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && tldr --update && upgrade_oh_my_zsh && neofetch"
+# alias update50="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y && tldr --update && upgrade_oh_my_zsh && neofetch"
 
 [[ -s "/home/dylan/.gvm/scripts/gvm" ]] && source "/home/dylan/.gvm/scripts/gvm"

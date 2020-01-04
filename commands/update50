@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+sudo apt update
+sudo apt upgrade -y
+sudo apt autoremove -y
+tldr --update
+upgrade_oh_my_zsh
+neofetch
