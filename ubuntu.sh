@@ -196,7 +196,7 @@ sudo unzip gsconnect@andyholmes.github.io.zip -d gsconnect@andyholmes.github.io 
 # sudo ln -s /opt/gnome-shell-extension-caffeine/caffeine@patapon.info /usr/share/gnome-shell/extensions/caffeine@patapon.info
 
 echo "Configuring Gnome..."
-gsettings set org.gnome.desktop.background picture-uri "$(pwd)/wallpapers/Sari.jpg"
+gsettings set org.gnome.desktop.background picture-uri "$(pwd)/photos/wallpapers/Sari.jpg"
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
