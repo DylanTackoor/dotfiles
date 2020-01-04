@@ -211,8 +211,10 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action suspend
+gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
+gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -236,7 +238,6 @@ gvm uninstall go1.4
 
 echo "Cleaning up..."
 rm -rf ~/Templates ~/Public
-sudo apt remove -y gnome-shell-extension-ubuntu-dock
 sudo apt autoremove -y
 
 echo ""
