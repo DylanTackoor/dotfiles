@@ -177,6 +177,7 @@ sudo set-max-cpu-frequency 2.2
 set-lum 0.7
 
 echo "Downloading Gnome extensions..."
+# TODO: add workspace matrix plugin
 # sudo git clone https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows.git /usr/share/gnome-shell/extensions/remove-dropdown-arrows@mpdeimos.com
 sudo git clone https://github.com/richard-fisher/hide-activities.git /usr/share/gnome-shell/extensions/hide-activities-button@gnome-shell-extensions.bookmarkd.xyz
 sudo git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
@@ -196,13 +197,13 @@ sudo unzip gsconnect@andyholmes.github.io.zip -d gsconnect@andyholmes.github.io 
 
 echo "Configuring Gnome..."
 # gsettings set org.gnome.desktop.background picture-uri "$HOME/.dotfiles/photos/wallpapers/Flower.jpg"
+# gsettings set org.gnome.desktop.screensaver picture-options 'stretched'
+# gsettings set org.gnome.desktop.screensaver picture-uri "file:/$HOME/.dotfiles/photos/wallpapers/Flower.png"
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
-# gsettings set org.gnome.desktop.screensaver picture-options 'stretched'
-# gsettings set org.gnome.desktop.screensaver picture-uri "file:/$HOME/.dotfiles/photos/wallpapers/Flower.png"
 gsettings set org.gnome.documents night-mode true
 gsettings set org.gnome.Geary startup-notifications true
 gsettings set org.gnome.gedit.preferences.editor bracket-matching true
@@ -215,6 +216,8 @@ gsettings set org.gnome.shell.extensions.dash-to-dock autohide false
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide false
+gsettings set org.gnome.shell.extensions.wsmatrix num-columns 4
+gsettings set org.gnome.shell.extensions.wsmatrix num-rows 1
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
