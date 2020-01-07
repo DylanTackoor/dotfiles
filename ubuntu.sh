@@ -195,14 +195,18 @@ sudo unzip gsconnect@andyholmes.github.io.zip -d gsconnect@andyholmes.github.io 
 # sudo ln -s /opt/gnome-shell-extension-caffeine/caffeine@patapon.info /usr/share/gnome-shell/extensions/caffeine@patapon.info
 
 echo "Configuring Gnome..."
-gsettings set org.gnome.desktop.background picture-uri "$(pwd)/photos/wallpapers/Sari.jpg"
+# gsettings set org.gnome.desktop.background picture-uri "$HOME/.dotfiles/photos/wallpapers/Flower.jpg"
 gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.interface clock-format 12h
 gsettings set org.gnome.desktop.interface gtk-theme Yaru-dark # TODO: wrap in quotes?
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
 gsettings set org.gnome.desktop.privacy remove-old-trash-files true
+# gsettings set org.gnome.desktop.screensaver picture-options 'stretched'
+# gsettings set org.gnome.desktop.screensaver picture-uri "file:/$HOME/.dotfiles/photos/wallpapers/Flower.png"
 gsettings set org.gnome.documents night-mode true
 gsettings set org.gnome.Geary startup-notifications true
+gsettings set org.gnome.gedit.preferences.editor bracket-matching true
+gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 gsettings set org.gnome.settings-daemon.plugins.color night-light-schedule-automatic true
