@@ -226,6 +226,7 @@ gsettings set org.gnome.shell.extensions.wsmatrix num-rows 1
 
 echo "Installing Oh-My-ZSH..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k"
 git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/autoupdate"
 git clone https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm"
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
@@ -264,6 +265,7 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-vscode.atom-keybindings
 code --install-extension ms-vscode.Go
 code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension orta.vscode-jest
 code --install-extension pflannery.vscode-versionlens
 code --install-extension ryu1kn.partial-diff
 code --install-extension Shan.code-settings-sync
