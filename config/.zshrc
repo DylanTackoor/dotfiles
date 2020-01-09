@@ -10,7 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # zsh-wakatime
-plugins=(autoupdate docker npm git-auto-fetch git zsh-nvm node zsh-autosuggestions)
+plugins=(gcloud autoupdate docker npm git-auto-fetch git zsh-nvm node zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 

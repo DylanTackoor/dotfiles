@@ -60,6 +60,11 @@ if ! grep -q "^deb .*http://mcpelauncher.mrarm.io/apt/ubuntu/" /etc/apt/sources.
     sudo add-apt-repository 'deb http://mcpelauncher.mrarm.io/apt/ubuntu/ disco main'
 fi
 
+# TODO: decide on gcloud apt repo vs snap
+# echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+# sudo apt-get update && sudo apt-get install google-cloud-sdk
+
 echo "Updating..."
 sudo apt update
 sudo apt upgrade -y
@@ -124,7 +129,7 @@ ln -s ~/.dotfiles/config/libinput-gestures.conf ~/.config/libinput-gestures.conf
 
 echo "Installing snaps..."
 sudo snap install rocketchat-desktop discord postman
-sudo snap install --classic slack
+sudo snap install --classic slack google-cloud-sdk
 
 echo "OLED Brightness Fix..."
 sudo git clone https://github.com/udifuchs/icc-brightness.git /opt/icc-brightness/
