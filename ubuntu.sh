@@ -184,6 +184,7 @@ set-lum 0.7
 
 echo "Downloading Gnome extensions..."
 # TODO: add workspace matrix plugin
+# TODO: remove nav dropdown arrows
 # sudo git clone https://github.com/mpdeimos/gnome-shell-remove-dropdown-arrows.git /usr/share/gnome-shell/extensions/remove-dropdown-arrows@mpdeimos.com
 sudo git clone https://github.com/richard-fisher/hide-activities.git /usr/share/gnome-shell/extensions/hide-activities-button@gnome-shell-extensions.bookmarkd.xyz
 sudo git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git /usr/share/gnome-shell/extensions/clipboard-indicator@tudmotu.com
@@ -192,6 +193,7 @@ sudo ln -s /opt/gse-sound-output-device-chooser/sound-output-device-chooser@kgsh
 sudo git clone https://github.com/maoschanz/emoji-selector-for-gnome.git /opt/emoji-selector-for-gnome/
 sudo ln -s /opt/emoji-selector-for-gnome/emoji-selector@maestroschan.fr /usr/share/gnome-shell/extensions/emoji-selector@maestroschan.fr
 sudo git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git /opt/gnome-shell-extension-caffeine
+# TODO: setup gsconnect updates
 cd /usr/share/gnome-shell/extensions && sudo wget https://github.com/andyholmes/gnome-shell-extension-gsconnect/releases/download/v31-rc1/gsconnect@andyholmes.github.io.zip
 sudo unzip gsconnect@andyholmes.github.io.zip -d gsconnect@andyholmes.github.io && sudo rm -rf gsconnect@andyholmes.github.io.zip
 
