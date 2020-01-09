@@ -123,6 +123,7 @@ chmod -R +x ./commands/*
 mkdir ~/Developer/
 ln -s ~/.dotfiles/photos/wallpapers ~/Pictures/Wallpapers
 ln -s ~/.dotfiles/config/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/config/.p10k.zsh ~/.p10k.zsh
 ln -s ~/.dotfiles/config/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/config/.gitignore_global ~/.gitignore_global
 ln -s ~/.dotfiles/config/libinput-gestures.conf ~/.config/libinput-gestures.conf
