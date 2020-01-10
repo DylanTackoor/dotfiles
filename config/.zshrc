@@ -9,12 +9,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # TODO: setup zsh-wakatime
 plugins=(
 	autoupdate
+	# bgnotify
 	docker
 	gcloud
 	git
 	git-auto-fetch
+	golang
 	node
-	npm
 	zsh-autosuggestions
 	zsh-nvm
 )
