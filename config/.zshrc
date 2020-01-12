@@ -11,10 +11,11 @@ plugins=(
 	autoupdate
 	# bgnotify
 	docker
+	docker-compose
 	gcloud
 	git
 	git-auto-fetch
-	golang
+	# golang
 	node
 	zsh-autosuggestions
 	zsh-nvm
