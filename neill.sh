@@ -255,19 +255,6 @@ brew upgrade
 brew prune
 brew cleanup
 
-# TODO: confirm this is useful
-echo "Cleaning up Garage Band..."
-# TODO: only do this if actually installed
-sudo rm -rf /Applications/GarageBand
-sudo rm -rf /Library/Application Support/GarageBand
-sudo rm -rf /Library/Audio/Apple Loops/Apple/Apple\ Loops\ for\ GarageBand
-sudo rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.bom
-sudo rm -rf /Library/Receipts/com.apple.pkg.GarageBand_AppStore.plist
-sudo rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.bom
-sudo rm -rf /System/Library/Receipts/com.apple.pkg.MAContent10_AssetPack_0325_AppleLoopsGarageBand1.plist
-sudo rm -rf ~/Library/Application Scripts/com.apple.STMExtension.GarageBand
-sudo rm -rf ~/library/Containers/com.apple.STMExtension.GarageBand
-
 echo "Cleaning up Office..."
 sudo rm -rf /Applications/Microsoft\ Outlook.app
 
@@ -279,6 +266,7 @@ echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
 
 echo "Installing Oh-My-ZSH..."
+sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
 
 echo "ZSH Plugins"
 git clone https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm"
