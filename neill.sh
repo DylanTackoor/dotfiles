@@ -166,67 +166,50 @@ git config --global core.excludesfile ~/.gitignore_global
 git config --list
 
 echo "Installing command-line applications..."
-installBrews="brew install "
-brews=(
-  htop          # Terminal activity monitor
-  neofetch      # Displays system info
-  shellcheck    # Bash file linting
-  speedtest_cli # Speedtest.net cli
-  tldr          # man pages for humans
-  tree          # Prints filetree
-  unrar         # rar archive cli
-  wget
-  youtube-dl    # YouTube Downloader
-  wifi-password #CLI to pull up currently connected wifi's password
-  cowsay
-)
-
-for brew in ${brews[@]}; do
-  installBrews="$installBrews $brew"
-done
-
-eval $installBrews
+brew install htop          # Terminal activity monitor
+brew install neofetch      # Displays system info
+brew install shellcheck    # Bash file linting
+brew install speedtest_cli # Speedtest.net cli
+brew install tldr          # man pages for humans
+brew install tree          # Prints filetree
+brew install unrar         # rar archive cli
+brew install wget
+brew install youtube-dl    # YouTube Downloader
+brew install wifi-password #CLI to pull up currently connected wifi's password
+brew install cowsay
 
 echo "Installing casks..."
-brew tap caskroom/cask
-installCasks="brew cask install "
-casks=(
-  bartender # Hides menu bar icons
-  dash      # Offline documentation downloader/indexer w/IDE plugins
-  firefox
-  gfxcardstatus          # Notifications when graphics card changes
-  google-backup-and-sync # New Google Drive client
-  google-chrome
-  iterm2 # Alternative Terminal app
-  microsoft-office
-  postman          # Great API endpoint testing tool
-  sequel-pro       # SQL GUI
-  signal           # Encrypted chat
-  telegram-desktop # Chat service
-  the-unarchiver
-  typora             # Markdown Editor
-  virtualbox         # Virtualization
-  vlc                # Plays almost any video/audio filetype
-  visual-studio-code # text editor
-  flycut             # clipboard history
-  spectacle
-  qladdict    # Subtitle srt files
-  qlcolorcode # Syntax highlighted sourcecode
-  qlvideo
-  quicklook-csv
-  quicklook-json
-  qlstephen # Plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.
-  qlmarkdown
-  qlimagesize # Displays image size in preview
-  betterzipql
-  webpquicklook # Google's Webp image format
-  provisionql
-  quicklookapk
-)
-
-for cask in ${casks[@]}; do
-  eval "$installCasks $cask"
-done
+brew cask install bartender # Hides menu bar icons
+brew cask install dash      # Offline documentation downloader/indexer w/IDE plugins
+brew cask install firefox
+brew cask install gfxcardstatus          # Notifications when graphics card changes
+brew cask install google-backup-and-sync # New Google Drive client
+brew cask install google-chrome
+brew cask install iterm2 # Alternative Terminal app
+brew cask install microsoft-office
+brew cask install postman          # Great API endpoint testing tool
+brew cask install sequel-pro       # SQL GUI
+brew cask install signal           # Encrypted chat
+brew cask install telegram-desktop # Chat service
+brew cask install the-unarchiver
+brew cask install typora             # Markdown Editor
+brew cask install virtualbox         # Virtualization
+brew cask install vlc                # Plays almost any video/audio filetype
+brew cask install visual-studio-code # text editor
+brew cask install flycut             # clipboard history
+brew cask install spectacle
+brew cask install qladdict    # Subtitle srt files
+brew cask install qlcolorcode # Syntax highlighted sourcecode
+brew cask install qlvideo
+brew cask install quicklook-csv
+brew cask install quicklook-json
+brew cask install qlstephen # Plain text files without or with unknown file extension. Example: README, CHANGELOG, index.styl, etc.
+brew cask install qlmarkdown
+brew cask install qlimagesize # Displays image size in preview
+brew cask install betterzipql
+brew cask install webpquicklook # Google's Webp image format
+brew cask install provisionql
+brew cask install quicklookapk
 
 echo "Setting up Visual Studio Code..."
 mkdir -p ~/.config/Code/User/
@@ -234,40 +217,33 @@ ln -s ~/.dotfiles/config/vscode/keybindings-ubuntu.json ~/.config/Code/User/keyb
 ln -s ~/.dotfiles/config/vscode/settings.json ~/.config/Code/User/settings.json
 ln -s ~/.dotfiles/config/vscode/snippets ~/.config/Code/User/snippets
 
-echo "Installing Visual Studio Code extensions..."
-installExtension="code --install-extension"
-extensions=(
-  DavidAnson.vscode-markdownlint
-  dbaeumer.vscode-eslint
-  deerawan.vscode-dash
-  eamodio.gitlens
-  eg2.vscode-npm-script
-  esbenp.prettier-vscode
-  fabiospampinato.vscode-todo-plus
-  felipe.nasc-touchbar
-  foxundermoon.shell-format
-  jpoissonnier.vscode-styled-components
-  kisstkondoros.vscode-codemetrics
-  kumar-harsh.graphql-for-vscode
-  ms-azuretools.vscode-docker
-  ms-vsliveshare.vsliveshare
-  pflannery.vscode-versionlens
-  ryu1kn.partial-diff
-  Shan.code-settings-sync
-  shardulm94.trailing-spaces
-  stevencl.addDocComments
-  stubailo.ignore-gitignore
-  Tyriar.sort-lines
-  VisualStudioExptTeam.vscodeintellicode
-  vscode-icons-team.vscode-icons
-  vscodevim.vim
-  WakaTime.vscode-wakatime
-  wix.vscode-import-cost
-)
-
-for extension in ${extensions[@]}; do
-  eval "$installExtension $extension"
-done
+echo "Adding VSCode extensions..."
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension deerawan.vscode-dash
+code --install-extension eamodio.gitlens
+code --install-extension eg2.vscode-npm-script
+code --install-extension esbenp.prettier-vscode
+code --install-extension fabiospampinato.vscode-todo-plus
+code --install-extension felipe.nasc-touchbar
+code --install-extension foxundermoon.shell-format
+code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension kisstkondoros.vscode-codemetrics
+code --install-extension kumar-harsh.graphql-for-vscode
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension pflannery.vscode-versionlens
+code --install-extension ryu1kn.partial-diff
+code --install-extension Shan.code-settings-sync
+code --install-extension shardulm94.trailing-spaces
+code --install-extension stevencl.addDocComments
+code --install-extension stubailo.ignore-gitignore
+code --install-extension Tyriar.sort-lines
+code --install-extension VisualStudioExptTeam.vscodeintellicode
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension vscodevim.vim
+code --install-extension WakaTime.vscode-wakatime
+code --install-extension wix.vscode-import-cost
 
 echo "Swapping Chrome print dialogue to expanded native dialogue..."
 defaults write com.google.Chrome DisablePrintPreview -bool true
@@ -278,8 +254,6 @@ brew update
 brew upgrade
 brew prune
 brew cleanup
-brew cask cleanup
-brew doctor
 
 # TODO: confirm this is useful
 echo "Cleaning up Garage Band..."
@@ -305,8 +279,6 @@ echo "Defaulting to Google Chrome..."
 open -a "Google Chrome" --args --make-default-browser
 
 echo "Installing Oh-My-ZSH..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-chsh -s /bin/zsh
 
 echo "ZSH Plugins"
 git clone https://github.com/lukechilds/zsh-nvm "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-nvm"
